@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: uuid
+# key: uuid
+# --
+`(shell-command-to-string "python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)'")`

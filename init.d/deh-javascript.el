@@ -21,7 +21,7 @@
   (flycheck-mode t)
   (eldoc-mode t)
   (smartparens-mode t)
-  (set (make-local-variable 'company-backends) '(company-tern))
+  (set (make-local-variable 'company-backends) '((company-tern company-yasnippet)))
   (evil-surround-mode)
 
   (setq deh-repl-enabled t)
@@ -40,14 +40,20 @@
 
   (tern-mode nil)
 
+  (emmet-mode t)
   (tide-setup)
   ;; (unless (tide-current-server)
   ;;   (tide-restart-server))
   (tide-mode t)
   (smartparens-mode t)
   (setq flycheck-checkers '(jsx-tide))
-  ;; (set (make-local-variable 'company-backends) '(company-tern))
+  (set (make-local-variable 'company-backends) '((company-tern company-yasnippet)))
   )
+
+(with-eval-after-load 'rjsx-mode
+  (define-key rjsx-mode-map "<" nil)
+  (define-key rjsx-mode-map (kbd "C-d") nil)
+  (define-key rjsx-mode-map ">" nil))
 
 (add-hook 'rjsx-mode-hook 'deh-rjsx-hook)
 

@@ -1,0 +1,23 @@
+# -*- mode: snippet -*-
+# name: pdfheaders
+# key: pdfheaders
+# --
+
+# Set to US-Letter size paper, 12-point font, one-sided (so the R/L pages
+# don't have different margins)
+#+LATEX_CLASS_OPTIONS: [letterpaper,12pt,oneside]
+
+# Set the margins to 0.5"
+#+LATEX_HEADER: \usepackage[margin=0.5in]{geometry}
+
+# Remove the page numbering, etc.
+#+LATEX_HEADER: \pagestyle{empty}
+
+# Latex uses indentation rather than paragraph skip by default.  Let's change that.
+#+LATEX_HEADER: \usepackage{parskip}
+
+# Use the monokai color theme
+#+LATEX_HEADER: \usemintedstyle{trac}
+
+# Disable the Table of Contents and section numbering.
+#+OPTIONS: toc:nil num:0

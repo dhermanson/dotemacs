@@ -63,7 +63,6 @@
 ;; (load-theme 'leuven t)
 ;; (load-theme 'adwaita t)
 ;; (load-theme 'tango t)
-;; (load-theme 'railscasts t)
 
 (eval-after-load 'yasnippet '(diminish 'yas-minor-mode))
 (eval-after-load 'paredit '(diminish 'paredit-mode))

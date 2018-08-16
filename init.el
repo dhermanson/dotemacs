@@ -1,5 +1,5 @@
 ;; Turn off mouse interface early in startup to avoid momentary display
-(if (fboundp 'menu-bar-mode) (menu-bar-mode 1))
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
@@ -40,6 +40,7 @@
 	      cider
 	      company
 	      company-go
+        company-lua
 	      company-tern
 	      company-web
 	      counsel
@@ -82,6 +83,7 @@
 	      js2-mode
 	      json-mode
 	      kotlin-mode
+        lua-mode
 	      markdown-mode
 	      monokai-theme
 	      neotree
@@ -112,6 +114,7 @@
         magit
         paredit
         plantuml-mode
+        winum
 	      yaml-mode
 	      omtose-phellack-theme))
 
@@ -149,11 +152,17 @@
 ;; (setq-default cursor-type '(bar . 2))
 
 (require 'deh-appearance)
+(require 'deh-winum)
+(require 'deh-mpd)
+(require 'deh-comint)
+(require 'deh-compilation)
 (require 'deh-shell)
 (require 'deh-dired)
 (require 'deh-ediff)
+(require 'deh-yasnippet)
 (require 'deh-minibuffer)
 (require 'deh-treemacs)
+(require 'deh-tsx)
 (require 'deh-magit)
 (require 'deh-macos)
 (require 'deh-sh)
@@ -165,6 +174,7 @@
 (require 'deh-restclient)
 (require 'deh-prog)
 (require 'deh-ruby)
+(require 'deh-lua)
 (require 'deh-css)
 (require 'deh-php)
 (require 'deh-markdown)
@@ -302,10 +312,6 @@
 ;; (require 'expand-region)
 (global-set-key (kbd "H-e") 'er/expand-region)
 
-;; visual-basic
-(require 'visual-basic-mode)
-(add-to-list 'auto-mode-alist '("\\.vb\\'" . visual-basic-mode))
-
 ;; projectile-mode
 (projectile-global-mode)
 ;; (setq projectile-project-types nil)
@@ -316,7 +322,7 @@
 ;; 	    projectile-root-bottom-up
 ;; 	    projectile-root-top-down
 ;; 	    projectile-root-top-down-recurring))
-(setq projectile-switch-project-action 'projectile-run-shell)
+(setq projectile-switch-project-action 'projectile-run-eshell)
 ;; (setq projectile-tags-backend 'etags-select-find-tag)
 (setq projectile-tags-backend 'helm-gtags-select)
 
@@ -462,6 +468,8 @@
 		 json-mode
 		 fsharp-mode
 		 js2-mode
+     web-mode
+     css-mode
 		 typescript-mode)
   (sp-local-pair "{" "}"
 		 :when '(("RET"))
@@ -478,7 +486,11 @@
  '(eclim-eclipse-dirs (list "~/eclipse/java-oxygen/Eclipse.app/Contents/Eclipse"))
  '(package-selected-packages
    (quote
-    (rjsx-mode evil-numbers apib-mode adoc-mode htmlize applescript-mode molokai-theme diminish doom-themes ripgrep ranger editorconfig treemacs-evil treemacs-projectile helm-rg evil-commentary company-web emmet-mode counsel-gtags company-tern counsel-etags json-mode anti-zenburn-theme spacemacs-theme evil-leader omnisharp tide ht ## counsel-projectile counsel ivy org-bullets eclim flycheck-kotlin kotlin-mode nlinum-relative omtose-phellack-theme color-theme-railscasts yaml-mode f helm-gtags ggtags gtags restclient fsharp-mode wgrep zenburn-theme yasnippet which-key web-mode tao-theme solarized-theme smartparens sexy-monochrome-theme semi robe railscasts-theme quasi-monochrome-theme prodigy powershell plantuml-mode php-mode paredit ox-twbs ox-gfm neotree monokai-theme monochrome-theme markdown-mode magit js2-mode jenkins inf-groovy hydra hlinum helm-projectile hc-zenburn-theme haskell-mode gruvbox-theme groovy-mode feature-mode eziam-theme exec-path-from-shell evil-surround enh-ruby-mode embrace edit-indirect dracula-theme dockerfile-mode docker darktooth-theme csv-mode csharp-mode company-lsp company-go color-theme-sanityinc-tomorrow cider badger-theme alchemist ace-jump-mode))))
+    (company-lua lua-mode ox-reveal winum rjsx-mode evil-numbers apib-mode adoc-mode htmlize applescript-mode molokai-theme diminish doom-themes ripgrep ranger editorconfig treemacs-evil treemacs-projectile helm-rg evil-commentary company-web emmet-mode counsel-gtags company-tern counsel-etags json-mode anti-zenburn-theme spacemacs-theme evil-leader omnisharp tide ht ## counsel-projectile counsel ivy org-bullets eclim flycheck-kotlin kotlin-mode nlinum-relative omtose-phellack-theme color-theme-railscasts yaml-mode f helm-gtags ggtags gtags restclient fsharp-mode wgrep zenburn-theme yasnippet which-key web-mode tao-theme solarized-theme smartparens sexy-monochrome-theme semi robe railscasts-theme quasi-monochrome-theme prodigy powershell plantuml-mode php-mode paredit ox-twbs ox-gfm neotree monokai-theme monochrome-theme markdown-mode magit js2-mode jenkins inf-groovy hydra hlinum helm-projectile hc-zenburn-theme haskell-mode gruvbox-theme groovy-mode feature-mode eziam-theme exec-path-from-shell evil-surround enh-ruby-mode embrace edit-indirect dracula-theme dockerfile-mode docker darktooth-theme csv-mode csharp-mode company-lsp company-go color-theme-sanityinc-tomorrow cider badger-theme alchemist ace-jump-mode)))
+ '(safe-local-variable-values
+   (quote
+    ((js-indent-first-init . 2)
+     (default-directory "~")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

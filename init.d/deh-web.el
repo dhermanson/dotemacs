@@ -12,6 +12,10 @@
   (company-mode t)
   (emmet-mode t)
   (emmet-preview-mode 0)
+
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
   
   (set (make-local-variable 'company-backends) '((company-web-html
 						  company-css))))

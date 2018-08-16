@@ -11,7 +11,7 @@
 (require 'company)
 (require 'treemacs)
 (require 'deh-repl)
-;; (require 'neotree)
+(require 'neotree)
 
 (evil-commentary-mode)
 
@@ -82,11 +82,13 @@
   (kbd "M-q") '(lambda ()
                  (interactive)
                  (kill-buffer (current-buffer)))
-  (kbd "M-;") 'treemacs
+  (kbd "M-;") 'neotree
   (kbd "C-M-c") 'flycheck-buffer
   (kbd "C-M-p") 'flycheck-previous-error
   (kbd "C-M-n") 'flycheck-next-error
-  (kbd "-") 'dired-jump)
+  (kbd "-") 'dired-jump
+  (kbd "C-c +") 'evil-numbers/inc-at-pt
+  (kbd "C-c -") 'evil-numbers/dec-at-pt)
 
 (evil-define-key nil evil-insert-state-map
   (kbd "C-SPC") 'company-complete
