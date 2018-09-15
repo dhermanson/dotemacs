@@ -9,14 +9,16 @@
 (add-to-list 'load-path "~/.emacs.d/init.d/")
 
 ;; add package archives
-(add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+;; (add-to-list 'package-archives
+;;              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives
-             '("marmalade" . "https://marmalade-repo.org/packages/") t)
+;; (add-to-list 'package-archives
+;;              '("marmalade" . "https://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
              '("org" . "https://orgmode.org/elpa/") t)
+
+; (package-refresh-contents)
 
 ;; (setq package-archive-priorities
 ;;       '(("org" . 40)
@@ -36,11 +38,10 @@
 	      anti-zenburn-theme
         apib-mode
         avy
-	      badger-theme
 	      cider
 	      company
 	      company-go
-        company-lua
+        ;; company-lua
 	      company-tern
 	      company-web
 	      counsel
@@ -55,6 +56,7 @@
 	      dracula-theme
 	      eclim
 	      edit-indirect
+	      editorconfig
 	      emmet-mode
 	      evil
 	      evil-commentary
@@ -72,23 +74,20 @@
 	      groovy-mode
 	      gruvbox-theme
 	      haskell-mode
-	      hc-zenburn-theme
 	      helm
 	      helm-projectile
 	      helm-rg
-	      hlinum
 	      ht
         htmlize
-	      inf-groovy
 	      js2-mode
 	      json-mode
-	      kotlin-mode
         lua-mode
 	      markdown-mode
 	      monokai-theme
 	      neotree
 	      org-bullets
 	      ox-gfm
+        ox-reveal
 	      ox-twbs
 	      omnisharp
 	      php-mode
@@ -99,11 +98,10 @@
         rjsx-mode
 	      robe
 	      smartparens
-	      spacemacs-theme
 	      solarized-theme
 	      tern
 	      tide
-	      treemacs
+	      ;; treemacs
 	      undo-tree
 	      web-mode
 	      wgrep
@@ -115,8 +113,7 @@
         paredit
         plantuml-mode
         winum
-	      yaml-mode
-	      omtose-phellack-theme))
+	      yaml-mode))
 
 (package-initialize)
 
@@ -151,9 +148,16 @@
 
 ;; (setq-default cursor-type '(bar . 2))
 
+
+(require 'deh-hooks) ;; this probably needs to be first
 (require 'deh-appearance)
+(require 'deh-terminal-emacs)
 (require 'deh-winum)
+(require 'deh-tmux)
+(require 'deh-evil)
 (require 'deh-mpd)
+(require 'deh-plantuml)
+(require 'deh-neotree)
 (require 'deh-comint)
 (require 'deh-compilation)
 (require 'deh-shell)
@@ -161,7 +165,7 @@
 (require 'deh-ediff)
 (require 'deh-yasnippet)
 (require 'deh-minibuffer)
-(require 'deh-treemacs)
+;; (require 'deh-treemacs)
 (require 'deh-tsx)
 (require 'deh-magit)
 (require 'deh-macos)
@@ -169,11 +173,11 @@
 (require 'deh-yaml)
 (require 'deh-xml)
 (require 'deh-ace-jump)
-(require 'deh-evil)
 (require 'deh-eclim)
 (require 'deh-restclient)
 (require 'deh-prog)
 (require 'deh-ruby)
+(require 'deh-elisp)
 (require 'deh-lua)
 (require 'deh-css)
 (require 'deh-php)
@@ -198,6 +202,7 @@
 (require 'deh-web)
 (require 'deh-global-maps)
 (require 'deh-repl)
+(require 'deh-keybindings)
 
 (setq-default indent-tabs-mode nil)
 
@@ -224,6 +229,11 @@
 (setq create-lockfiles nil) ; don't create .# files
 ;; backup in one place. flat, no tree structure
 ;; (setq backup-directory-alist '(("" . "~/.emacs.d/emacs-backup")))
+
+;;; Whenever an external process changes a file underneath emacs, and
+;;; there was no unsaved changes in the corresponding buffer, just
+;;; revert its content to reflect what's on-disk.
+(global-auto-revert-mode 1)
 
 ;; (ido-mode 1)
 
@@ -261,7 +271,7 @@
 ;; yasnippet
 (setq yas-snippet-dirs
       '("~/.emacs.d/snippets"
-	))
+	      ))
 (require 'yasnippet)
 (yas-global-mode 1)
 
@@ -313,18 +323,7 @@
 (global-set-key (kbd "H-e") 'er/expand-region)
 
 ;; projectile-mode
-(projectile-global-mode)
-;; (setq projectile-project-types nil)
-;; (setq projectile-project-root-files (list ".derick"))
-(require 'projectile)
-;; (setq projectile-project-root-files-functions
-;;       (list projectile-root-local
-;; 	    projectile-root-bottom-up
-;; 	    projectile-root-top-down
-;; 	    projectile-root-top-down-recurring))
-(setq projectile-switch-project-action 'projectile-run-eshell)
-;; (setq projectile-tags-backend 'etags-select-find-tag)
-(setq projectile-tags-backend 'helm-gtags-select)
+
 
 ;; feature more
 (require 'feature-mode)
@@ -371,10 +370,10 @@
 
 
 ;; groovy
-(require 'inf-groovy)
-(setq groovy-home "/usr/local")
-(inf-groovy-keys)
-(add-to-list 'auto-mode-alist '("\.gradle$" . groovy-mode))
+                                        ; (require 'inf-groovy)
+                                        ; (setq groovy-home "/usr/local")
+                                        ; (inf-groovy-keys)
+                                        ; (add-to-list 'auto-mode-alist '("\.gradle$" . groovy-mode))
 
 (defun deh/groovy-mode-hook ()
   "my groovy mode hook"
@@ -443,9 +442,7 @@
 ;; start a server
 ;; (server-start)
 
-(define-key global-map (kbd "H-b") 'helm-projectile-switch-to-buffer)
-(define-key global-map (kbd "H-t") 'helm-etags-select)
-(define-key global-map (kbd "H-f") 'projectile-find-file)
+
 
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'scroll-left 'disabled nil)
@@ -465,35 +462,27 @@
 
 (require 'smartparens)
 (sp-with-modes '(php-mode
-		 json-mode
-		 fsharp-mode
-		 js2-mode
-     web-mode
-     css-mode
-		 typescript-mode)
+                 plantuml-mode
+		             json-mode
+		             fsharp-mode
+		             js2-mode
+                 web-mode
+                 css-mode
+		             typescript-mode)
   (sp-local-pair "{" "}"
-		 :when '(("RET"))
-		 :post-handlers '(:add deh/newline-indent-action)
-		 :actions '(insert)))
+		             :when '(("RET"))
+		             :post-handlers '(:add deh/newline-indent-action)
+		             :actions '(insert)))
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(eclim-eclipse-dirs (list "~/eclipse/java-oxygen/Eclipse.app/Contents/Eclipse"))
- '(package-selected-packages
-   (quote
-    (company-lua lua-mode ox-reveal winum rjsx-mode evil-numbers apib-mode adoc-mode htmlize applescript-mode molokai-theme diminish doom-themes ripgrep ranger editorconfig treemacs-evil treemacs-projectile helm-rg evil-commentary company-web emmet-mode counsel-gtags company-tern counsel-etags json-mode anti-zenburn-theme spacemacs-theme evil-leader omnisharp tide ht ## counsel-projectile counsel ivy org-bullets eclim flycheck-kotlin kotlin-mode nlinum-relative omtose-phellack-theme color-theme-railscasts yaml-mode f helm-gtags ggtags gtags restclient fsharp-mode wgrep zenburn-theme yasnippet which-key web-mode tao-theme solarized-theme smartparens sexy-monochrome-theme semi robe railscasts-theme quasi-monochrome-theme prodigy powershell plantuml-mode php-mode paredit ox-twbs ox-gfm neotree monokai-theme monochrome-theme markdown-mode magit js2-mode jenkins inf-groovy hydra hlinum helm-projectile hc-zenburn-theme haskell-mode gruvbox-theme groovy-mode feature-mode eziam-theme exec-path-from-shell evil-surround enh-ruby-mode embrace edit-indirect dracula-theme dockerfile-mode docker darktooth-theme csv-mode csharp-mode company-lsp company-go color-theme-sanityinc-tomorrow cider badger-theme alchemist ace-jump-mode)))
- '(safe-local-variable-values
-   (quote
-    ((js-indent-first-init . 2)
-     (default-directory "~")))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(when (file-exists-p custom-file)
+  (load custom-file))
+
+;; (server-start)
+
+(savehist-mode)
+
+(provide 'init)
+;;; init.el ends here

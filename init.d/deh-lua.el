@@ -1,6 +1,6 @@
 (require 'evil)
 (require 'smartparens)
-(require 'company-lua)
+;; (require 'company-lua)
 (require 'company-etags)
 (require 'company-dabbrev-code)
 (require 'company-yasnippet)
@@ -13,7 +13,7 @@
   (flycheck-mode t)
   (eldoc-mode t)
   (smartparens-mode t)
-  (setq-local company-backends '((company-lua
+  (setq-local company-backends '((;; company-lua
                                   company-etags
                                   company-dabbrev-code
                                   company-yasnippet))))

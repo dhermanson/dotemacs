@@ -2,15 +2,22 @@
 
 (evil-set-initial-state 'sh-mode 'normal)
 
-(defun deh-sh-mode-hook ()
+(defun deh-sh-set-local-vars ()
   (setq deh-repl-enabled t)
-  (setq deh-repl-process-name "deh-bash")
-  (setq deh-repl-buffer-name "*deh-bash*")
+  (if (projectile-project-p)
+      (setq deh-repl-process-name (concat (projectile-project-name) ":bash"))
+    (setq deh-repl-process-name (concat default-directory ":bash")))
+  
+  (setq deh-repl-buffer-name (concat "*" deh-repl-process-name "*"))
   (setq deh-repl-program "bash")
   (setq deh-repl-program-args nil))
 
-(add-hook 'sh-mode-hook 'deh-sh-mode-hook)
+(defun deh-sh-mode-hook ()
+  (deh-sh-set-local-vars))
 
-(add-to-list 'auto-mode-alist '("^\\.env*" . sh-mode))
+(add-hook 'sh-mode-hook 'deh-sh-mode-hook)
+(add-hook 'sh-mode-local-vars-hook 'deh-sh-set-local-vars)
+
+(add-to-list 'auto-mode-alist '("\\.env.*" . sh-mode))
 
 (provide 'deh-sh)

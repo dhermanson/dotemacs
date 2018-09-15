@@ -1,0 +1,12 @@
+#! /usr/bin/env ruby
+dir = ARGV[0]
+path = ARGV[1]
+
+open(path, "w+") do |f|
+  begin
+    output = `cd #{dir} && fzf`
+    f.puts output
+  ensure
+    f.flush
+  end
+end

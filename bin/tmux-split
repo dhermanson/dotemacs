@@ -1,0 +1,48 @@
+#! /usr/bin/env ruby
+require 'tempfile'
+
+def main
+  file_to_run = determine_command
+  fifo_file_path = `mktemp -u`.strip
+  fifo = File.mkfifo(fifo_file_path)
+
+  begin
+    run_tmux_command file_to_run, fifo_file_path
+
+    open(fifo_file_path, "r+") do |f|
+      result = f.gets.strip
+
+      if result.nil? || result.empty?
+        exit 1
+      end
+
+      print result
+
+      f.flush # TODO: do i need to do this?
+      # f.close
+    end
+  ensure
+    # `rm #{fifo_file_path}` # TODO: this causes problems
+  end
+end
+
+def run_tmux_command file_to_run, fifo_file_path
+  # ARGV[1] is the directory
+  args = ["splitw", "-p", "50", File.join(__dir__, file_to_run), ARGV[1], fifo_file_path]
+  system("tmux", *args)
+end
+
+def determine_command
+  
+  if ARGV.count > 0
+    file_to_run = case ARGV[0]
+                  when "fzf" then "fzf-to-pipe"
+                  else "fzf-to-pipe"
+                  end
+  else
+    file_to_run = "fzf-to-pipe"
+  end
+  file_to_run
+end
+
+main

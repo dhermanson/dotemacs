@@ -1,4 +1,9 @@
+;;; package --- Summary
+;; Setup the appearance of my emacs session
+;;; Commentary:
+;;; Code:
 (require 'diminish)
+(require 'markdown-mode)
 
 (setq-default tab-width 2)
 (setq inhibit-startup-screen t)
@@ -9,8 +14,7 @@
 ;; (setq-default right-fringe-width 5)
 
 ;; fonts
-(require 'markdown-mode)
-(set-default-font "Monaco-14" nil t)
+(set-frame-font "Monaco-14" nil t)
 ;; (set-face-font 'markdown-pre-face "Monaco-14")
 ;; (set-face-font 'markdown-inline-code-face "Monaco-14")
 ;; (set-face-font 'markdown-language-keyword-face "Monaco-14")
@@ -18,7 +22,8 @@
 
 ;; colors
 (defun deh-load-zenburn ()
-  "load zenburn"
+  "Load zenburn."
+  (require 'zenburn-theme)
   (load-theme 'zenburn t)
   (set-face-background 'fringe "#3F3F3F")
   (set-face-foreground 'vertical-border (cdr (assoc "zenburn-bg-1" zenburn-default-colors-alist))))
@@ -84,3 +89,4 @@
 (diminish 'visual-line-mode)
 
 (provide 'deh-appearance)
+;;; deh-appearance.el ends here

@@ -1,3 +1,5 @@
+(require 'evil)
+
 (setq evil-default-state 'emacs)
 (setq evil-disable-insert-state-bindings t)
 
@@ -9,9 +11,10 @@
 (require 'evil-numbers)
 (require 'evil-commentary)
 (require 'company)
-(require 'treemacs)
+;; (require 'treemacs)
 (require 'deh-repl)
 (require 'neotree)
+(require 'deh-tmux)
 
 (evil-commentary-mode)
 
@@ -25,6 +28,7 @@
 (evil-set-initial-state 'Man-mode 'emacs)
 (evil-set-initial-state 'dockerfile-mode 'normal)
 (evil-set-initial-state 'elisp-mode 'emacs)
+(evil-set-initial-state 'emacs-lisp-mode 'emacs)
 (evil-set-initial-state 'eshell-mode 'emacs)
 (evil-set-initial-state 'fsharp-mode 'normal)
 (evil-set-initial-state 'go-mode 'normal)
@@ -39,7 +43,6 @@
 (evil-set-initial-state 'reb-mode 'emacs)
 (evil-set-initial-state 'shell-mode 'emacs)
 (evil-set-initial-state 'undo-tree-visualizer-mode 'emacs)
-(evil-set-initial-state 'visual-basic-mode 'normal)
 
 (defvar deh/evil-leader-map (make-sparse-keymap)
   "Keymap for \"leader key\" shortcuts.")
@@ -64,9 +67,7 @@
 (evil-define-key nil deh/evil-leader-map "gc" 'magit-branch-popup)
 (evil-define-key nil deh/evil-leader-map "gla" 'magit-log-all)
 (evil-define-key nil deh/evil-leader-map "glb" 'magit-log-buffer-file)
-(evil-define-key nil deh/evil-leader-map "a" (lambda (s)
-					       (interactive "sRipgrep search for: ")
-					       (projectile-ripgrep s)))
+(evil-define-key nil deh/evil-leader-map "a" 'deh-ripgrep)
 ;; (define-key deh/evil-leader-map "f" 'counsel-projectile-find-file)
 
 (evil-define-key nil evil-normal-state-map
@@ -74,6 +75,9 @@
   ;; (kbd ":") 'evil-repeat-find-char
   (kbd "] q") 'next-error
   (kbd "[ q") 'previous-error
+  (kbd "M-b") 'helm-projectile-switch-to-buffer
+  (kbd "M-f") 'helm-projectile-find-file
+  ;; (kbd "M-f") 'deh-run-fzf
   (kbd "M-w") 'save-buffer
   (kbd "M-c") 'delete-window
   (kbd "M-o") 'delete-other-windows
@@ -92,6 +96,8 @@
 
 (evil-define-key nil evil-insert-state-map
   (kbd "C-SPC") 'company-complete
+  (kbd "C-x C-n") 'company-dabbrev-code
+  (kbd "C-x C-f") 'company-files
   (kbd "M-s") 'deh-send-current-line-to-repl)
 
 (evil-define-key nil evil-visual-state-map

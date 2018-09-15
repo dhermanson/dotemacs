@@ -48,25 +48,17 @@
 (define-key evil-normal-state-map (kbd "M-h") 'deh-windmove-create-or-select-window-left)
 (define-key evil-normal-state-map (kbd "M-k") 'deh-windmove-create-or-select-window-up)
 (define-key evil-normal-state-map (kbd "M-j") 'deh-windmove-create-or-select-window-down)
-(define-key evil-insert-state-map (kbd "M-l") 'deh-windmove-create-or-select-window-right)
-(define-key evil-insert-state-map (kbd "M-h") 'deh-windmove-create-or-select-window-left)
-(define-key evil-insert-state-map (kbd "M-k") 'deh-windmove-create-or-select-window-up)
-(define-key evil-insert-state-map (kbd "M-j") 'deh-windmove-create-or-select-window-down)
+;; (define-key evil-insert-state-map (kbd "M-l") 'deh-windmove-create-or-select-window-right)
+;; (define-key evil-insert-state-map (kbd "M-h") 'deh-windmove-create-or-select-window-left)
+;; (define-key evil-insert-state-map (kbd "M-k") 'deh-windmove-create-or-select-window-up)
+;; (define-key evil-insert-state-map (kbd "M-j") 'deh-windmove-create-or-select-window-down)
 
 (define-key evil-normal-state-map (kbd "M-H") 'evil-window-move-far-left)
 (define-key evil-normal-state-map (kbd "M-J") 'evil-window-move-very-bottom)
 (define-key evil-normal-state-map (kbd "M-K") 'evil-window-move-very-top)
 (define-key evil-normal-state-map (kbd "M-L") 'evil-window-move-far-right)
 
-(define-key global-map (kbd "H-c") 'delete-window)
-(define-key global-map (kbd "H-o") 'delete-other-windows)
-(define-key global-map (kbd "H-n") 'make-frame-command)
-(define-key global-map (kbd "H-q") '(lambda ()
-                                      (interactive)
-                                      (kill-buffer (current-buffer))))
 
-(define-key global-map (kbd "M-i") 'helm-imenu)
-(define-key global-map (kbd "M-I") 'helm-imenu-in-all-buffers)
 
 
 (provide 'deh-movement)

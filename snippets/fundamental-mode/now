@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: now
+# key: now
+# --
+`(shell-command-to-string
+ (concat
+  "python -c"
+  (shell-quote-argument "import sys,datetime as d; sys.stdout.write(str(d.datetime.utcnow().isoformat()[:-3]) + 'Z')")))`
