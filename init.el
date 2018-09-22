@@ -151,6 +151,7 @@
 
 (require 'deh-hooks) ;; this probably needs to be first
 (require 'deh-appearance)
+(require 'deh-symlinks)
 (require 'deh-terminal-emacs)
 (require 'deh-winum)
 (require 'deh-tmux)
@@ -480,7 +481,7 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-;; (server-start)
+(server-start)
 
 (savehist-mode)
 

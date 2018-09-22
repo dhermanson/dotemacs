@@ -14,7 +14,8 @@
 ;; (setq-default right-fringe-width 5)
 
 ;; fonts
-(set-frame-font "Monaco-14" nil t)
+;; (set-frame-font "Source Code Pro-18" nil t)
+;; (set-frame-font "Hack" nil t)
 ;; (set-face-font 'markdown-pre-face "Monaco-14")
 ;; (set-face-font 'markdown-inline-code-face "Monaco-14")
 ;; (set-face-font 'markdown-language-keyword-face "Monaco-14")
@@ -28,7 +29,8 @@
   (set-face-background 'fringe "#3F3F3F")
   (set-face-foreground 'vertical-border (cdr (assoc "zenburn-bg-1" zenburn-default-colors-alist))))
 
-(deh-load-zenburn)
+;; (deh-load-zenburn)
+;; (load-theme 'xresources t)
 
 
 ;; (color-theme-sanityinc-tomorrow-night)
@@ -43,15 +45,27 @@
 ;; (darktooth-modeline)
 ;; (load-theme 'gruvbox-dark-hard t)
 ;; (load-theme 'gruvbox-dark-soft t)
+;; (load-theme 'gruvbox-dark-medium t)
 
-
+;; (load-theme 'base16-default-dark t)
+;; (load-theme 'base16-gruvbox-dark-hard t)
+;; (load-theme 'base16-gruvbox-dark-medium t)
+;; (load-theme 'base16-gruvbox-dark-soft t)
+;; (load-theme 'base16-zenburn t)
 
 
 
 ;; (load-theme 'molokai t)
 ;; (load-theme 'doom-molokai t)
 ;; (load-theme 'doom-vibrant t)
-;; (load-theme 'doom-one t)
+(load-theme 'doom-one t)
+;; (load-theme 'doom-opera t)
+;; (load-theme 'doom-solarized-light t)
+;; (load-theme 'doom-tomorrow-night t)
+;; (load-theme 'doom-city-lights t)
+;; (load-theme 'doom-spacegrey t)
+;; (load-theme 'doom-nova t)
+;; (load-theme 'doom-dracula t)
 ;; (load-theme 'hc-zenburn t)
 ;; (load-theme 'anti-zenburn t)
 ;; (load-theme 'spacemacs-dark t)
