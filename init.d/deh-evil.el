@@ -1,4 +1,5 @@
 (require 'evil)
+(require 'evil-matchit)
 
 (setq evil-default-state 'emacs)
 (setq evil-disable-insert-state-bindings t)
@@ -20,6 +21,7 @@
 
 (setq evil-visual-region-expanded 1)
 
+(global-evil-matchit-mode t)
 (evil-mode 1)
 (global-evil-surround-mode t)
 (evil-set-initial-state 'Info-mode 'emacs)

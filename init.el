@@ -61,6 +61,7 @@
 	      evil
 	      evil-commentary
 	      evil-leader
+        evil-matchit
         evil-numbers
 	      evil-surround
 	      exec-path-from-shell
