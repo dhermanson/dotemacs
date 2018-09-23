@@ -4,6 +4,8 @@
 ;;; Code:
 (require 'diminish)
 (require 'markdown-mode)
+(require 'doom-themes)
+(require 'all-the-icons)
 
 (setq-default tab-width 2)
 (setq inhibit-startup-screen t)
@@ -14,7 +16,7 @@
 ;; (setq-default right-fringe-width 5)
 
 ;; fonts
-;; (set-frame-font "Source Code Pro-18" nil t)
+;;(set-frame-font "Source Code Pro-16" nil t)
 ;; (set-frame-font "Hack" nil t)
 ;; (set-face-font 'markdown-pre-face "Monaco-14")
 ;; (set-face-font 'markdown-inline-code-face "Monaco-14")
@@ -53,14 +55,35 @@
 ;; (load-theme 'base16-gruvbox-dark-soft t)
 ;; (load-theme 'base16-zenburn t)
 
+(defun deh-load-doom-one-theme ()
+  "Load my doom one theme."
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t)
 
+  ;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
+  ;; may have their own settings.
+  (load-theme 'doom-one t)
+
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+
+  ;; Enable custom neotree theme (all-the-icons must be installed!)
+  (doom-themes-neotree-config)
+  (setq doom-neotree-file-icons t)
+  ;; or for treemacs users
+  ;; (doom-themes-treemacs-config)
+
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
+(deh-load-doom-one-theme)
 
 ;; (load-theme 'molokai t)
 ;; (load-theme 'doom-molokai t)
 ;; (load-theme 'doom-vibrant t)
-(load-theme 'doom-one t)
+
 ;; (load-theme 'doom-opera t)
-;; (load-theme 'doom-solarized-light t)
+;; (load-theme 'doom-oslarized-light t)
 ;; (load-theme 'doom-tomorrow-night t)
 ;; (load-theme 'doom-city-lights t)
 ;; (load-theme 'doom-spacegrey t)

@@ -5,7 +5,8 @@
 (setq neo-window-fixed-size t)
 ;; (setq neo-window-width 25)
 (setq neo-window-width 40)
-(setq neo-theme 'arrow)
+;; (setq neo-theme 'arrow)
+(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 (setq neo-autorefresh nil)
 
 (define-key neotree-mode-map (kbd "M-l") 'deh-windmove-create-or-select-window-right)

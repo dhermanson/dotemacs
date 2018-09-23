@@ -35,6 +35,8 @@
 	      ace-jump-mode
         adoc-mode
 	      alchemist
+        all-the-icons
+        all-the-icons-dired
 	      anti-zenburn-theme
         apib-mode
         avy
