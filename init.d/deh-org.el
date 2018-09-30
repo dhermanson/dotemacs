@@ -68,7 +68,8 @@
 
   (setq org-html-htmlize-output-type 'css)
   (setq org-html-htmlize-font-prefix "org-")
-  (setq display-line-numbers 'relative))
+  ;; (setq display-line-numbers 'relative)
+  )
 
 (defun deh-org-screenshot (&optional file)
   (interactive

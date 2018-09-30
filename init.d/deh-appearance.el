@@ -16,8 +16,8 @@
 ;; (setq-default right-fringe-width 5)
 
 ;; fonts
-;;(set-frame-font "Source Code Pro-16" nil t)
-;; (set-frame-font "Hack" nil t)
+;;(set-frame-font "Source Code Pro-12" nil t)
+;; (set-frame-font "Hack" 12 t)
 ;; (set-face-font 'markdown-pre-face "Monaco-14")
 ;; (set-face-font 'markdown-inline-code-face "Monaco-14")
 ;; (set-face-font 'markdown-language-keyword-face "Monaco-14")
@@ -55,7 +55,7 @@
 ;; (load-theme 'base16-gruvbox-dark-soft t)
 ;; (load-theme 'base16-zenburn t)
 
-(defun deh-load-doom-one-theme ()
+(defun deh-load-doom-theme-setup ()
   "Load my doom one theme."
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
@@ -63,7 +63,7 @@
 
   ;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
   ;; may have their own settings.
-  (load-theme 'doom-one t)
+
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
@@ -76,14 +76,15 @@
 
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
-(deh-load-doom-one-theme)
+(deh-load-doom-theme-setup)
+(load-theme 'doom-one t)
 
 ;; (load-theme 'molokai t)
 ;; (load-theme 'doom-molokai t)
 ;; (load-theme 'doom-vibrant t)
 
 ;; (load-theme 'doom-opera t)
-;; (load-theme 'doom-oslarized-light t)
+;; (load-theme 'doom-solarized-light t)
 ;; (load-theme 'doom-tomorrow-night t)
 ;; (load-theme 'doom-city-lights t)
 ;; (load-theme 'doom-spacegrey t)

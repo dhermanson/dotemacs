@@ -18,6 +18,7 @@
 ;; (define-key global-map (kbd "s-p") 'projectile-command-map)
 
 (define-key global-map (kbd "H-c") 'delete-window)
+(define-key global-map (kbd "H-C") 'delete-frame)
 (define-key global-map (kbd "H-o") 'delete-other-windows)
 (define-key global-map (kbd "H-n") 'make-frame-command)
 (define-key global-map (kbd "H-q") '(lambda ()
@@ -26,6 +27,7 @@
 
 (define-key global-map (kbd "M-i") 'helm-imenu)
 (define-key global-map (kbd "M-I") 'helm-imenu-in-all-buffers)
+
 
 ;; (define-key global-map (kbd "s-c") 'delete-window)
 ;; (define-key global-map (kbd "s-o") 'delete-other-windows)

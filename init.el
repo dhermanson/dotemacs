@@ -88,6 +88,7 @@
 	      markdown-mode
 	      monokai-theme
 	      neotree
+        nix-mode
 	      org-bullets
 	      ox-gfm
         ox-reveal
@@ -102,6 +103,8 @@
 	      robe
 	      smartparens
 	      solarized-theme
+        spaceline
+        spaceline-all-the-icons
 	      tern
 	      tide
 	      ;; treemacs
@@ -153,6 +156,7 @@
 
 
 (require 'deh-hooks) ;; this probably needs to be first
+(require 'deh-general)
 (require 'deh-appearance)
 (require 'deh-symlinks)
 (require 'deh-terminal-emacs)
@@ -484,9 +488,15 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-(server-start)
+;; (server-start)
 
 (savehist-mode)
+
+(require 'spaceline-config)
+;; (spaceline-spacemacs-theme)
+(spaceline-emacs-theme)
+(setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
+(require 'spaceline-all-the-icons)
 
 (provide 'init)
 ;;; init.el ends here

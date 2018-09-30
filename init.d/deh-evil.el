@@ -100,7 +100,8 @@
 
 (evil-define-key nil evil-insert-state-map
   (kbd "C-SPC") 'company-complete
-  (kbd "C-x C-n") 'company-dabbrev-code
+  ;; (kbd "C-x C-n") 'company-dabbrev-code
+  (kbd "C-x C-n") 'company-dabbrev
   (kbd "C-x C-f") 'company-files
   (kbd "M-s") 'deh-send-current-line-to-repl)
 
