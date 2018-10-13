@@ -24,31 +24,23 @@
           (switch-to-buffer-other-window repl-buffer)
           (select-window current-window)))))
 
+;; https://lists.gnu.org/archive/html/help-gnu-emacs/2009-09/msg00411.html
 (defun deh-send-current-line-to-repl ()
   "send the current line to the repl"
   (interactive)
   (let* ((line (s-trim-right (thing-at-point 'line t))))
-    (if (equal deh-repl-insert-style 'a)
-        (progn
-          (comint-send-string (deh-repl-process) line)
-          (comint-send-string (deh-repl-process) "\n"))
+    (progn
+      (comint-send-string (deh-repl-process) line)
       (with-current-buffer (deh-repl-buffer)
-        (insert line)
-        (comint-send-input)))))
+        (comint-send-input nil t)))))
 
 (defun deh-send-region-to-repl (start end)
   (interactive "r")
   (let ((contents (s-trim (buffer-substring-no-properties start end))))
-    (if (equal deh-repl-insert-style 'a)
-        (progn
-          (comint-send-string (deh-repl-process) contents)
-          (comint-send-string (deh-repl-process) "\n"))
+    (progn
+      (comint-send-string (deh-repl-process) contents)
       (with-current-buffer (deh-repl-buffer)
-        (insert contents)
-        (comint-send-input))
-      )
-
-    )
+        (comint-send-input nil t))))
   (evil-exit-visual-state))
 
 (defun deh-restart-repl ()

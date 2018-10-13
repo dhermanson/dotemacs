@@ -1,11 +1,21 @@
+;;;  package -- Summary
+
 (require 'projectile)
 (require 'f)
+(require 'emamux)
 
-(defun deh-run-fzf ()
+;;; Code:
+
+(defun deh-send-current-line-to-tmux ()
+  "Send the current line to tmux."
   (interactive)
-  (let* ((directory (if (projectile-project-p) (projectile-project-root) "."))
-         (file (shell-command-to-string (concat "~/.emacs.d/bin/tmux-split fzf " directory))))
-    (unless (s-blank? file)
-      (find-file (f-join directory file)))))
+  (let* ((line (s-trim-right (thing-at-point 'line t))))
+    (emamux:send-region (point-at-bol) (point-at-eol))))
+
+(defun deh-send-region-to-tmux (start end)
+  "Send the current region to tmux"
+  (interactive "r")
+  (emamux:send-region start end))
 
 (provide 'deh-tmux)
+;;; deh-tmux ends here

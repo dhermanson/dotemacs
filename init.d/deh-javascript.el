@@ -28,7 +28,9 @@
   (setq deh-repl-process-name "deh-node")
   (setq deh-repl-buffer-name "*deh-node*")
   (setq deh-repl-program "node")
-  (setq deh-repl-program-args (list (concat (getenv "HOME") "/node_repl.js"))))
+  (setq deh-repl-program-args nil)
+  ;; (setq deh-repl-program-args (list (concat (getenv "HOME") "/node_repl.js")))
+  )
 
 
 

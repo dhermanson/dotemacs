@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: bounded context
+# key: bounded context
+# --
+BOUNDED_CONTEXT(${1:label}${2:, alias})$0

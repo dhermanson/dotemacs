@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: value object
+# key: value
+# --
+VALUE_OBJECT(${1:label}${2:, alias})$0

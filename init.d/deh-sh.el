@@ -9,7 +9,7 @@
     (setq deh-repl-process-name (concat default-directory ":bash")))
   
   (setq deh-repl-buffer-name (concat "*" deh-repl-process-name "*"))
-  (setq deh-repl-program "bash")
+  (setq deh-repl-program "zsh")
   (setq deh-repl-program-args nil))
 
 (defun deh-sh-mode-hook ()

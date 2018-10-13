@@ -76,12 +76,16 @@
 
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
+
 (deh-load-doom-theme-setup)
 (load-theme 'doom-one t)
+
 
 ;; (load-theme 'molokai t)
 ;; (load-theme 'doom-molokai t)
 ;; (load-theme 'doom-vibrant t)
+
+
 
 ;; (load-theme 'doom-opera t)
 ;; (load-theme 'doom-solarized-light t)
@@ -90,6 +94,8 @@
 ;; (load-theme 'doom-spacegrey t)
 ;; (load-theme 'doom-nova t)
 ;; (load-theme 'doom-dracula t)
+
+;; (load-theme 'gruvbox-dark-medium t)
 ;; (load-theme 'hc-zenburn t)
 ;; (load-theme 'anti-zenburn t)
 ;; (load-theme 'spacemacs-dark t)

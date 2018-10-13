@@ -16,6 +16,7 @@
 (require 'deh-repl)
 (require 'neotree)
 (require 'deh-tmux)
+(require 'emamux)
 
 (evil-commentary-mode)
 
@@ -26,8 +27,9 @@
 (global-evil-surround-mode t)
 (evil-set-initial-state 'Info-mode 'emacs)
 (evil-set-initial-state 'conf-mode 'normal)
-(evil-set-initial-state 'fundamental-mode 'normal)
+(evil-set-initial-state 'fundamental-mode 'emacs)
 (evil-set-initial-state 'compilation-mode 'emacs)
+(evil-set-initial-state 'comint-mode 'emacs)
 (evil-set-initial-state 'Man-mode 'emacs)
 (evil-set-initial-state 'dockerfile-mode 'normal)
 (evil-set-initial-state 'elisp-mode 'emacs)
@@ -87,6 +89,10 @@
   (kbd "M-o") 'delete-other-windows
   (kbd "M-n") 'make-frame-command
   (kbd "M-s") 'deh-send-current-line-to-repl
+  (kbd "M-t") 'deh-send-current-line-to-tmux
+  (kbd "M-T") '(lambda () (interactive) (emamux:unset-parameters))
+  (kbd "M-d") 'deh-send-current-line-to-tmux
+  (kbd "M-D") '(lambda () (interactive) (emamux:unset-parameters))
   (kbd "M-q") '(lambda ()
                  (interactive)
                  (kill-buffer (current-buffer)))
@@ -103,10 +109,14 @@
   ;; (kbd "C-x C-n") 'company-dabbrev-code
   (kbd "C-x C-n") 'company-dabbrev
   (kbd "C-x C-f") 'company-files
-  (kbd "M-s") 'deh-send-current-line-to-repl)
+  (kbd "M-s") 'deh-send-current-line-to-repl
+  (kbd "M-t") 'deh-send-current-line-to-tmux
+  (kbd "M-T") '(lambda () (interactive) (emamux:unset-parameters)))
 
 (evil-define-key nil evil-visual-state-map
-  (kbd "M-s") 'deh-send-region-to-repl)
+  (kbd "M-s") 'deh-send-region-to-repl
+  (kbd "M-t") 'deh-send-region-to-tmux
+  (kbd "M-T") '(lambda () (interactive) (emamux:unset-parameters)))
 
 (setq evil-leader/leader "SPC")
 

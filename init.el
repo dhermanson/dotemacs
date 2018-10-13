@@ -59,6 +59,7 @@
 	      eclim
 	      edit-indirect
 	      editorconfig
+        emamux
 	      emmet-mode
 	      evil
 	      evil-commentary
@@ -84,6 +85,7 @@
         htmlize
 	      js2-mode
 	      json-mode
+        kotlin-mode
         lua-mode
 	      markdown-mode
 	      monokai-theme

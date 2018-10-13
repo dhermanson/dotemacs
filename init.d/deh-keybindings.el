@@ -7,9 +7,9 @@
 
 (define-key global-map (kbd "H-r") 'recompile)
 (define-key global-map (kbd "H-a") 'deh-ripgrep)
-(define-key global-map (kbd "H-b") 'helm-buffers-list)
+(define-key global-map (kbd "H-b") 'helm-projectile-switch-to-buffer)
 (define-key global-map (kbd "H-t") 'helm-etags-select)
-(define-key global-map (kbd "H-f") 'helm-find-files)
+(define-key global-map (kbd "H-f") 'helm-projectile-find-file)
 (define-key global-map (kbd "H-p") 'projectile-command-map)
 (define-key global-map (kbd "C-c p") 'projectile-command-map)
 (define-key global-map (kbd "H-SPC") 'ace-jump-char-mode)

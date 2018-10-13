@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: entity
+# key: entity
+# --
+ENTITY(${1:label}${2:, alias})$0

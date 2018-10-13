@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: aggregate root
+# key: aggregate
+# --
+AGGREGATE_ROOT(${1:label}${2:, alias})$0

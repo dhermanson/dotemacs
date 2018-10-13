@@ -37,8 +37,7 @@
 (setq org-default-notes-file (concat org-directory "/capture.org"))
 
 ;; org-plantuml
-(setq plantuml-jar-path "~/bin/plantuml.jar")
-(setq org-plantuml-jar-path "~/bin/plantuml.jar")
+(setq org-plantuml-jar-path plantuml-jar-path)
 
 ;; org-latex
 (setq org-latex-listings 'minted)

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: domain event
+# key: event
+# --
+DOMAIN_EVENT(${1:label}${2:, alias})$0
