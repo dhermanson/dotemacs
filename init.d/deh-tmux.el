@@ -15,7 +15,8 @@
 (defun deh-send-region-to-tmux (start end)
   "Send the current region to tmux"
   (interactive "r")
-  (emamux:send-region start end))
+  (emamux:send-region start end)
+  (evil-exit-visual-state))
 
 (provide 'deh-tmux)
 ;;; deh-tmux ends here
