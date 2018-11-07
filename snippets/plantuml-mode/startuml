@@ -3,5 +3,7 @@
 # key: startuml
 # --
 @startuml
+
 $0
+
 @enduml

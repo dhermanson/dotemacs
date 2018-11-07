@@ -1,7 +1,5 @@
 (require 'flycheck)
 (require 'smartparens)
-(require 'eclim)
-(require 'eclimd)
 
 (defun deh-java-mode-hook ()
   "my java mode hook"
@@ -11,9 +9,7 @@
   
   (flycheck-mode t)
   (smartparens-mode t)
-  (eclim-mode t)
   (company-mode t)
-  (set (make-local-variable 'company-backends) '((company-eclim)))
   )
 
 (add-hook 'java-mode-hook 'deh-java-mode-hook)

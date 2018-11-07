@@ -8,6 +8,7 @@
 ;; (setq neo-theme 'arrow)
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 (setq neo-autorefresh nil)
+(setq  neo-show-hidden-files t)
 
 (define-key neotree-mode-map (kbd "M-l") 'deh-windmove-create-or-select-window-right)
 (define-key neotree-mode-map (kbd "M-h") 'deh-windmove-create-or-select-window-left)

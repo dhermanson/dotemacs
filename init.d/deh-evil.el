@@ -17,6 +17,7 @@
 (require 'neotree)
 (require 'deh-tmux)
 (require 'emamux)
+(require 'haskell)
 
 (evil-commentary-mode)
 
@@ -38,6 +39,7 @@
 (evil-set-initial-state 'fsharp-mode 'normal)
 (evil-set-initial-state 'groovy-mode 'normal)
 (evil-set-initial-state 'go-mode 'normal)
+(evil-set-initial-state 'haskell-mode 'normal)
 (evil-set-initial-state 'markdown-mode 'normal)
 (evil-set-initial-state 'help-mode 'emacs)
 (evil-set-initial-state 'java-mode 'normal)
@@ -59,6 +61,7 @@
 ;; (define-key deh/evil-leader-map ";" 'avy-goto-word-1)
 (define-key deh/evil-leader-map "p" 'projectile-command-map)
 (define-key deh/evil-leader-map "l" 'deh-helm-imenu)
+(define-key deh/evil-leader-map "k" 'helm-etags-select)
 ;; (define-key deh/evil-leader-map "l" 'counsel-imenu)
 (define-key deh/evil-leader-map "f" 'helm-projectile-find-file)
 (define-key deh/evil-leader-map "rr" 'deh-restart-repl)

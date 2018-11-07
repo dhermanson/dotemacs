@@ -56,7 +56,6 @@
 	      dockerfile-mode
         doom-themes
 	      dracula-theme
-	      eclim
 	      edit-indirect
 	      editorconfig
         emamux
@@ -183,7 +182,6 @@
 (require 'deh-yaml)
 (require 'deh-xml)
 (require 'deh-ace-jump)
-(require 'deh-eclim)
 (require 'deh-restclient)
 (require 'deh-prog)
 (require 'deh-ruby)

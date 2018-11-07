@@ -2,6 +2,15 @@
 (require 'helm)
 (require 'projectile)
 
+
+;; Backspace ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-set-key [(control ?h)] 'delete-backward-char)
+(global-set-key (kbd "C-M-?") 'help-command)
+
+(define-key helm-map (kbd "C-h") 'delete-backward-char)
+(define-key helm-map (kbd "C-M-?") 'helm-command)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (define-key global-map (kbd "s-g") (kbd "C-g"))
 (define-key global-map (kbd "H-g") (kbd "C-g"))
 

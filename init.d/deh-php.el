@@ -124,14 +124,14 @@
   "find interface|class|function tag"
   (interactive)
   (let* ((project-root (projectile-project-root))
-	 (full-project-tags-path (concat (file-name-as-directory project-root) deh-php-project-ctags-file))
-	 (full-vendor-tags-path (concat (file-name-as-directory project-root) deh-php-vendor-ctags-file)))
+	       (full-project-tags-path (concat (file-name-as-directory project-root) deh-php-project-ctags-file))
+	       (full-vendor-tags-path (concat (file-name-as-directory project-root) deh-php-vendor-ctags-file)))
     (progn
       (setq default-directory project-root)
       (unless (f-exists? deh-php-project-ctags-file)
-	(deh-generate-php-project-tags))
+	      (deh-generate-php-project-tags))
       (unless (f-exists? deh-php-vendor-ctags-file)
-	(deh-generate-php-vendor-tags))
+	      (deh-generate-php-vendor-tags))
       (setq tags-table-list (list full-project-tags-path full-vendor-tags-path deh-php-language-ctags-file))
       ;; (helm-etags-select t)
       (counsel-etags-find-tag)
@@ -297,8 +297,8 @@
 ;; (define-key php-mode-map (kbd "C-c c t f") 'deh-projectile-phpunit-on-current-file)
 ;; (define-key php-mode-map (kbd "H-t") 'deh-find-interface-tag)
 
-(evil-leader/set-key-for-mode 'php-mode
-  "k" 'deh-find-interface-tag)
+;; (evil-leader/set-key-for-mode 'php-mode
+;;   "k" 'deh-find-interface-tag)
 
 (defun deh-php-mode-hook ()
   "my php mode hook"

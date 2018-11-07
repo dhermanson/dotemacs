@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: subdomain
+# key: subdomain
+# --
+SUBDOMAIN(${1:label}${2:, alias})$0
