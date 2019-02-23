@@ -1,6 +1,9 @@
 (require 'helm)
 (require 'helm-imenu)
 
+(setq helm-mode-fuzzy-match nil)
+(setq helm-etags-fuzzy-match nil)
+
 (defun deh-helm-imenu ()
   "Preconfigured `helm' for `imenu'."
   (interactive)

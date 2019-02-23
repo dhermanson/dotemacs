@@ -15,6 +15,7 @@
   (setq company-idle-delay nil)
   (set (make-local-variable 'company-backends) '(( company-robe company-files company-dabbrev-code)))
   ;; (setq inf-ruby-default-implementation "pry")
+  ;; (setq inf-ruby-default-implementation "irb")
   ;; turn flycheck mode on
   (flycheck-mode 0)
 

@@ -29,8 +29,11 @@
    (dot . t)
    (haskell . t)))
 
+(setq org-confirm-babel-evaluate nil)
+
 (setq org-startup-indented t)
 (setq org-src-fontify-natively t)
+(setq org-startup-folded 'showeverything)
 
 ;; org-capture
 (setq org-directory "~/Dropbox/org")
@@ -61,9 +64,10 @@
 (defun deh-org-mode-hook ()
   "My org mode hook."
   (org-bullets-mode t)
-  (visual-line-mode t)
+  (visual-line-mode nil)
   (company-mode t)
-  (setq company-backends '(company-files company-yasnippet))
+  (set (make-local-variable 'company-backends)
+       '(company-files company-yasnippet))
 
   (setq org-html-htmlize-output-type 'css)
   (setq org-html-htmlize-font-prefix "org-")
@@ -93,11 +97,11 @@
   (if (equal "emacs-capture" (frame-parameter nil 'name))
       (delete-frame)))
 
-(define-key org-mode-map (kbd "H-s") 'deh-org-screenshot)
+;; (define-key org-mode-map (kbd "H-s") 'deh-org-screenshot)
 
 (add-hook 'org-mode-hook #'deh-org-mode-hook)
 
-(define-key org-mode-map (kbd "C-c a f") 'deh-org-add-current-file-to-org-agenda-files)
+;; (define-key org-mode-map (kbd "C-c a f") 'deh-org-add-current-file-to-org-agenda-files)
 
 
 (provide 'deh-org)

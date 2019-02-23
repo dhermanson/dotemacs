@@ -39,9 +39,11 @@
         all-the-icons-dired
 	      anti-zenburn-theme
         apib-mode
+        auctex
         avy
 	      cider
 	      company
+        company-auctex
 	      company-go
         ;; company-lua
 	      company-tern
@@ -85,6 +87,7 @@
 	      js2-mode
 	      json-mode
         kotlin-mode
+        lsp-java
         lua-mode
 	      markdown-mode
 	      monokai-theme
@@ -159,11 +162,13 @@
 (require 'deh-hooks) ;; this probably needs to be first
 (require 'deh-general)
 (require 'deh-appearance)
+(require 'deh-fuzzy)
 (require 'deh-symlinks)
 (require 'deh-terminal-emacs)
 (require 'deh-winum)
 (require 'deh-tmux)
 (require 'deh-evil)
+(require 'deh-auctex)
 (require 'deh-mpd)
 (require 'deh-plantuml)
 (require 'deh-neotree)
@@ -213,6 +218,9 @@
 (require 'deh-keybindings)
 
 (setq-default indent-tabs-mode nil)
+
+;; unset C-x C-c
+(global-unset-key (kbd "C-x C-c"))
 
 ;; (require 'hlinum)
 ;; (hlinum-activate)
@@ -492,11 +500,11 @@
 
 (savehist-mode)
 
-(require 'spaceline-config)
-;; (spaceline-spacemacs-theme)
-(spaceline-emacs-theme)
-(setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
-(require 'spaceline-all-the-icons)
+;; (require 'spaceline-config)
+;; ;; (spaceline-spacemacs-theme)
+;; (spaceline-emacs-theme)
+;; (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
+;; (require 'spaceline-all-the-icons)
 
 (provide 'init)
 ;;; init.el ends here

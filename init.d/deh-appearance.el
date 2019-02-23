@@ -79,21 +79,19 @@
 
 (deh-load-doom-theme-setup)
 (load-theme 'doom-one t)
-
-
-;; (load-theme 'molokai t)
 ;; (load-theme 'doom-molokai t)
 ;; (load-theme 'doom-vibrant t)
-
-
-
 ;; (load-theme 'doom-opera t)
 ;; (load-theme 'doom-solarized-light t)
 ;; (load-theme 'doom-tomorrow-night t)
+;; (load-theme 'doom-sourcerer t)
 ;; (load-theme 'doom-city-lights t)
 ;; (load-theme 'doom-spacegrey t)
 ;; (load-theme 'doom-nova t)
 ;; (load-theme 'doom-dracula t)
+;; (load-theme 'doom-Iosvkem t)
+;; (load-theme 'doom-nord t)
+;; (load-theme 'doom-peacock t)
 
 ;; (load-theme 'gruvbox-dark-medium t)
 ;; (load-theme 'hc-zenburn t)

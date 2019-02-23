@@ -37,6 +37,7 @@
 (evil-set-initial-state 'emacs-lisp-mode 'emacs)
 (evil-set-initial-state 'eshell-mode 'emacs)
 (evil-set-initial-state 'fsharp-mode 'normal)
+(evil-set-initial-state 'python-mode 'normal)
 (evil-set-initial-state 'groovy-mode 'normal)
 (evil-set-initial-state 'go-mode 'normal)
 (evil-set-initial-state 'haskell-mode 'normal)
@@ -48,6 +49,7 @@
 (evil-set-initial-state 'json-mode 'normal)
 (evil-set-initial-state 'kotlin-mode 'normal)
 (evil-set-initial-state 'php-mode 'normal)
+(evil-set-initial-state 'perl-mode 'normal)
 (evil-set-initial-state 'reb-mode 'emacs)
 (evil-set-initial-state 'shell-mode 'emacs)
 (evil-set-initial-state 'undo-tree-visualizer-mode 'emacs)
@@ -85,7 +87,8 @@
   (kbd "] q") 'next-error
   (kbd "[ q") 'previous-error
   (kbd "M-b") 'helm-projectile-switch-to-buffer
-  (kbd "M-f") 'helm-projectile-find-file
+  ;; (kbd "M-f") 'helm-projectile-find-file
+  (kbd "M-f") 'deh-projectile-fzf-find-file
   ;; (kbd "M-f") 'deh-run-fzf
   (kbd "M-w") 'save-buffer
   (kbd "M-c") 'delete-window

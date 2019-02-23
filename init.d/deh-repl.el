@@ -26,22 +26,19 @@
 
 ;; https://lists.gnu.org/archive/html/help-gnu-emacs/2009-09/msg00411.html
 (defun deh-send-current-line-to-repl ()
-  "send the current line to the repl"
+  "Send the current line to the repl."
   (interactive)
-  (let* ((line (s-trim-right (thing-at-point 'line t))))
-    (progn
-      (comint-send-string (deh-repl-process) line)
-      (with-current-buffer (deh-repl-buffer)
-        (comint-send-input nil t)))))
+  (deh-send-region-to-repl (line-beginning-position) (line-end-position)))
 
 (defun deh-send-region-to-repl (start end)
+  "Send a region to the repl (START END)."
   (interactive "r")
-  (let ((contents (s-trim (buffer-substring-no-properties start end))))
-    (progn
-      (comint-send-string (deh-repl-process) contents)
-      (with-current-buffer (deh-repl-buffer)
-        (comint-send-input nil t))))
-  (evil-exit-visual-state))
+  (progn
+    ;; (process-send-region deh-repl-buffer-name start end)
+    ;; (process-send-string deh-repl-buffer-name "\n")
+    (comint-send-region deh-repl-buffer-name start end)
+    (comint-send-string deh-repl-buffer-name "\n")
+    (evil-exit-visual-state)))
 
 (defun deh-restart-repl ()
   (interactive)

@@ -23,5 +23,6 @@
 (add-hook 'web-mode-hook 'deh-web-mode-hook)
 
 (add-to-list 'auto-mode-alist '("\\.blade.php" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache" . web-mode))
 
 (provide 'deh-web)
