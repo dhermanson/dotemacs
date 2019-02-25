@@ -18,5 +18,14 @@
   (emamux:send-region start end)
   (evil-exit-visual-state))
 
+(defun deh-get-tmux-panes ()
+  "Get a list of tmux panes"
+  (interactive)
+  (s-split
+   "\n"
+   (s-chomp
+    (shell-command-to-string
+     "tmux list-panes -as -F \"#{session_name}:#{window_name}:#{pane_index}\""))))
+
 (provide 'deh-tmux)
 ;;; deh-tmux ends here
