@@ -38,6 +38,7 @@
 (evil-set-initial-state 'eshell-mode 'emacs)
 (evil-set-initial-state 'fsharp-mode 'normal)
 (evil-set-initial-state 'python-mode 'normal)
+(evil-set-initial-state 'vimrc-mode 'normal)
 (evil-set-initial-state 'groovy-mode 'normal)
 (evil-set-initial-state 'go-mode 'normal)
 (evil-set-initial-state 'haskell-mode 'normal)
@@ -50,6 +51,7 @@
 (evil-set-initial-state 'kotlin-mode 'normal)
 (evil-set-initial-state 'php-mode 'normal)
 (evil-set-initial-state 'perl-mode 'normal)
+(evil-set-initial-state 'feature-mode 'normal)
 (evil-set-initial-state 'reb-mode 'emacs)
 (evil-set-initial-state 'shell-mode 'emacs)
 (evil-set-initial-state 'undo-tree-visualizer-mode 'emacs)
@@ -95,7 +97,8 @@
   (kbd "M-o") 'delete-other-windows
   (kbd "M-n") 'make-frame-command
   (kbd "M-s") 'deh-send-current-line-to-repl
-  (kbd "M-t") 'deh-send-current-line-to-tmux
+  ;; (kbd "M-t") 'deh-send-current-line-to-tmux
+  (kbd "M-t") 'my-send-current-line-to-tmux-pane
   (kbd "M-T") '(lambda () (interactive) (emamux:unset-parameters))
   (kbd "M-d") 'deh-send-current-line-to-tmux
   (kbd "M-D") '(lambda () (interactive) (emamux:unset-parameters))
@@ -116,12 +119,14 @@
   (kbd "C-x C-n") 'company-dabbrev
   (kbd "C-x C-f") 'company-files
   (kbd "M-s") 'deh-send-current-line-to-repl
-  (kbd "M-t") 'deh-send-current-line-to-tmux
+  ;; (kbd "M-t") 'deh-send-current-line-to-tmux
+  (kbd "M-t") 'my-send-current-line-to-tmux-pane
   (kbd "M-T") '(lambda () (interactive) (emamux:unset-parameters)))
 
 (evil-define-key nil evil-visual-state-map
   (kbd "M-s") 'deh-send-region-to-repl
-  (kbd "M-t") 'deh-send-region-to-tmux
+  ;; (kbd "M-t") 'deh-send-region-to-tmux
+  (kbd "M-t") 'my-send-region-to-tmux-pane
   (kbd "M-T") '(lambda () (interactive) (emamux:unset-parameters)))
 
 (setq evil-leader/leader "SPC")

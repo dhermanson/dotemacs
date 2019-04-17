@@ -13,7 +13,8 @@
   (flycheck-mode t)
   (smartparens-mode t)
   (company-mode t)
-  (lsp))
+  ;; (lsp)
+  )
 
 (add-hook 'java-mode-hook 'deh-java-mode-hook)
 

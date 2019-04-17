@@ -215,6 +215,7 @@
 (require 'deh-web)
 (require 'deh-global-maps)
 (require 'deh-repl)
+(require 'deh-sql)
 (require 'deh-keybindings)
 
 (setq-default indent-tabs-mode nil)
@@ -267,10 +268,10 @@
   (interactive)
   (find-file "~/.emacs.d/init.el"))
 
-(defun deh/open-notes-file ()
+(defun deh/open-notes ()
   "open my notes file"
   (interactive)
-  (find-file "~/Dropbox/org/notes.org"))
+  (find-file "~/Dropbox/org"))
 
 (defun deh/open-scratch-buffer ()
   "open my scratch buffer"
@@ -278,7 +279,7 @@
   (switch-to-buffer "*scratch*"))
 
 (define-key global-map (kbd "C-c o i") 'deh/open-init-file)
-(define-key global-map (kbd "C-c o n") 'deh/open-notes-file)
+(define-key global-map (kbd "C-c o n") 'deh/open-notes)
 (define-key global-map (kbd "C-c o s") 'deh/open-scratch-buffer)
 
 (setq flycheck-check-syntax-automatically '(save))
@@ -353,6 +354,9 @@
 
 ;; sh-mode
 (setq sh-shell "bash")
+
+(eval-after-load "sql"
+  '(load-library "sql-indent"))
 
 ;; paredit
 (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
@@ -484,6 +488,7 @@
 		             js2-mode
                  web-mode
                  css-mode
+                 groovy-mode
 		             typescript-mode)
   (sp-local-pair "{" "}"
 		             :when '(("RET"))
@@ -505,6 +510,8 @@
 ;; (spaceline-emacs-theme)
 ;; (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
 ;; (require 'spaceline-all-the-icons)
+
+(setq initial-scratch-message "")
 
 (provide 'init)
 ;;; init.el ends here

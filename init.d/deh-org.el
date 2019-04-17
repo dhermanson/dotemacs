@@ -67,7 +67,7 @@
   (visual-line-mode nil)
   (company-mode t)
   (set (make-local-variable 'company-backends)
-       '(company-files company-yasnippet))
+       '((company-files company-yasnippet company-ispell)))
 
   (setq org-html-htmlize-output-type 'css)
   (setq org-html-htmlize-font-prefix "org-")

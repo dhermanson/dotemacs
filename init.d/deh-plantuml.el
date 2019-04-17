@@ -11,7 +11,8 @@
   (company-mode)
   (flycheck-mode)
   (smartparens-mode)
-  (set (make-local-variable 'company-backends) '((company-dabbrev-code company-yasnippet))))
+  (set (make-local-variable 'company-backends) '((company-dabbrev-code company-yasnippet)))
+  (setq evil-shift-width 2))
 
 (setq plantuml-jar-path "~/.config/deh/jars/plantuml.jar")
 (add-hook 'plantuml-mode-hook 'deh-plantuml-hook)

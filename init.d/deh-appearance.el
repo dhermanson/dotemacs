@@ -31,7 +31,7 @@
   (set-face-background 'fringe "#3F3F3F")
   (set-face-foreground 'vertical-border (cdr (assoc "zenburn-bg-1" zenburn-default-colors-alist))))
 
-;; (deh-load-zenburn)
+(deh-load-zenburn)
 ;; (load-theme 'xresources t)
 
 
@@ -77,8 +77,10 @@
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
 
-(deh-load-doom-theme-setup)
-(load-theme 'doom-one t)
+;; (deh-load-doom-theme-setup)
+;; (load-theme 'doom-one t)
+;; (load-theme 'doom-challenger-deep t)
+
 ;; (load-theme 'doom-molokai t)
 ;; (load-theme 'doom-vibrant t)
 ;; (load-theme 'doom-opera t)

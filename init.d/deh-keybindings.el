@@ -15,11 +15,11 @@
 (define-key global-map (kbd "H-d") (lambda ()
                                      (interactive)
                                      (if (projectile-project-p)
-                                         (start-process-shell-command "dolphin" nil (concat "dolphin 2> /dev/null " (projectile-project-root))))))
+                                         (start-process-shell-command "deh-file-manager" nil (concat "deh-file-manager 2> /dev/null " (projectile-project-root))))))
 
 (define-key global-map (kbd "H-C-d") (lambda ()
                                      (interactive)
-                                     (start-process-shell-command "dolphin" nil (concat "dolphin 2> /dev/null " default-directory))))
+                                     (start-process-shell-command "deh-file-manager" nil (concat "deh-file-manager 2> /dev/null " default-directory))))
 
 
 ;; Backspace ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

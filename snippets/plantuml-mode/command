@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: command
+# key: command
+# --
+COMMAND(${1:label}${2:, alias})$0
