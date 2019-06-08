@@ -26,11 +26,12 @@
 (global-set-key [(control ?h)] 'delete-backward-char)
 ;; (global-set-key (kbd "C-M-?") 'help-command)
 (global-set-key (kbd "H-/") 'help-command)
-(global-set-key (kbd "C-H-h") 'help-command)
+;; (global-set-key (kbd "C-H-h") 'help-command)
 ;; (global-set-key (kbd "H-C-h") 'help-command)
 ;; (global-set-key (kbd "C-;") 'help-command)
 
 (define-key helm-map (kbd "C-h") 'delete-backward-char)
+(define-key helm-map (kbd "H-/") 'help-command)
 ;; (define-key helm-map (kbd "C-M-?") 'helm-command)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

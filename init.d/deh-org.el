@@ -67,7 +67,7 @@
   (visual-line-mode nil)
   (company-mode t)
   (set (make-local-variable 'company-backends)
-       '((company-files company-yasnippet company-ispell)))
+       '((company-files company-yasnippet company-dabbrev company-ispell)))
 
   (setq org-html-htmlize-output-type 'css)
   (setq org-html-htmlize-font-prefix "org-")
@@ -103,5 +103,18 @@
 
 ;; (define-key org-mode-map (kbd "C-c a f") 'deh-org-add-current-file-to-org-agenda-files)
 
+(setq org-structure-template-alist 
+      '(("a" . "export ascii")
+        ("c" . "center")
+        ("C" . "comment")
+        ("e" . "example")
+        ("E" . "export")
+        ("h" . "export html")
+        ("l" . "export latex")
+        ("q" . "quote")
+        ("s" . "src")
+        ("v" . "verse")))
+
+(require 'org-tempo)
 
 (provide 'deh-org)

@@ -2,7 +2,7 @@
   (interactive)
   (if (projectile-project-p)
       (let ((default-directory (projectile-project-root)))
-        (start-process-shell-command "fzf-file-finder" nil "urxvt -name urxvtfloat -e 'deh-find-file' 2> /dev/null"))))
+        (start-process-shell-command "fzf-file-finder" nil "urxvtc -geometry 125x40 -name urxvtfloat -e 'deh-find-file' 2> /dev/null"))))
 
 (defun deh-projectile-fzf-result ()
   (interactive)

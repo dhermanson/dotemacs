@@ -31,9 +31,10 @@
   (set-face-background 'fringe "#3F3F3F")
   (set-face-foreground 'vertical-border (cdr (assoc "zenburn-bg-1" zenburn-default-colors-alist))))
 
-(deh-load-zenburn)
+;; (deh-load-zenburn)
 ;; (load-theme 'xresources t)
 
+;; (load-theme 'ujelly t)
 
 ;; (color-theme-sanityinc-tomorrow-night)
 ;; (load-theme 'sanityinc-tomorrow-night t)
@@ -85,7 +86,7 @@
 ;; (load-theme 'doom-vibrant t)
 ;; (load-theme 'doom-opera t)
 ;; (load-theme 'doom-solarized-light t)
-;; (load-theme 'doom-tomorrow-night t)
+(load-theme 'doom-tomorrow-night t)
 ;; (load-theme 'doom-sourcerer t)
 ;; (load-theme 'doom-city-lights t)
 ;; (load-theme 'doom-spacegrey t)

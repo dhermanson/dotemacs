@@ -5,4 +5,6 @@
 
 (add-hook 'markdown-mode-hook 'deh-markdown-mode-hook)
 
+(add-to-list 'auto-mode-alist '("README" . markdown-mode))
+
 (provide 'deh-markdown)

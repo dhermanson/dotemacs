@@ -8,3 +8,8 @@ projectile-bookmarks*
 tramp
 *~
 custom.el
+transient
+recentf
+/projectile.cache
+/history
+/bookmarks

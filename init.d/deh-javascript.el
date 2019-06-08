@@ -49,7 +49,8 @@
   (tide-mode t)
   (smartparens-mode t)
   (eldoc-mode t)
-  (setq flycheck-checkers '(jsx-tide))
+  ;; (setq flycheck-checkers '(jsx-tide))
+  
   ;; (set (make-local-variable 'company-backends) '((company-tern company-yasnippet)))
   )
 

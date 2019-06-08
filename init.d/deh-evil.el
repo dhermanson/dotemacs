@@ -18,6 +18,7 @@
 (require 'deh-tmux)
 (require 'emamux)
 (require 'haskell)
+(require 'counsel)
 
 (evil-commentary-mode)
 
@@ -28,16 +29,19 @@
 (global-evil-surround-mode t)
 (evil-set-initial-state 'Info-mode 'emacs)
 (evil-set-initial-state 'conf-mode 'normal)
-(evil-set-initial-state 'fundamental-mode 'emacs)
+(evil-set-initial-state 'fundamental-mode 'normal)
+(evil-set-initial-state 'text-mode 'normal)
 (evil-set-initial-state 'compilation-mode 'emacs)
 (evil-set-initial-state 'comint-mode 'emacs)
 (evil-set-initial-state 'Man-mode 'emacs)
 (evil-set-initial-state 'dockerfile-mode 'normal)
-(evil-set-initial-state 'elisp-mode 'emacs)
-(evil-set-initial-state 'emacs-lisp-mode 'emacs)
+(evil-set-initial-state 'elisp-mode 'normal)
+(evil-set-initial-state 'emacs-lisp-mode 'normal)
 (evil-set-initial-state 'eshell-mode 'emacs)
 (evil-set-initial-state 'fsharp-mode 'normal)
+(evil-set-initial-state 'protobuf-mode 'normal)
 (evil-set-initial-state 'python-mode 'normal)
+(evil-set-initial-state 'c-mode 'normal)
 (evil-set-initial-state 'vimrc-mode 'normal)
 (evil-set-initial-state 'groovy-mode 'normal)
 (evil-set-initial-state 'go-mode 'normal)
@@ -64,7 +68,9 @@
 ;; (define-key deh/evil-leader-map (kbd "SPC") 'avy-goto-char)
 ;; (define-key deh/evil-leader-map ";" 'avy-goto-word-1)
 (define-key deh/evil-leader-map "p" 'projectile-command-map)
-(define-key deh/evil-leader-map "l" 'deh-helm-imenu)
+;; (define-key deh/evil-leader-map "l" 'deh-helm-imenu)
+(define-key deh/evil-leader-map "l" 'counsel-imenu)
+;; (define-key deh/evil-leader-map "l" 'helm-imenu)
 (define-key deh/evil-leader-map "k" 'helm-etags-select)
 ;; (define-key deh/evil-leader-map "l" 'counsel-imenu)
 (define-key deh/evil-leader-map "f" 'helm-projectile-find-file)
@@ -81,6 +87,7 @@
 (evil-define-key nil deh/evil-leader-map "gla" 'magit-log-all)
 (evil-define-key nil deh/evil-leader-map "glb" 'magit-log-buffer-file)
 (evil-define-key nil deh/evil-leader-map "a" 'deh-ripgrep)
+
 ;; (define-key deh/evil-leader-map "f" 'counsel-projectile-find-file)
 
 (evil-define-key nil evil-normal-state-map
@@ -89,13 +96,15 @@
   (kbd "] q") 'next-error
   (kbd "[ q") 'previous-error
   (kbd "M-b") 'helm-projectile-switch-to-buffer
+  ;; (kbd "M-b") 'counsel-projectile-switch-to-buffer
   ;; (kbd "M-f") 'helm-projectile-find-file
   (kbd "M-f") 'deh-projectile-fzf-find-file
+  ;; (kbd "M-f") 'counsel-projectile-find-file
   ;; (kbd "M-f") 'deh-run-fzf
   (kbd "M-w") 'save-buffer
   (kbd "M-c") 'delete-window
   (kbd "M-o") 'delete-other-windows
-  (kbd "M-n") 'make-frame-command
+  ;; (kbd "M-n") 'make-frame-command
   (kbd "M-s") 'deh-send-current-line-to-repl
   ;; (kbd "M-t") 'deh-send-current-line-to-tmux
   (kbd "M-t") 'my-send-current-line-to-tmux-pane
@@ -115,6 +124,7 @@
 
 (evil-define-key nil evil-insert-state-map
   (kbd "C-SPC") 'company-complete
+  (kbd "M-SPC") 'company-complete
   ;; (kbd "C-x C-n") 'company-dabbrev-code
   (kbd "C-x C-n") 'company-dabbrev
   (kbd "C-x C-f") 'company-files
@@ -127,7 +137,8 @@
   (kbd "M-s") 'deh-send-region-to-repl
   ;; (kbd "M-t") 'deh-send-region-to-tmux
   (kbd "M-t") 'my-send-region-to-tmux-pane
-  (kbd "M-T") '(lambda () (interactive) (emamux:unset-parameters)))
+  (kbd "M-T") '(lambda () (interactive) (emamux:unset-parameters))
+  "$" 'evil-last-non-blank) ;; i think this is how vim behaves
 
 (setq evil-leader/leader "SPC")
 
@@ -135,5 +146,26 @@
 (evil-add-command-properties #'deh-find-interface-tag :jump t)
 (evil-add-command-properties #'counsel-imenu :jump t)
 (evil-add-command-properties #'helm-imenu :jump t)
+
+(setq-default evil-indent-convert-tabs nil)
+
+
+; Overload shifts so that they don't lose the selection
+(define-key evil-visual-state-map (kbd ">") 'deh/evil-shift-right-visual)
+(define-key evil-visual-state-map (kbd "<") 'deh/evil-shift-left-visual)
+(define-key evil-visual-state-map [tab] 'deh/evil-shift-right-visual)
+(define-key evil-visual-state-map [S-tab] 'deh/evil-shift-left-visual)
+
+(defun deh/evil-shift-left-visual ()
+  (interactive)
+  (evil-shift-left (region-beginning) (region-end))
+  (evil-normal-state)
+  (evil-visual-restore))
+
+(defun deh/evil-shift-right-visual ()
+  (interactive)
+  (evil-shift-right (region-beginning) (region-end))
+  (evil-normal-state)
+  (evil-visual-restore))
 
 (provide 'deh-evil)

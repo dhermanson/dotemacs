@@ -7,6 +7,7 @@
 (require 'package)
 
 (add-to-list 'load-path "~/.emacs.d/init.d/")
+(add-to-list 'load-path "~/.emacs.d/vendor/")
 
 ;; add package archives
 ;; (add-to-list 'package-archives
@@ -40,6 +41,8 @@
 	      anti-zenburn-theme
         apib-mode
         auctex
+        auto-complete
+        ; auto-complete-config
         avy
 	      cider
 	      company
@@ -101,6 +104,7 @@
 	      php-mode
 	      prodigy
 	      projectile
+        protobuf-mode
 	      restclient
 	      ripgrep
         rjsx-mode
@@ -122,6 +126,7 @@
         magit
         paredit
         plantuml-mode
+        ujelly-theme
         winum
 	      yaml-mode))
 
@@ -158,6 +163,14 @@
 
 ;; (setq-default cursor-type '(bar . 2))
 
+(setq-default tab-width 2
+              c-basic-offset 2
+              indent-tabs-mode nil)
+
+;; don't allow auto splitting
+(setq split-width-threshold nil
+      split-height-threshold nil)
+
 
 (require 'deh-hooks) ;; this probably needs to be first
 (require 'deh-general)
@@ -191,6 +204,7 @@
 (require 'deh-prog)
 (require 'deh-ruby)
 (require 'deh-elisp)
+(require 'deh-conf)
 (require 'deh-lua)
 (require 'deh-css)
 (require 'deh-php)
@@ -205,6 +219,8 @@
 (require 'deh-org)
 (require 'deh-apib)
 (require 'deh-fsharp)
+(require 'deh-groovy)
+(require 'deh-go)
 (require 'deh-javascript)
 (require 'deh-typescript)
 (require 'deh-text)
@@ -299,6 +315,11 @@
 
 ;; (switch-to-buffer (create-file-buffer "test-buffer"))
 
+;; auto-complete
+;; (require 'go-autocomplete)
+;; (require 'auto-complete-config)
+;; (ac-config-default)
+
 ;; company
 (require 'company)
 (setq company-dabbrev-downcase nil)
@@ -311,6 +332,8 @@
 ;; (define-key global-map (kbd "H-;") 'company-complete)
 (define-key global-map (kbd "C-c c") 'company-complete)
 (add-hook 'after-init-hook 'global-company-mode)
+
+(setq-default indent-tabs-mode nil)
 
 ;; tramp
 (require 'tramp)
@@ -395,26 +418,26 @@
                                         ; (inf-groovy-keys)
                                         ; (add-to-list 'auto-mode-alist '("\.gradle$" . groovy-mode))
 
-(defun deh/groovy-mode-hook ()
-  "my groovy mode hook"
-  (smartparens-mode)
-  ;; (electric-indent-mode)
-  )
-(add-hook 'groovy-mode-hook 'deh/groovy-mode-hook)
+;; (defun deh/groovy-mode-hook ()
+;;   "my groovy mode hook"
+;;   (smartparens-mode)
+;;   ;; (electric-indent-mode)
+;;   )
+;; (add-hook 'groovy-mode-hook 'deh/groovy-mode-hook)
 
 ;; jenkinsf
 (add-to-list 'auto-mode-alist '("\\b\\(j\\|J\\)enkinsfile\\b" . groovy-mode))
 
 ;; go-lang
 (require 'go-mode)
-(defun deh/go-mode-hook ()
-  "my go mode hook"
-  (setq tab-width 2)
-  (flycheck-mode)
-  (set (make-local-variable 'company-backends) '(company-go))
-  )
-(add-hook 'go-mode-hook 'deh/go-mode-hook)
-(add-hook 'before-save-hook 'gofmt-before-save)
+;; (defun deh/go-mode-hook ()
+;;   "my go mode hook"
+;;   (setq tab-width 2)
+;;   (flycheck-mode)
+;;   (set (make-local-variable 'company-backends) '(company-go))
+;;   )
+;; (add-hook 'go-mode-hook 'deh/go-mode-hook)
+;; (add-hook 'before-save-hook 'gofmt-before-save)
 
 ;; prodigy
 (require 'prodigy)
@@ -446,12 +469,6 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
-;; dired
-(defun deh/dired-mode-hook ()
-  "my dired mode hook"
-  (dired-hide-details-mode 1))
-(add-hook 'dired-mode-hook 'deh/dired-mode-hook)
-
 ;; fsharp
 (require 'fsharp-mode)
 
@@ -464,7 +481,6 @@
 
 
 
-(put 'dired-find-alternate-file 'disabled nil)
 (put 'scroll-left 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
