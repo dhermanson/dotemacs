@@ -11,7 +11,7 @@
 (setq inhibit-startup-screen t)
 (column-number-mode 1) ; display column/row of cursor in mode-line
 (show-paren-mode 1)
-(global-hl-line-mode 0)
+(global-hl-line-mode 1)
 ;; (setq-default left-fringe-width 5)
 ;; (setq-default right-fringe-width 5)
 
@@ -31,7 +31,30 @@
   (set-face-background 'fringe "#3F3F3F")
   (set-face-foreground 'vertical-border (cdr (assoc "zenburn-bg-1" zenburn-default-colors-alist))))
 
-;; (deh-load-zenburn)
+(deh-load-zenburn)
+;; (load-theme 'nord t)
+
+(defun deh/clear-frame-background-in-terminal (&optional frame)
+  (with-selected-frame frame
+    (unless (display-graphic-p frame)
+      (set-face-background 'default "unspecified-bg" frame))))
+
+;; (add-hook 'window-setup-hook 'deh/clear-frame-background-in-terminal)
+;; (add-hook 'server-switch-hook 'deh/clear-frame-background-in-terminal)
+(add-hook 'after-make-frame-functions 'deh/clear-frame-background-in-terminal)
+;; (add-hook 'server-visit-hook 'deh/clear-frame-background-in-terminal)
+
+
+;; (require 'server)
+;; (defadvice server-create-window-system-frame
+;;   (after deh/clear-frame-background-in-terminal ())
+;;   "Set custom frame colours when creating the first frame on a display"
+;;   (message "Running after frame-initialize")
+;;   (deh/clear-frame-background-in-terminal))
+;; (ad-activate 'server-create-window-system-frame)
+;; (add-hook 'after-make-frame-functions 'deh/clear-frame-background-in-terminal t)
+
+
 ;; (load-theme 'xresources t)
 
 ;; (load-theme 'ujelly t)
@@ -51,6 +74,8 @@
 ;; (load-theme 'gruvbox-dark-medium t)
 
 ;; (load-theme 'base16-default-dark t)
+;; (load-theme 'monokai t)
+;; (load-theme 'molokai t)
 ;; (load-theme 'base16-gruvbox-dark-hard t)
 ;; (load-theme 'base16-gruvbox-dark-medium t)
 ;; (load-theme 'base16-gruvbox-dark-soft t)
@@ -78,6 +103,8 @@
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
 
+;; (load-theme 'challenger-deep t)
+
 ;; (deh-load-doom-theme-setup)
 ;; (load-theme 'doom-one t)
 ;; (load-theme 'doom-challenger-deep t)
@@ -86,7 +113,7 @@
 ;; (load-theme 'doom-vibrant t)
 ;; (load-theme 'doom-opera t)
 ;; (load-theme 'doom-solarized-light t)
-(load-theme 'doom-tomorrow-night t)
+;; (load-theme 'doom-tomorrow-night t)
 ;; (load-theme 'doom-sourcerer t)
 ;; (load-theme 'doom-city-lights t)
 ;; (load-theme 'doom-spacegrey t)

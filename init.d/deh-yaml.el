@@ -14,17 +14,17 @@
 
 (add-hook 'yaml-mode-hook 'deh-yaml-mode-hook)
 
-(defun deh/yaml/run-prettier-on-buffer ()
-  (interactive)
-  (message "running prettier on entire buffer...")
+;; (defun deh/yaml/run-prettier-on-buffer ()
+;;   (interactive)
+;;   (message "running prettier on entire buffer...")
 
-  (progn
-    (let ((current-point (point)))
-      (shell-command-on-region
-       (point-min) (point-max)
-       "prettier --parser=yaml"
-       (buffer-name  (current-buffer)) t )
-      (goto-char current-point))))
+;;   (progn
+;;     (let ((current-point (point)))
+;;       (shell-command-on-region
+;;        (point-min) (point-max)
+;;        "prettier --parser=yaml"
+;;        (buffer-name  (current-buffer)) t )
+;;       (goto-char current-point))))
 
 (defun deh/yaml/run-prettier-on-buffer ()
   (interactive)
@@ -33,9 +33,10 @@
          (current-buffer (current-buffer))
          (min-point (point-min))
          (max-point (point-max)))
-    (if (eq 0 (shell-command-on-region min-point max-point "prettier --parser=yaml" "*prettier-stdout*" nil "*prettier-stderr*" nil))
+    (if (eq 0 (shell-command-on-region min-point max-point "prettier --parser=yaml" "*prettier-stdout*" 0 "*prettier-stderr*" ))
         (with-current-buffer "*prettier-stdout*"
-          (copy-to-buffer current-buffer (point-min) (point-max))))
+          (copy-to-buffer current-buffer (point-min) (point-max)))
+      )
     (goto-char current-point))
   nil)
 
@@ -72,7 +73,7 @@
   (interactive)
   (when (eq major-mode 'yaml-mode) (deh/yaml/run-prettier-on-buffer)))
 
-(add-hook 'before-save-hook 'deh/yaml/before-save)
+;; (add-hook 'before-save-hook 'deh/yaml/before-save)
 
 ;; (evil-define-key '(normal visual) yaml-mode-map
 ;;   (kbd "=") 'deh/yaml/run-prettier-on-buffer)

@@ -15,6 +15,9 @@
   (eldoc-mode t)
   (editorconfig-mode t)
   (emmet-mode t)
+  (setq tab-width 4)
+  (setq nxml-child-indent 4
+        nxml-attribute-indent 4)
   (setq display-line-numbers 'relative))
 
 (add-hook 'xml-mode-hook 'deh-xml-mode-hook)

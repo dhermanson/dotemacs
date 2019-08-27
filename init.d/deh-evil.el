@@ -19,6 +19,7 @@
 (require 'emamux)
 (require 'haskell)
 (require 'counsel)
+(require 'jar-manifest-mode)
 
 (evil-commentary-mode)
 
@@ -29,14 +30,16 @@
 (global-evil-surround-mode t)
 (evil-set-initial-state 'Info-mode 'emacs)
 (evil-set-initial-state 'conf-mode 'normal)
+(evil-set-initial-state 'dired-mode 'emacs)
 (evil-set-initial-state 'fundamental-mode 'normal)
 (evil-set-initial-state 'text-mode 'normal)
 (evil-set-initial-state 'compilation-mode 'emacs)
 (evil-set-initial-state 'comint-mode 'emacs)
 (evil-set-initial-state 'Man-mode 'emacs)
 (evil-set-initial-state 'dockerfile-mode 'normal)
-(evil-set-initial-state 'elisp-mode 'normal)
-(evil-set-initial-state 'emacs-lisp-mode 'normal)
+(evil-set-initial-state 'elisp-mode 'emacs)
+(evil-set-initial-state 'emacs-lisp-mode 'emacs)
+(evil-set-initial-state 'jar-manifest-mode 'normal)
 (evil-set-initial-state 'eshell-mode 'emacs)
 (evil-set-initial-state 'fsharp-mode 'normal)
 (evil-set-initial-state 'protobuf-mode 'normal)
@@ -68,8 +71,8 @@
 ;; (define-key deh/evil-leader-map (kbd "SPC") 'avy-goto-char)
 ;; (define-key deh/evil-leader-map ";" 'avy-goto-word-1)
 (define-key deh/evil-leader-map "p" 'projectile-command-map)
-;; (define-key deh/evil-leader-map "l" 'deh-helm-imenu)
-(define-key deh/evil-leader-map "l" 'counsel-imenu)
+(define-key deh/evil-leader-map "l" 'deh-helm-imenu)
+;; (define-key deh/evil-leader-map "l" 'counsel-imenu)
 ;; (define-key deh/evil-leader-map "l" 'helm-imenu)
 (define-key deh/evil-leader-map "k" 'helm-etags-select)
 ;; (define-key deh/evil-leader-map "l" 'counsel-imenu)
@@ -124,6 +127,7 @@
 
 (evil-define-key nil evil-insert-state-map
   (kbd "C-SPC") 'company-complete
+  (kbd "C-@") 'company-complete ; the @ is the space in a terminal environment it seems?
   (kbd "M-SPC") 'company-complete
   ;; (kbd "C-x C-n") 'company-dabbrev-code
   (kbd "C-x C-n") 'company-dabbrev
@@ -167,5 +171,8 @@
   (evil-shift-right (region-beginning) (region-end))
   (evil-normal-state)
   (evil-visual-restore))
+
+
+(add-to-list 'auto-mode-alist '("\\.mf\\'" . jar-manifest-mode))
 
 (provide 'deh-evil)

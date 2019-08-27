@@ -60,6 +60,7 @@
         diminish
 	      dockerfile-mode
         doom-themes
+        doom-modeline
 	      dracula-theme
 	      edit-indirect
 	      editorconfig
@@ -84,9 +85,11 @@
 	      haskell-mode
 	      helm
 	      helm-projectile
+	      helm-ag
 	      helm-rg
 	      ht
         htmlize
+        jar-manifest-mode
 	      js2-mode
 	      json-mode
         kotlin-mode
@@ -97,6 +100,7 @@
 	      neotree
         nix-mode
 	      org-bullets
+        org-plus-contrib
 	      ox-gfm
         ox-reveal
 	      ox-twbs
@@ -128,6 +132,7 @@
         plantuml-mode
         ujelly-theme
         winum
+        xclip
 	      yaml-mode))
 
 (package-initialize)
@@ -175,6 +180,7 @@
 (require 'deh-hooks) ;; this probably needs to be first
 (require 'deh-general)
 (require 'deh-appearance)
+(require 'deh-modeline)
 (require 'deh-fuzzy)
 (require 'deh-symlinks)
 (require 'deh-terminal-emacs)
@@ -195,6 +201,7 @@
 ;; (require 'deh-treemacs)
 (require 'deh-tsx)
 (require 'deh-magit)
+(require 'deh-dockerfile)
 (require 'deh-macos)
 (require 'deh-sh)
 (require 'deh-yaml)
@@ -204,6 +211,7 @@
 (require 'deh-prog)
 (require 'deh-ruby)
 (require 'deh-elisp)
+(require 'deh-interpreter-mode)
 (require 'deh-conf)
 (require 'deh-lua)
 (require 'deh-css)
@@ -233,6 +241,12 @@
 (require 'deh-repl)
 (require 'deh-sql)
 (require 'deh-keybindings)
+
+;; put this line somewhere else
+(setq recenter-redisplay nil) ;; this helps get rid of flicker in terminal emacs when using things like helm-imenu or evil recenter
+
+(require 'xclip)
+(xclip-mode 1)
 
 (setq-default indent-tabs-mode nil)
 

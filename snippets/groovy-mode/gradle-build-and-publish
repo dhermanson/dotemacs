@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: gradleBuildAndPublish
+# key: gradleBuildAndPublish
+# --
+library('platform-jenkins-lib')
+
+gradleBuildAndPublish()

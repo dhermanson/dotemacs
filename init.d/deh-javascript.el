@@ -2,12 +2,18 @@
 (require 'smartparens)
 (require 'evil)
 (require 'rjsx-mode)
+(require 'js2-mode)
 
 ;; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (evil-set-initial-state 'js2-mode 'normal)
+;; (setq auto-mode-alist (delete '("\\.js\\'" . js2-mode) auto-mode-alist))
+;; (setq auto-mode-alist (delete '("\\.jsm?\\'" . javascript-mode) auto-mode-alist))
+;; (add-to-list 'auto-mode-alist `(,(rx ".js" string-end) . js2-mode))
 
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
+(add-hook 'javascript-mode 'js2-mode-reset)
+
+;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
 (evil-set-initial-state 'rjsx-mode 'normal)
 
 

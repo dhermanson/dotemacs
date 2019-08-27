@@ -12,14 +12,21 @@
                                        (interactive)
                                        (start-process-shell-command "terminal" nil (concat "urxvt 2> /dev/null -cd " default-directory " -e zsh"))))
 
-(define-key global-map (kbd "H-d") (lambda ()
-                                     (interactive)
-                                     (if (projectile-project-p)
-                                         (start-process-shell-command "deh-file-manager" nil (concat "deh-file-manager 2> /dev/null " (projectile-project-root))))))
+(defun deh/projectile-open-file-manager ()
+  (interactive)
+  (if (projectile-project-p)
+      (start-process-shell-command "deh-file-manager" nil (concat "deh-file-manager 2> /dev/null " (projectile-project-root)))))
 
-(define-key global-map (kbd "H-C-d") (lambda ()
-                                     (interactive)
-                                     (start-process-shell-command "deh-file-manager" nil (concat "deh-file-manager 2> /dev/null " default-directory))))
+
+(define-key global-map (kbd "H-d") 'deh/projectile-open-file-manager)
+
+
+
+(defun deh/open-file-manager ()
+  (interactive)
+  (start-process-shell-command "deh-file-manager" nil (concat "deh-file-manager 2> /dev/null " default-directory)))
+
+(define-key global-map (kbd "H-C-d") 'deh/open-file-manager)
 
 
 ;; Backspace ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

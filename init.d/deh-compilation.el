@@ -6,8 +6,8 @@
 
 (add-hook 'compilation-filter-hook 'deh-ansi-colorize-buffer)
 
-(add-to-list 'auto-mode-alist '(".compilation\\.*" . compilation-mode))
-(add-to-list 'auto-mode-alist '(".grep\\.*" . grep-mode))
+;; (add-to-list 'auto-mode-alist '("\\.compilation\\.*" . compilation-mode))
+(add-to-list 'auto-mode-alist '("\\.grep.result$" . grep-mode))
 ;; (setq auto-mode-alist nil)
 
 (provide 'deh-compilation)
