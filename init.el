@@ -292,26 +292,6 @@
 ;; undo-tree
 (global-undo-tree-mode)
 
-;; open regularly used files quickly
-(defun deh/open-init-file ()
-  "open my init file"
-  (interactive)
-  (find-file "~/.emacs.d/init.el"))
-
-(defun deh/open-notes ()
-  "open my notes file"
-  (interactive)
-  (find-file "~/Dropbox/org"))
-
-(defun deh/open-scratch-buffer ()
-  "open my scratch buffer"
-  (interactive)
-  (switch-to-buffer "*scratch*"))
-
-(define-key global-map (kbd "C-c o i") 'deh/open-init-file)
-(define-key global-map (kbd "C-c o n") 'deh/open-notes)
-(define-key global-map (kbd "C-c o s") 'deh/open-scratch-buffer)
-
 (setq flycheck-check-syntax-automatically '(save))
 ;; (setq flycheck-check-syntax-automatically nil)
 
