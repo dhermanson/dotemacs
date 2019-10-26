@@ -100,8 +100,8 @@
   (kbd "[ q") 'previous-error
   (kbd "M-b") 'helm-projectile-switch-to-buffer
   ;; (kbd "M-b") 'counsel-projectile-switch-to-buffer
-  ;; (kbd "M-f") 'helm-projectile-find-file
-  (kbd "M-f") 'deh-projectile-fzf-find-file
+  (kbd "M-f") 'helm-projectile-find-file
+  ;; (kbd "M-f") 'deh-projectile-fzf-find-file
   ;; (kbd "M-f") 'counsel-projectile-find-file
   ;; (kbd "M-f") 'deh-run-fzf
   (kbd "M-w") 'save-buffer
