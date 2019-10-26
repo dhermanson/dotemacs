@@ -4,6 +4,10 @@
 (setq helm-mode-fuzzy-match nil)
 (setq helm-etags-fuzzy-match nil)
 
+;; these two setup helm to always open on bottom with a window above
+(setq helm-split-window-inside-p nil)
+(setq helm-always-two-windows t)
+
 (defun deh-helm-imenu ()
   "Preconfigured `helm' for `imenu'."
   (interactive)
