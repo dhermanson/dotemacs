@@ -55,7 +55,7 @@
 	      counsel-etags
 	      counsel-projectile
 	      csharp-mode
-	      csv-mode
+	      ;; csv-mode
 	      darktooth-theme
         diminish
 	      dockerfile-mode
