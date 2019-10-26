@@ -29,7 +29,11 @@
 (setq projectile-project-root-files-functions '(projectile-root-top-down))
 
 ;; (setq projectile-switch-project-action 'projectile-run-eshell)
-(setq projectile-switch-project-action 'projectile-dired)
+;; (setq projectile-switch-project-action 'projectile-recentf)
+(setq projectile-switch-project-action (lambda ()
+                                         (if (projectile-recentf-files)
+                                             (projectile-recentf)
+                                           (projectile-find-file))))
 ;; (setq projectile-switch-project-action 'projectile-run-shell)
 ;; (setq projectile-switch-project-action 'helm-projectile)
 (setq projectile-tags-backend 'etags-select-find-tag)
