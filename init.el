@@ -80,6 +80,7 @@
 	      flycheck
 	      ggtags
 	      go-mode
+        graphql-mode
 	      groovy-mode
 	      gruvbox-theme
 	      haskell-mode
@@ -187,6 +188,7 @@
 (require 'deh-winum)
 (require 'deh-tmux)
 (require 'deh-evil)
+(require 'deh-graphql)
 (require 'deh-auctex)
 (require 'deh-mpd)
 (require 'deh-plantuml)
@@ -493,6 +495,7 @@
 (require 'smartparens)
 (sp-with-modes '(php-mode
                  plantuml-mode
+                 graphql-mode
 		             json-mode
 		             fsharp-mode
 		             js2-mode

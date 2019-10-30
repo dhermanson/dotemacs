@@ -39,9 +39,11 @@
     (unless (display-graphic-p frame)
       (set-face-background 'default "unspecified-bg" frame))))
 
+;; (add-hook 'after-make-frame-functions 'deh/clear-frame-background-in-terminal)
+
 ;; (add-hook 'window-setup-hook 'deh/clear-frame-background-in-terminal)
 ;; (add-hook 'server-switch-hook 'deh/clear-frame-background-in-terminal)
-(add-hook 'after-make-frame-functions 'deh/clear-frame-background-in-terminal)
+
 ;; (add-hook 'server-visit-hook 'deh/clear-frame-background-in-terminal)
 
 

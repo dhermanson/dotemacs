@@ -6,7 +6,7 @@
   "My dired mode hook."
 
   (put 'dired-find-alternate-file 'disabled nil)
-  (dired-hide-details-mode nil)
+  ;; (dired-hide-details-mode nil)
   )
 
 (add-hook 'dired-mode-hook 'deh/dired-mode-hook)

@@ -1,3 +1,7 @@
+(require 'markdown-mode)
+
+(setq markdown-asymmetric-header t)
+
 (defun deh-markdown-mode-hook ()
   "my markdown mode hook"
   (flycheck-mode t)

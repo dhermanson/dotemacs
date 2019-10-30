@@ -30,12 +30,13 @@
 
 ;; (setq projectile-switch-project-action 'projectile-run-eshell)
 ;; (setq projectile-switch-project-action 'projectile-recentf)
-(setq projectile-switch-project-action (lambda ()
-                                         (if (projectile-recentf-files)
-                                             (projectile-recentf)
-                                           (projectile-find-file))))
+;; (setq projectile-switch-project-action (lambda ()
+;;                                          (if (projectile-recentf-files)
+;;                                              (projectile-recentf)
+;;                                            (projectile-find-file))))
+
 ;; (setq projectile-switch-project-action 'projectile-run-shell)
-;; (setq projectile-switch-project-action 'helm-projectile)
+(setq projectile-switch-project-action 'helm-projectile)
 (setq projectile-tags-backend 'etags-select-find-tag)
 ;; (setq projectile-tags-backend 'helm-gtags-select)
 
