@@ -101,6 +101,13 @@
   (kbd "M-b") 'helm-projectile-switch-to-buffer
   ;; (kbd "M-b") 'counsel-projectile-switch-to-buffer
   (kbd "M-f") 'helm-projectile-find-file
+  ;; (kbd "M-f") '(lambda ()
+  ;;                (interactive)
+  ;;                (let ((default-directory (projectile-project-root)))
+  ;;                  ;; TODO: make this async? call-process?
+  ;;                  ;; (shell-command "tmux splitw fish -ic fzf")))
+  ;;                  (shell-command "tmux splitw zsh --no-globalrcs --no-rcs -ic fzf")))
+  ;;                  ;; (shell-command "tmux splitw zsh -ic e")))
   ;; (kbd "M-f") 'deh-projectile-fzf-find-file
   ;; (kbd "M-f") 'counsel-projectile-find-file
   ;; (kbd "M-f") 'deh-run-fzf

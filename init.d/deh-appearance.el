@@ -32,6 +32,7 @@
   (set-face-foreground 'vertical-border (cdr (assoc "zenburn-bg-1" zenburn-default-colors-alist))))
 
 (deh-load-zenburn)
+
 ;; (load-theme 'nord t)
 
 (defun deh/clear-frame-background-in-terminal (&optional frame)
@@ -39,7 +40,7 @@
     (unless (display-graphic-p frame)
       (set-face-background 'default "unspecified-bg" frame))))
 
-;; (add-hook 'after-make-frame-functions 'deh/clear-frame-background-in-terminal)
+(add-hook 'after-make-frame-functions 'deh/clear-frame-background-in-terminal)
 
 ;; (add-hook 'window-setup-hook 'deh/clear-frame-background-in-terminal)
 ;; (add-hook 'server-switch-hook 'deh/clear-frame-background-in-terminal)

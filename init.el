@@ -79,8 +79,10 @@
 	      feature-mode
 	      flycheck
 	      ggtags
+        git-timemachine
 	      go-mode
         graphql-mode
+        grip-mode
 	      groovy-mode
 	      gruvbox-theme
 	      haskell-mode
