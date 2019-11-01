@@ -39,7 +39,9 @@
 (defun deh/clear-frame-background-in-terminal (&optional frame)
   (with-selected-frame frame
     (unless (display-graphic-p frame)
-      (set-face-background 'default "unspecified-bg" frame))))
+      (progn
+        (set-face-background 'default "unspecified-bg" frame)
+        (set-face-background 'line-number "unspecified-bg" frame)))))
 
 (add-hook 'after-make-frame-functions 'deh/clear-frame-background-in-terminal)
 
