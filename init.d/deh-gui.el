@@ -7,6 +7,16 @@
                                  nil
                                  (concat "emacsclient " server-flag " -c " file-name))))
 
+(defun deh/open-current-file-in-new-gui-frame ()
+  (interactive)
+  (let ((file-name (buffer-file-name))
+        (server-flag (if server-name
+                            (concat " -s " server-name )
+                          "")))
+    (start-process-shell-command "open-in-gui"
+                                 nil
+                                 (concat "emacsclient " server-flag " -c " file-name))))
+
 (defun deh/open-magit-in-new-gui-frame ()
   (interactive)
     (start-process-shell-command "open-in-gui"
