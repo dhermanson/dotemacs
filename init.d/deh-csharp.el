@@ -9,11 +9,13 @@
 (require 'evil)
 (require 'f)
 (require 'yasnippet)
+(require 'xml)
 
 (evil-set-initial-state 'csharp-mode 'normal)
 
-(setq omnisharp-imenu-support t)
+(add-to-list 'auto-mode-alist '("\\.csproj\\'" . xml-mode))
 
+(setq omnisharp-imenu-support t)
 
 (defun deh-csharp-hook ()
   "my csharp hook"
@@ -23,6 +25,7 @@
   (eldoc-mode)
   (smartparens-mode)
   (editorconfig-mode t)
+  ;; (set (make-local-variable 'company-backends) '((company-yasnippet)))
   (set (make-local-variable 'company-backends) '((company-omnisharp company-yasnippet)))
   (setq eldoc-documentation-function #'omnisharp-eldoc-function)
 
@@ -37,29 +40,19 @@
   (evil-leader-mode t)
   (evil-surround-mode t)
   
-  (local-set-key (kbd "C-c r r") 'omnisharp-run-code-action-refactoring)
-  (local-set-key (kbd "C-c C-c") 'recompile))
+  )
 
 (add-hook 'csharp-mode-hook 'deh-csharp-hook)
 
-(evil-leader/set-key-for-mode 'csharp-mode
-  ;; "k" 'counsel-etags-grep
-  "k" 'omnisharp-helm-find-symbols
-  )
+; (evil-leader/set-key-for-mode 'csharp-mode
+;   ;; "k" 'counsel-etags-grep
+;   )
 
-(define-key csharp-mode-map (kbd "C-M-r") 'omnisharp-run-code-action-refactoring)
-(define-key csharp-mode-map (kbd "C-M-f C-M-i") 'omnisharp-find-implementations)
-(define-key csharp-mode-map (kbd "C-M-f C-M-u") 'omnisharp-helm-find-usages)
-(define-key csharp-mode-map (kbd "C-M-f C-M-k") (lambda ()
-						  (interactive)
-						  (counsel-etags-grep "class " "class ")))
-(define-key csharp-mode-map (kbd "C-M-g C-M-d") 'omnisharp-go-to-definition)
-(define-key csharp-mode-map (kbd "C-]") 'omnisharp-go-to-definition)
 
-(defun deh-csharp-run-aspnet (f)
-  (interactive "f")
-  (let ((default-directory (projectile-project-root)))
-    (compile (concat "dotnet run --project " f) nil)))
+;; (defun deh-csharp-run-aspnet (f)
+;;   (interactive "f")
+;;   (let ((default-directory (projectile-project-root)))
+;;     (compile (concat "dotnet run --project " f) nil)))
 
 ;; jumps
 (evil-add-command-properties 'omnisharp-go-to-definition :jump: t)

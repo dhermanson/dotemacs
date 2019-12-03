@@ -24,7 +24,6 @@
 (add-hook 'nxml-mode-hook 'deh-xml-mode-hook)
 
 ;; csproj files
-(add-to-list 'auto-mode-alist '("\\.csproj\\'" . xml-mode))
 (add-to-list 'auto-mode-alist '("\\.props\\'" . xml-mode))
 
 (provide 'deh-xml)

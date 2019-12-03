@@ -36,7 +36,8 @@
 ;;                                            (projectile-find-file))))
 
 ;; (setq projectile-switch-project-action 'projectile-run-shell)
-(setq projectile-switch-project-action 'helm-projectile)
+(setq projectile-switch-project-action 'projectile-dired)
+;; (setq projectile-switch-project-action 'helm-projectile)
 (setq projectile-tags-backend 'etags-select-find-tag)
 ;; (setq projectile-tags-backend 'helm-gtags-select)
 

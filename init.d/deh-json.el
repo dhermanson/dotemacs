@@ -2,6 +2,7 @@
 (require 'flycheck)
 
 (add-to-list 'auto-mode-alist '("\\.avsc\\'" . json-mode))
+(add-to-list 'auto-mode-alist '("\\.avpr\\'" . json-mode))
 (add-to-list 'auto-mode-alist '("\\.json\\'" . json-mode))
 
 (defun deh-json-mode-hook ()

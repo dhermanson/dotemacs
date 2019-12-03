@@ -1,6 +1,6 @@
 (require 'flycheck)
 (require 'smartparens)
-(require 'lsp-java)
+;; (require 'lsp-java)
 
 ;; (setq lsp-java-server-install-dir "~/repos/eclipse")
 

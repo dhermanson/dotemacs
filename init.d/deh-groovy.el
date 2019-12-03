@@ -6,6 +6,9 @@
   "my groovy mode hook"
   (evil-surround-mode t)
   (smartparens-mode t)
+  (setq-default indent-tabs-mode nil)
+  (setq-default tab-width 2)
+  (setq-default c-basic-offset 2)
   (set (make-local-variable 'company-backends) '((company-etags company-dabbrev-code))))
 
 ;; TODO: this was necessary in order to make etags work in groovy-mode

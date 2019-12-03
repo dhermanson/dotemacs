@@ -49,6 +49,7 @@
         company-auctex
 	      company-go
         ;; company-lua
+	      company-lsp
 	      company-tern
 	      company-web
 	      counsel
@@ -75,6 +76,7 @@
 	      exec-path-from-shell
 	      expand-region
 	      f
+        forge ;; magit forge
 	      fsharp-mode
 	      feature-mode
 	      flycheck
@@ -82,13 +84,13 @@
         git-timemachine
 	      go-mode
         graphql-mode
-        grip-mode
 	      groovy-mode
 	      gruvbox-theme
 	      haskell-mode
 	      helm
-	      helm-projectile
 	      helm-ag
+	      helm-lsp
+	      helm-projectile
 	      helm-rg
 	      ht
         htmlize
@@ -96,18 +98,19 @@
 	      js2-mode
 	      json-mode
         kotlin-mode
-        lsp-java
+        lsp-mode
+        ;; lsp-ui
         lua-mode
 	      markdown-mode
 	      monokai-theme
 	      neotree
         nix-mode
+        omnisharp
 	      org-bullets
         org-plus-contrib
 	      ox-gfm
         ox-reveal
 	      ox-twbs
-	      omnisharp
 	      php-mode
 	      prodigy
 	      projectile
@@ -185,6 +188,7 @@
 (require 'deh-appearance)
 (require 'deh-modeline)
 (require 'deh-fuzzy)
+(require 'deh-gui)
 (require 'deh-symlinks)
 (require 'deh-terminal-emacs)
 (require 'deh-winum)
@@ -198,6 +202,8 @@
 (require 'deh-comint)
 (require 'deh-compilation)
 (require 'deh-shell)
+(require 'deh-ripgrep)
+(require 'deh-grep)
 (require 'deh-dired)
 (require 'deh-ediff)
 (require 'deh-yasnippet)
@@ -520,11 +526,13 @@
 
 (savehist-mode)
 
-;; (require 'spaceline-config)
-;; ;; (spaceline-spacemacs-theme)
+(require 'spaceline-config)
+(spaceline-spacemacs-theme)
+(spaceline-helm-mode)
+(spaceline-info-mode)
 ;; (spaceline-emacs-theme)
 ;; (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
-;; (require 'spaceline-all-the-icons)
+(require 'spaceline-all-the-icons)
 
 (setq initial-scratch-message "")
 

@@ -3,6 +3,10 @@
 
 (setq evil-default-state 'emacs)
 (setq evil-disable-insert-state-bindings t)
+(setq evil-insert-state-cursor '(bar . 2))
+;; (setq evil-insert-state-cursor '((bar . 2) "white"))
+;; (setq evil-insert-state-cursor 'box)
+;; (setq evil-insert-state-cursor 'bar)
 
 (require 'ace-jump-mode)
 (require 'avy)
@@ -14,7 +18,7 @@
 (require 'company)
 ;; (require 'treemacs)
 (require 'deh-repl)
-(require 'neotree)
+;; (require 'neotree)
 (require 'deh-tmux)
 (require 'emamux)
 (require 'haskell)
@@ -89,7 +93,8 @@
 (evil-define-key nil deh/evil-leader-map "gc" 'magit-branch-popup)
 (evil-define-key nil deh/evil-leader-map "gla" 'magit-log-all)
 (evil-define-key nil deh/evil-leader-map "glb" 'magit-log-buffer-file)
-(evil-define-key nil deh/evil-leader-map "a" 'deh-ripgrep)
+;; (evil-define-key nil deh/evil-leader-map "a" 'deh-ripgrep)
+(evil-define-key nil deh/evil-leader-map "a" 'deh/projectile/grep)
 
 ;; (define-key deh/evil-leader-map "f" 'counsel-projectile-find-file)
 
@@ -100,14 +105,21 @@
   (kbd "[ q") 'previous-error
   (kbd "M-b") 'helm-projectile-switch-to-buffer
   ;; (kbd "M-b") 'counsel-projectile-switch-to-buffer
-  (kbd "M-f") 'helm-projectile-find-file
-  ;; (kbd "M-f") '(lambda ()
-  ;;                (interactive)
-  ;;                (let ((default-directory (projectile-project-root)))
-  ;;                  ;; TODO: make this async? call-process?
-  ;;                  ;; (shell-command "tmux splitw fish -ic fzf")))
-  ;;                  (shell-command "tmux splitw zsh --no-globalrcs --no-rcs -ic fzf")))
-  ;;                  ;; (shell-command "tmux splitw zsh -ic e")))
+  ;; (kbd "M-f") 'helm-projectile-find-file
+  (kbd "M-f") '(lambda ()
+                 (interactive)
+                 (let ((default-directory (projectile-project-root)))
+                   (if (or (not server-name)
+                           (s-equals? server-name "server"))
+                       (helm-projectile-find-file)
+                     ;; TODO: make this async? call-process?
+                     ;; (shell-command "tmux splitw fish -ic fzf")))
+                     ;; (shell-command (concat  "tmux neww fish -ic 'deh-find-file " server-name "'"))))
+                     ;; (shell-command (concat  "tmux splitw fish -ic 'deh-find-file " server-name "'"))))
+                     (shell-command (concat  "tmux splitw zsh --no-globalrcs --no-rcs -ic 'deh-find-file " server-name "'")))))
+                   ;; (shell-command "tmux splitw zsh --no-globalrcs --no-rcs -ic fzf")))
+                   ;; (shell-command (concat "tmux neww zsh -ic 'deh-find-file " server-name "'"))))
+                   ;; (shell-command (concat "tmux splitw zsh --no-globalrcs -ic 'deh-find-file " server-name "'"))))
   ;; (kbd "M-f") 'deh-projectile-fzf-find-file
   ;; (kbd "M-f") 'counsel-projectile-find-file
   ;; (kbd "M-f") 'deh-run-fzf
@@ -119,12 +131,13 @@
   ;; (kbd "M-t") 'deh-send-current-line-to-tmux
   (kbd "M-t") 'my-send-current-line-to-tmux-pane
   (kbd "M-T") '(lambda () (interactive) (emamux:unset-parameters))
-  (kbd "M-d") 'deh-send-current-line-to-tmux
-  (kbd "M-D") '(lambda () (interactive) (emamux:unset-parameters))
+  ;; (kbd "M-d") 'deh-send-current-line-to-tmux
+  ;; (kbd "M-D") '(lambda () (interactive) (emamux:unset-parameters))
   (kbd "M-q") '(lambda ()
                  (interactive)
                  (kill-buffer (current-buffer)))
   (kbd "M-;") 'neotree
+  ;; (kbd "M-;") 'treemacs
   (kbd "C-M-c") 'flycheck-buffer
   (kbd "C-M-p") 'flycheck-previous-error
   (kbd "C-M-n") 'flycheck-next-error
@@ -136,6 +149,11 @@
   (kbd "C-SPC") 'company-complete
   (kbd "C-@") 'company-complete ; the @ is the space in a terminal environment it seems?
   (kbd "M-SPC") 'company-complete
+  (kbd "M-d") 'company-complete
+  (kbd "M-k") 'company-complete
+  (kbd "M-o") 'company-complete
+  (kbd "M-w") 'company-complete
+  (kbd "C-x C-o") 'company-files
   ;; (kbd "C-x C-n") 'company-dabbrev-code
   (kbd "C-x C-n") 'company-dabbrev
   (kbd "C-x C-f") 'company-files
