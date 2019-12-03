@@ -71,6 +71,8 @@
 
 (define-key global-map (kbd "M-i") 'helm-imenu)
 (define-key global-map (kbd "M-I") 'helm-imenu-in-all-buffers)
+(define-key global-map (kbd "<f5>") 'deh/open-file-in-new-gui-frame)
+(define-key global-map (kbd "<f4>") 'deh/open-magit-in-new-gui-frame)
 
 
 ;; (define-key global-map (kbd "s-c") 'delete-window)
