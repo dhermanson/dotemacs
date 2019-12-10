@@ -1,10 +1,26 @@
+;; (defun deh-projectile-fzf-find-file ()
+;;   (interactive)
+;;   (if (projectile-project-p)
+;;       (let ((default-directory (projectile-project-root)))
+;;         (start-process-shell-command "fzf-file-finder" nil
+;;                                      (concat "EMACS_SERVER_NAME=" server-name
+;;                                              " urxvtc -geometry 125x40 -name urxvtfloat -e deh-find-file " server-name " 2> /dev/null")))))
+
 (defun deh-projectile-fzf-find-file ()
   (interactive)
   (if (projectile-project-p)
       (let ((default-directory (projectile-project-root)))
         (start-process-shell-command "fzf-file-finder" nil
                                      (concat "EMACS_SERVER_NAME=" server-name
-                                             " urxvtc -geometry 125x40 -name urxvtfloat -e 'deh-find-file " server-name "' 2> /dev/null")))))
+                                             " urxvtc -geometry 125x40 -name urxvtfloat -e tmux new-session -s search  deh-find-file " server-name " 2> /dev/null")))))
+
+;; alacritty seems to be starting slower than urxvtc
+;; (defun deh-projectile-fzf-find-file ()
+;;   (interactive)
+;;   (if (projectile-project-p)
+;;       (let ((default-directory (projectile-project-root)))
+;;         (start-process-shell-command "fzf-file-finder" nil
+;;                                      (concat " alacritty --dimensions 125 40 --class urxvtfloat -e deh-find-file " server-name )))))
 
 ;; TODO: don't do this in gui environments...instead, do above
 ;; (defun deh-projectile-fzf-find-file ()

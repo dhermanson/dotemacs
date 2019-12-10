@@ -106,21 +106,21 @@
   (kbd "M-b") 'helm-projectile-switch-to-buffer
   ;; (kbd "M-b") 'counsel-projectile-switch-to-buffer
   ;; (kbd "M-f") 'helm-projectile-find-file
-  (kbd "M-f") '(lambda ()
-                 (interactive)
-                 (let ((default-directory (projectile-project-root)))
-                   (if (or (not server-name)
-                           (s-equals? server-name "server"))
-                       (helm-projectile-find-file)
-                     ;; TODO: make this async? call-process?
-                     ;; (shell-command "tmux splitw fish -ic fzf")))
-                     ;; (shell-command (concat  "tmux neww fish -ic 'deh-find-file " server-name "'"))))
-                     ;; (shell-command (concat  "tmux splitw fish -ic 'deh-find-file " server-name "'"))))
-                     (shell-command (concat  "tmux splitw zsh --no-globalrcs --no-rcs -ic 'deh-find-file " server-name "'")))))
+  ;; (kbd "M-f") '(lambda ()
+  ;;                (interactive)
+  ;;                (let ((default-directory (projectile-project-root)))
+  ;;                  (if (or (not server-name)
+  ;;                          (s-equals? server-name "server"))
+  ;;                      (helm-projectile-find-file)
+  ;;                    ;; TODO: make this async? call-process?
+  ;;                    ;; (shell-command "tmux splitw fish -ic fzf")))
+  ;;                    ;; (shell-command (concat  "tmux neww fish -ic 'deh-find-file " server-name "'"))))
+  ;;                    ;; (shell-command (concat  "tmux splitw fish -ic 'deh-find-file " server-name "'"))))
+  ;;                    (shell-command (concat  "tmux splitw zsh --no-globalrcs --no-rcs -ic 'deh-find-file " server-name "'")))))
                    ;; (shell-command "tmux splitw zsh --no-globalrcs --no-rcs -ic fzf")))
                    ;; (shell-command (concat "tmux neww zsh -ic 'deh-find-file " server-name "'"))))
                    ;; (shell-command (concat "tmux splitw zsh --no-globalrcs -ic 'deh-find-file " server-name "'"))))
-  ;; (kbd "M-f") 'deh-projectile-fzf-find-file
+  (kbd "M-f") 'deh-projectile-fzf-find-file
   ;; (kbd "M-f") 'counsel-projectile-find-file
   ;; (kbd "M-f") 'deh-run-fzf
   (kbd "M-w") 'save-buffer

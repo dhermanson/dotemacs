@@ -29,7 +29,13 @@
 
 ;; (set-frame-font "-ADBO-Source Code Pro for Powerline-*-*-*-*-24-*-*-*-m-0-iso10646-1")
 ;; (add-to-list 'default-frame-alist '(font . "Source Code Pro for Powerline-22"))
-(add-to-list 'default-frame-alist '(font . "-ADBO-Source Code Pro for Powerline-normal-normal-normal-*-22-*-*-*-m-0-iso10646-1"))
+
+;; (add-to-list 'default-frame-alist '(font . "-ADBO-Source Code Pro for Powerline-normal-normal-normal-*-24-*-*-*-m-0-iso10646-1"))
+(add-to-list 'default-frame-alist '(font . "-unknown-Monaco-normal-normal-normal-*-24-*-*-*-m-0-iso10646-1"))
+;; (set-frame-font  "-ADFP-Universalis ADF Std-normal-normal-normal-*-41-*-*-*-*-0-iso10646-1")
+;; (set-frame-font "-DAMA-Ubuntu-normal-normal-normal-*-41-*-*-*-*-0-iso10646-1")
+;; (set-frame-font "-unknown-Monaco-normal-normal-normal-*-24-*-*-*-m-0-iso10646-1")
+
 ;; (set-face-font 'default "-ADBO-Source Code Pro for Powerline-normal-normal-normal-*-22-*-*-*-m-0-iso10646-1")
 ;; (set-face-font 'italic "-ADBO-Source Code Pro for Powerline-normal-italic-normal-*-22-*-*-*-m-0-iso10646-1")
 ;; (set-face-font 'bold "-ADBO-Source Code Pro for Powerline-bold-normal-normal-*-22-*-*-*-m-0-iso10646-1")
@@ -47,14 +53,14 @@
 
 ;; (load-theme 'nord t)
 
-(add-hook 'prog-mode-hook (lambda ()
-                            (progn
-                              ;; (set-face-font 'font-lock-comment-face "-ADBO-Source Code Pro for Powerline-normal-italic-normal-*-22-*-*-*-m-0-iso10646-1")
-                              ;; (set-face-font 'font-lock-comment-delimiter-face "-ADBO-Source Code Pro for Powerline-normal-italic-normal-*-22-*-*-*-m-0-iso10646-1"))))
+;; (add-hook 'prog-mode-hook (lambda ()
+;;                             (progn
+;;                               ;; (set-face-font 'font-lock-comment-face "-ADBO-Source Code Pro for Powerline-normal-italic-normal-*-22-*-*-*-m-0-iso10646-1")
+;;                               ;; (set-face-font 'font-lock-comment-delimiter-face "-ADBO-Source Code Pro for Powerline-normal-italic-normal-*-22-*-*-*-m-0-iso10646-1"))))
 
-                              (set-face-font 'font-lock-doc-face "-ADBO-Source Code Pro for Powerline-normal-italic-normal-*-*-*-*-*-m-0-iso10646-1")
-                              (set-face-font 'font-lock-comment-face "-ADBO-Source Code Pro for Powerline-normal-italic-normal-*-*-*-*-*-m-0-iso10646-1")
-                              (set-face-font 'font-lock-comment-delimiter-face "-ADBO-Source Code Pro for Powerline-normal-italic-normal-*-*-*-*-*-m-0-iso10646-1"))))
+;;                               (set-face-font 'font-lock-doc-face "-ADBO-Source Code Pro for Powerline-normal-italic-normal-*-*-*-*-*-m-0-iso10646-1")
+;;                               (set-face-font 'font-lock-comment-face "-ADBO-Source Code Pro for Powerline-normal-italic-normal-*-*-*-*-*-m-0-iso10646-1")
+;;                               (set-face-font 'font-lock-comment-delimiter-face "-ADBO-Source Code Pro for Powerline-normal-italic-normal-*-*-*-*-*-m-0-iso10646-1"))))
 
 (defun deh/clear-frame-background-in-terminal (&optional frame)
   (with-selected-frame frame
