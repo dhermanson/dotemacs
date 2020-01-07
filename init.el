@@ -97,6 +97,7 @@
         jar-manifest-mode
 	      js2-mode
 	      json-mode
+        key-chord
         kotlin-mode
         lsp-mode
         ;; lsp-ui
@@ -535,6 +536,18 @@
 (require 'spaceline-all-the-icons)
 
 (setq initial-scratch-message "")
+
+(defun deh/start-emacs-server-if-env-var-set ()
+  "Start a server if an environment variable is set."
+  (interactive)
+  (let (($serverName (getenv "DEH_EMACS_SERVER_NAME")))
+    (if $serverName
+        (progn
+          (setq server-name $serverName)
+          (server-start))
+      (print "no server name var set"))))
+
+(deh/start-emacs-server-if-env-var-set)
 
 (provide 'init)
 ;;; init.el ends here

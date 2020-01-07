@@ -8,6 +8,9 @@
 (defvar-local deh-repl-program "the repl program to run")
 (defvar-local deh-repl-program-args "the args of the repl program to run")
 
+;; TODO: instead of defining this function here, take in functions for
+;;       changing to repl and executing (actually calling (comint-send-input)) like here
+;;       https://github.com/kaz-yos/eval-in-repl/blob/master/eval-in-repl.el#L210
 (defun deh-create-repl (&optional switch)
   "create a repl"
   (interactive)
@@ -33,12 +36,34 @@
 (defun deh-send-region-to-repl (start end)
   "Send a region to the repl (START END)."
   (interactive "r")
-  (progn
-    ;; (process-send-region deh-repl-buffer-name start end)
-    ;; (process-send-string deh-repl-buffer-name "\n")
-    (comint-send-region deh-repl-buffer-name start end)
-    (comint-send-string deh-repl-buffer-name "\n")
-    (evil-exit-visual-state)))
+  ;; (progn
+  ;;   ;; (process-send-region deh-repl-buffer-name start end)
+  ;;   ;; (process-send-string deh-repl-buffer-name "\n")
+  ;;   (comint-send-region deh-repl-buffer-name start end)
+  ;;   (comint-send-string deh-repl-buffer-name "\n")
+  ;;   (evil-exit-visual-state))
+
+  (let* (;; Assign the current buffer
+         (script-window (selected-window))
+         (region-string (buffer-substring-no-properties start end)))
+    ;; Change other window to REPL
+    ;; (funcall fun-change-to-repl)
+    (switch-to-buffer-other-window deh-repl-buffer-name)
+    ;; Move to end of buffer
+    (goto-char (point-max))
+    ;; Insert the string
+    ;; the s-trim-right is my addition
+    (insert (s-trim-right region-string))
+    ;; (insert region-string)
+    ;; Execute
+    ;; (funcall fun-execute)
+    (comint-send-input)
+    ;; Come back to the script
+    (select-window script-window)
+    ;; Deactivate selection explicitly (necessary in Emacs 25)
+    (deactivate-mark)
+    ;; Return nil (this is a void function)
+    nil))
 
 (defun deh-restart-repl ()
   (interactive)
