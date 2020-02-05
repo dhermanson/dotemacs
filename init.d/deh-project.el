@@ -24,9 +24,10 @@
 
 ;; only use the topmost projectile project
 (setq projectile-project-root-files '(".projectile"))
-(setq projectile-project-root-files-bottom-up nil)
-(setq projectile-project-root-files-top-down-recurring nil)
-(setq projectile-project-root-files-functions '(projectile-root-top-down))
+(setq projectile-project-root-files-bottom-up '(".projectile"))
+(setq projectile-project-root-files-top-down-recurring '(".projectile"))
+;; (setq projectile-project-root-files-functions '(projectile-root-top-down))
+(setq projectile-project-root-files-functions '(projectile-root-bottom-up))
 
 ;; (setq projectile-switch-project-action 'projectile-run-eshell)
 ;; (setq projectile-switch-project-action 'projectile-recentf)
@@ -35,7 +36,7 @@
 ;;                                              (projectile-recentf)
 ;;                                            (projectile-find-file))))
 
-;; (setq projectile-switch-project-action 'projectile-run-shell)
+;; (setq projectile-switch-project-action 'projectile-run-eshell)
 (setq projectile-switch-project-action 'projectile-dired)
 ;; (setq projectile-switch-project-action 'helm-projectile)
 (setq projectile-tags-backend 'etags-select-find-tag)
