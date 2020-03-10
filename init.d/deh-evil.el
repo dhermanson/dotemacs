@@ -25,6 +25,8 @@
 (require 'counsel)
 (require 'jar-manifest-mode)
 (require 'key-chord)
+(require 'expand-region)
+(require 'deh-emamux)
 (key-chord-mode 1)
 
 (evil-commentary-mode)
@@ -34,10 +36,12 @@
 (global-evil-matchit-mode t)
 (evil-mode 1)
 (global-evil-surround-mode t)
+(evil-set-initial-state 'bat-mode 'normal)
 (evil-set-initial-state 'Info-mode 'emacs)
 (evil-set-initial-state 'conf-mode 'normal)
 (evil-set-initial-state 'dired-mode 'emacs)
 (evil-set-initial-state 'fundamental-mode 'normal)
+(evil-set-initial-state 'terraform-mode 'normal)
 (evil-set-initial-state 'text-mode 'normal)
 (evil-set-initial-state 'compilation-mode 'emacs)
 (evil-set-initial-state 'comint-mode 'emacs)
@@ -83,9 +87,11 @@
 (define-key deh/evil-leader-map "k" 'helm-etags-select)
 ;; (define-key deh/evil-leader-map "l" 'counsel-imenu)
 (define-key deh/evil-leader-map "f" 'helm-projectile-find-file)
-(define-key deh/evil-leader-map "rr" 'deh-restart-repl)
-(define-key deh/evil-leader-map "rk" 'deh-kill-repl)
-(define-key deh/evil-leader-map "ro" 'deh-focus-repl-in-other-window)
+;; (define-key deh/evil-leader-map "rr" 'deh-restart-repl)
+;; (define-key deh/evil-leader-map "rk" 'deh-kill-repl)
+;; (define-key deh/evil-leader-map "ro" 'deh-focus-repl-in-other-window)
+;; (define-key deh/evil-leader-map "ro" 'emamux:split-window-horizontally)
+(define-key deh/evil-leader-map "ro" 'deh/emamux/set-repl)
 
 (evil-define-key nil deh/evil-leader-map "gw" 'magit-stage-file)
 (evil-define-key nil deh/evil-leader-map "gds" (lambda () (interactive) (magit-ediff-show-staged (magit-current-file))))
@@ -103,28 +109,46 @@
 ;; key chords
 (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 
+(defun deh/tmux/fzf-projectile-find-file ()
+  (interactive)
+  (let ((default-directory (projectile-project-root)))
+    (shell-command (concat  "tmux splitw zsh --no-globalrcs --no-rcs -ic 'deh-find-file " server-name "'")
+                   )
+    ;; (if (or (not server-name)
+    ;;         (s-equals? server-name "server"))
+    ;;     (helm-projectile-find-file)
+    ;;   )
+    
+    ))
+
 (evil-define-key nil evil-normal-state-map
   ;; (kbd ";") 'evil-ex
   ;; (kbd ":") 'evil-repeat-find-char
+  (kbd "C-=") 'er/expand-region
   (kbd "] q") 'next-error
   (kbd "[ q") 'previous-error
   (kbd "M-b") 'helm-projectile-switch-to-buffer
   ;; (kbd "M-b") 'counsel-projectile-switch-to-buffer
   ;; (kbd "M-f") 'helm-projectile-find-file
-  (kbd "M-f") '(lambda ()
-                 (interactive)
-                 (let ((default-directory (projectile-project-root)))
-                   (if (or (not server-name)
-                           (s-equals? server-name "server"))
-                       (helm-projectile-find-file)
-                     ;; TODO: make this async? call-process?
-                     ;; (shell-command "tmux splitw fish -ic fzf")))
-                     ;; (shell-command (concat  "tmux neww fish -ic 'deh-find-file " server-name "'"))))
-                     ;; (shell-command (concat  "tmux splitw fish -ic 'deh-find-file " server-name "'"))))
-                     (shell-command (concat  "tmux splitw zsh --no-globalrcs --no-rcs -ic 'deh-find-file " server-name "'")))))
-                   ;; (shell-command "tmux splitw zsh --no-globalrcs --no-rcs -ic fzf")))
-                   ;; (shell-command (concat "tmux neww zsh -ic 'deh-find-file " server-name "'"))))
-                   ;; (shell-command (concat "tmux splitw zsh --no-globalrcs -ic 'deh-find-file " server-name "'"))))
+  ;; (kbd "M-f") '(lambda ()
+  ;;                (interactive)
+  ;;                (let ((default-directory (projectile-project-root)))
+  ;;                  (shell-command (concat  "tmux splitw zsh --no-globalrcs --no-rcs -ic 'deh-find-file " server-name "'")
+  ;;                                 )
+  ;;                  ;; (if (or (not server-name)
+  ;;                  ;;         (s-equals? server-name "server"))
+  ;;                  ;;     (helm-projectile-find-file)
+  ;;                  ;;   )
+                   
+  ;;                                 ))
+  ;; TODO: make this async? call-process?
+  ;; (shell-command "tmux splitw fish -ic fzf")))
+  ;; (shell-command (concat  "tmux neww fish -ic 'deh-find-file " server-name "'"))))
+  ;; (shell-command (concat  "tmux splitw fish -ic 'deh-find-file " server-name "'"))))
+  ;; (shell-command "tmux splitw zsh --no-globalrcs --no-rcs -ic fzf")))
+  ;; (shell-command (concat "tmux neww zsh -ic 'deh-find-file " server-name "'"))))
+  ;; (shell-command (concat "tmux splitw zsh --no-globalrcs -ic 'deh-find-file " server-name "'"))))
+  (kbd "M-f") 'deh/tmux/fzf-projectile-find-file
   ;; (kbd "M-f") 'deh-projectile-fzf-find-file
   ;; (kbd "M-f") 'counsel-projectile-find-file
   ;; (kbd "M-f") 'deh-run-fzf
@@ -132,7 +156,8 @@
   (kbd "M-c") 'delete-window
   (kbd "M-o") 'delete-other-windows
   ;; (kbd "M-n") 'make-frame-command
-  (kbd "M-s") 'deh-send-current-line-to-repl
+  ;; (kbd "M-s") 'deh-send-current-line-to-repl
+  (kbd "M-s") 'deh/emamux/send-current-line
   ;; (kbd "M-t") 'deh-send-current-line-to-tmux
   (kbd "M-t") 'my-send-current-line-to-tmux-pane
   (kbd "M-T") '(lambda () (interactive) (emamux:unset-parameters))
@@ -151,7 +176,9 @@
   (kbd "C-c -") 'evil-numbers/dec-at-pt)
 
 (evil-define-key nil evil-insert-state-map
-  (kbd "C-g") 'evil-normal-state
+  ;; (kbd "<escape>") 'keyboard-quit
+  ;; (kbd "C-g") 'evil-normal-state
+  (kbd "C-=") 'er/expand-region
   (kbd "C-SPC") 'company-complete
   (kbd "C-@") 'company-complete ; the @ is the space in a terminal environment it seems?
   (kbd "M-SPC") 'company-complete
@@ -163,13 +190,16 @@
   ;; (kbd "C-x C-n") 'company-dabbrev-code
   (kbd "C-x C-n") 'company-dabbrev
   (kbd "C-x C-f") 'company-files
-  (kbd "M-s") 'deh-send-current-line-to-repl
+  ;; (kbd "M-s") 'deh-send-current-line-to-repl
+  ;; (kbd "M-s") 'deh-send-current-line-to-repl
+  (kbd "M-s") 'deh/emamux/send-current-line
   ;; (kbd "M-t") 'deh-send-current-line-to-tmux
   (kbd "M-t") 'my-send-current-line-to-tmux-pane
   (kbd "M-T") '(lambda () (interactive) (emamux:unset-parameters)))
 
 (evil-define-key nil evil-visual-state-map
-  (kbd "M-s") 'deh-send-region-to-repl
+  ;; (kbd "M-s") 'deh-send-region-to-repl
+  (kbd "M-s") 'emamux:send-region
   ;; (kbd "M-t") 'deh-send-region-to-tmux
   (kbd "M-t") 'my-send-region-to-tmux-pane
   (kbd "M-T") '(lambda () (interactive) (emamux:unset-parameters))
@@ -185,7 +215,7 @@
 (setq-default evil-indent-convert-tabs nil)
 
 
-; Overload shifts so that they don't lose the selection
+                                        ; Overload shifts so that they don't lose the selection
 (define-key evil-visual-state-map (kbd ">") 'deh/evil-shift-right-visual)
 (define-key evil-visual-state-map (kbd "<") 'deh/evil-shift-left-visual)
 (define-key evil-visual-state-map [tab] 'deh/evil-shift-right-visual)

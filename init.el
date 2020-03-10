@@ -35,6 +35,7 @@
 	      ;; embrace
 	      ace-jump-mode
         adoc-mode
+        ag
 	      alchemist
         all-the-icons
         all-the-icons-dired
@@ -107,7 +108,6 @@
 	      neotree
         nix-mode
         omnisharp
-	      org-bullets
         org-plus-contrib
 	      ox-gfm
         ox-reveal
@@ -125,8 +125,10 @@
         spaceline
         spaceline-all-the-icons
 	      tern
+        terraform-mode
 	      tide
 	      ;; treemacs
+	      ;; treemacs-projectile
 	      undo-tree
 	      web-mode
 	      wgrep
@@ -187,8 +189,11 @@
 (require 'deh-hooks) ;; this probably needs to be first
 (require 'deh-general)
 (require 'deh-appearance)
+(require 'deh-buffer-menu)
 (require 'deh-modeline)
 (require 'deh-fuzzy)
+(require 'deh-feature)
+(require 'deh-emamux)
 (require 'deh-gui)
 (require 'deh-symlinks)
 (require 'deh-terminal-emacs)
@@ -527,13 +532,8 @@
 
 (savehist-mode)
 
-(require 'spaceline-config)
-(spaceline-spacemacs-theme)
-(spaceline-helm-mode)
-(spaceline-info-mode)
 ;; (spaceline-emacs-theme)
 ;; (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
-(require 'spaceline-all-the-icons)
 
 (setq initial-scratch-message "")
 

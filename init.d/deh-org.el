@@ -1,6 +1,5 @@
 ;; org
 (require 'org)
-(require 'org-bullets)
 (require 'org-protocol)
 (require 'org-capture)
 (require 'ob-ruby)
@@ -64,7 +63,6 @@
 
 (defun deh-org-mode-hook ()
   "My org mode hook."
-  (org-bullets-mode t)
   (visual-line-mode t)
   ;; (setq truncate-lines nil)
   (company-mode t)

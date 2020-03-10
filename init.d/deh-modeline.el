@@ -1,4 +1,9 @@
 (require 'doom-modeline)
+;; (require 'spaceline-config)
+;; (require 'spaceline-all-the-icons)
+;; (spaceline-spacemacs-theme)
+;; (spaceline-helm-mode)
+;; (spaceline-info-mode)
 
 ;; (doom-modeline-mode 1)
 

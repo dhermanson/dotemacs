@@ -7,8 +7,8 @@
 (defun deh-java-mode-hook ()
   "my java mode hook"
   (setq indent-tabs-mode nil
-	      tab-width 2
-	      c-basic-offset 2)
+	      tab-width 4
+	      c-basic-offset 4)
   
   (flycheck-mode t)
   (smartparens-mode t)

@@ -15,7 +15,7 @@
 (defun deh/projectile-open-file-manager ()
   (interactive)
   (if (projectile-project-p)
-      (start-process-shell-command "deh-file-manager" nil (concat "deh-file-manager 2> /dev/null " (projectile-project-root)))))
+      (start-process-shell-command "deh-file-manager" nil (concat "EDITOR=\"emacsclient -s " server-name "\" deh-file-manager 2> /dev/null " (projectile-project-root)))))
 
 
 (define-key global-map (kbd "H-d") 'deh/projectile-open-file-manager)
@@ -48,7 +48,8 @@
 (define-key helm-map (kbd "H-g") 'helm-keyboard-quit)
 
 (define-key global-map (kbd "H-r") 'recompile)
-(define-key global-map (kbd "H-a") 'deh-ripgrep)
+;; (define-key global-map (kbd "H-a") 'deh-ripgrep)
+(define-key global-map (kbd "H-a") 'deh/projectile/grep)
 (define-key global-map (kbd "H-b") 'helm-projectile-switch-to-buffer)
 (define-key global-map (kbd "H-t") 'helm-etags-select)
 (define-key global-map (kbd "H-f") 'helm-projectile-find-file)
@@ -74,6 +75,8 @@
 (define-key global-map (kbd "<f2>") 'deh/open-magit-in-new-gui-frame)
 (define-key global-map (kbd "<f3>") 'deh/open-current-file-in-new-gui-frame)
 (define-key global-map (kbd "<f4>") 'deh/open-file-in-new-gui-frame)
+
+(define-key global-map (kbd "C-c f") 'deh-projectile-fzf-find-file)
 
 
 ;; (define-key global-map (kbd "s-c") 'delete-window)

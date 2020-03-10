@@ -1,5 +1,6 @@
 (require 's)
 (require 'evil)
+(require 'expand-region)
 
 (defvar-local deh-repl-enabled "is a repl enabled in this buffer")
 (defvar-local deh-repl-insert-style 'a "the style of insert")
@@ -61,7 +62,9 @@
     ;; Come back to the script
     (select-window script-window)
     ;; Deactivate selection explicitly (necessary in Emacs 25)
+    (er/contract-region 0)
     (deactivate-mark)
+    ;; (evil-exit-visual-state)
     ;; Return nil (this is a void function)
     nil))
 

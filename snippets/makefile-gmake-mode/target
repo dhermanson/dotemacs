@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: target
+# key: target
+# --
+.PHONY: $1
+$1:$0
