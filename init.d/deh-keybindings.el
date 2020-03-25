@@ -1,6 +1,7 @@
 (require 'deh-ripgrep)
 (require 'helm)
 (require 'projectile)
+(require 'expand-region)
 
 ;; TODO: use H-o as a prefix? or H-e
 (define-key global-map (kbd "H-s") (lambda ()
@@ -76,7 +77,8 @@
 (define-key global-map (kbd "<f3>") 'deh/open-current-file-in-new-gui-frame)
 (define-key global-map (kbd "<f4>") 'deh/open-file-in-new-gui-frame)
 
-(define-key global-map (kbd "C-c f") 'deh-projectile-fzf-find-file)
+;; (define-key global-map (kbd "C-c f") 'deh-projectile-fzf-find-file)
+(define-key global-map (kbd "C-c f") 'deh/tmux/fzf-projectile-find-file)
 
 
 ;; (define-key global-map (kbd "s-c") 'delete-window)
@@ -88,5 +90,7 @@
 
 ;; (define-key global-map (kbd "s-i") 'helm-imenu)
 ;; (define-key global-map (kbd "s-I") 'helm-imenu-in-all-buffers)
+
+(define-key global-map (kbd "C-=") 'er/expand-region)
 
 (provide 'deh-keybindings)

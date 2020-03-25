@@ -1,20 +1,25 @@
+;;; deh-javascript.el -- my javascript mode -*- lexical-binding: t; -*-
 (require 'flycheck)
 (require 'smartparens)
 (require 'evil)
 (require 'rjsx-mode)
 (require 'js2-mode)
 
-;; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+;; look here https://github.com/magnars/.emacs.d/blob/master/settings/setup-js2-mode.el
+
+
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (evil-set-initial-state 'js2-mode 'normal)
-;; (setq auto-mode-alist (delete '("\\.js\\'" . js2-mode) auto-mode-alist))
-;; (setq auto-mode-alist (delete '("\\.jsm?\\'" . javascript-mode) auto-mode-alist))
-;; (add-to-list 'auto-mode-alist `(,(rx ".js" string-end) . js2-mode))
 
-(add-hook 'javascript-mode 'js2-mode-reset)
+;; (add-hook 'javascript-mode 'js2-mode-reset)
 
-;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
-(evil-set-initial-state 'rjsx-mode 'normal)
+;; (evil-set-initial-state 'rjsx-mode 'normal)
+
+;; Let flycheck handle all errors and warnings
+(setq-default js2-mode-show-parse-errors nil)
+(setq-default js2-mode-show-strict-warnings nil)
+;; (setq-default js2-strict-missing-semi-warning nil)
+;; (setq-default js2-strict-trailing-comma-warning t) ;; jshint does not warn about this now for some reason
 
 
 (defun deh-javascript-hook ()
@@ -25,7 +30,6 @@
   (flycheck-mode t)
   (eldoc-mode t)
   (smartparens-mode t)
-  ;; (set (make-local-variable 'company-backends) '((company-tern company-yasnippet)))
   (evil-surround-mode)
 
   (setq deh-repl-enabled t)
@@ -33,25 +37,19 @@
   (setq deh-repl-buffer-name "*deh-node*")
   (setq deh-repl-program "node")
   (setq deh-repl-program-args nil)
-  ;; (setq deh-repl-program-args (list (concat (getenv "HOME") "/node_repl.js")))
   )
 
 
 
 (add-hook 'js2-mode-hook 'deh-javascript-hook)
+(flycheck-add-mode 'javascript-eslint 'js2-mode)
 
 (defun deh-rjsx-hook ()
   "my rjsx hook"
   (setq js-indent-level 2)
 
-  ;; (tern-mode nil)
-
-
-  ;; (eldoc-mode +1)
   (emmet-mode t)
   (tide-setup)
-  ;; (unless (tide-current-server)
-  ;;   (tide-restart-server))
   (tide-mode t)
   (smartparens-mode t)
   (eldoc-mode t)
@@ -65,6 +63,6 @@
   (define-key rjsx-mode-map (kbd "C-d") nil)
   (define-key rjsx-mode-map ">" nil))
 
-(add-hook 'rjsx-mode-hook 'deh-rjsx-hook)
+;; (add-hook 'rjsx-mode-hook 'deh-rjsx-hook)
 
 (provide 'deh-javascript)

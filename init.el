@@ -106,6 +106,7 @@
 	      markdown-mode
 	      monokai-theme
 	      neotree
+        nginx-mode
         nix-mode
         omnisharp
         org-plus-contrib
@@ -361,6 +362,7 @@
 ;; counsel
 ;; (define-key global-map (kbd "M-x") 'counsel-M-x)
 ;; (define-key global-map (kbd "C-x C-f") 'counsel-find-file)
+;; (define-key global-map (kbd "C-x b") 'counsel-buffer-or-recentf)
 ;; (counsel-projectile-mode)
 
 ;; ido

@@ -42,6 +42,7 @@
 (evil-set-initial-state 'dired-mode 'emacs)
 (evil-set-initial-state 'fundamental-mode 'normal)
 (evil-set-initial-state 'terraform-mode 'normal)
+(evil-set-initial-state 'nginx-mode 'normal)
 (evil-set-initial-state 'text-mode 'normal)
 (evil-set-initial-state 'compilation-mode 'emacs)
 (evil-set-initial-state 'comint-mode 'emacs)
@@ -148,8 +149,8 @@
   ;; (shell-command "tmux splitw zsh --no-globalrcs --no-rcs -ic fzf")))
   ;; (shell-command (concat "tmux neww zsh -ic 'deh-find-file " server-name "'"))))
   ;; (shell-command (concat "tmux splitw zsh --no-globalrcs -ic 'deh-find-file " server-name "'"))))
-  (kbd "M-f") 'deh/tmux/fzf-projectile-find-file
-  ;; (kbd "M-f") 'deh-projectile-fzf-find-file
+  ;; (kbd "M-f") 'deh/tmux/fzf-projectile-find-file
+  (kbd "M-f") 'deh-projectile-fzf-find-file
   ;; (kbd "M-f") 'counsel-projectile-find-file
   ;; (kbd "M-f") 'deh-run-fzf
   (kbd "M-w") 'save-buffer
