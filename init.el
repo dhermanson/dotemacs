@@ -193,6 +193,7 @@
 (require 'deh-buffer-menu)
 (require 'deh-modeline)
 (require 'deh-fuzzy)
+(require 'deh-completion)
 (require 'deh-feature)
 (require 'deh-emamux)
 (require 'deh-gui)
