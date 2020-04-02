@@ -31,7 +31,7 @@
 ;; (add-to-list 'default-frame-alist '(font . "Source Code Pro for Powerline-22"))
 
 ;; (add-to-list 'default-frame-alist '(font . "-ADBO-Source Code Pro for Powerline-normal-normal-normal-*-24-*-*-*-m-0-iso10646-1"))
-(add-to-list 'default-frame-alist '(font . "-unknown-Monaco-normal-normal-normal-*-22-*-*-*-m-0-iso10646-1"))
+(add-to-list 'default-frame-alist '(font . "-unknown-Monaco-normal-normal-normal-*-20-*-*-*-m-0-iso10646-1"))
 ;; (set-frame-font  "-ADFP-Universalis ADF Std-normal-normal-normal-*-41-*-*-*-*-0-iso10646-1")
 ;; (set-frame-font "-DAMA-Ubuntu-normal-normal-normal-*-41-*-*-*-*-0-iso10646-1")
 ;; (set-frame-font "-unknown-Monaco-normal-normal-normal-*-24-*-*-*-m-0-iso10646-1")
