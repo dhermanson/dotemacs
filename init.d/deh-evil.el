@@ -90,9 +90,9 @@
 (define-key deh/evil-leader-map "f" 'helm-projectile-find-file)
 ;; (define-key deh/evil-leader-map "rr" 'deh-restart-repl)
 ;; (define-key deh/evil-leader-map "rk" 'deh-kill-repl)
-;; (define-key deh/evil-leader-map "ro" 'deh-focus-repl-in-other-window)
+(define-key deh/evil-leader-map "ro" 'deh-focus-repl-in-other-window)
 ;; (define-key deh/evil-leader-map "ro" 'emamux:split-window-horizontally)
-(define-key deh/evil-leader-map "ro" 'deh/emamux/set-repl)
+(define-key deh/evil-leader-map "to" 'deh/emamux/set-repl)
 
 (evil-define-key nil deh/evil-leader-map "gw" 'magit-stage-file)
 (evil-define-key nil deh/evil-leader-map "gds" (lambda () (interactive) (magit-ediff-show-staged (magit-current-file))))
@@ -157,11 +157,12 @@
   (kbd "M-c") 'delete-window
   (kbd "M-o") 'delete-other-windows
   ;; (kbd "M-n") 'make-frame-command
-  ;; (kbd "M-s") 'deh-send-current-line-to-repl
-  (kbd "M-s") 'deh/emamux/send-current-line
+  (kbd "M-s") 'deh-send-current-line-to-repl
+  (kbd "M-t") 'deh/emamux/send-current-line
+  (kbd "M-d") 'deh/emamux/send-current-line
   ;; (kbd "M-t") 'deh-send-current-line-to-tmux
-  (kbd "M-t") 'my-send-current-line-to-tmux-pane
-  (kbd "M-T") '(lambda () (interactive) (emamux:unset-parameters))
+  ;; (kbd "M-t") 'my-send-current-line-to-tmux-pane
+  ;; (kbd "M-T") '(lambda () (interactive) (emamux:unset-parameters))
   ;; (kbd "M-d") 'deh-send-current-line-to-tmux
   ;; (kbd "M-D") '(lambda () (interactive) (emamux:unset-parameters))
   (kbd "M-q") '(lambda ()
@@ -192,18 +193,21 @@
   (kbd "C-x C-n") 'company-dabbrev
   (kbd "C-x C-f") 'company-files
   ;; (kbd "M-s") 'deh-send-current-line-to-repl
-  ;; (kbd "M-s") 'deh-send-current-line-to-repl
-  (kbd "M-s") 'deh/emamux/send-current-line
+  (kbd "M-s") 'deh-send-current-line-to-repl
+  (kbd "M-t") 'deh/emamux/send-current-line
+  (kbd "M-d") 'deh/emamux/send-current-line
   ;; (kbd "M-t") 'deh-send-current-line-to-tmux
-  (kbd "M-t") 'my-send-current-line-to-tmux-pane
-  (kbd "M-T") '(lambda () (interactive) (emamux:unset-parameters)))
+  ;; (kbd "M-t") 'my-send-current-line-to-tmux-pane
+  ;; (kbd "M-T") '(lambda () (interactive) (emamux:unset-parameters))
+  )
 
 (evil-define-key nil evil-visual-state-map
-  ;; (kbd "M-s") 'deh-send-region-to-repl
-  (kbd "M-s") 'emamux:send-region
-  ;; (kbd "M-t") 'deh-send-region-to-tmux
-  (kbd "M-t") 'my-send-region-to-tmux-pane
-  (kbd "M-T") '(lambda () (interactive) (emamux:unset-parameters))
+  (kbd "M-s") 'deh-send-region-to-repl
+  ;; (kbd "M-s") 'emamux:send-region
+  (kbd "M-t") 'deh-send-region-to-tmux
+  (kbd "M-d") 'deh-send-region-to-tmux
+  ;; (kbd "M-t") 'my-send-region-to-tmux-pane
+  ;; (kbd "M-T") '(lambda () (interactive) (emamux:unset-parameters))
   "$" 'evil-last-non-blank) ;; i think this is how vim behaves
 
 (setq evil-leader/leader "SPC")
