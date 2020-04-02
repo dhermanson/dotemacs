@@ -43,30 +43,33 @@
   ;;   (comint-send-region deh-repl-buffer-name start end)
   ;;   (comint-send-string deh-repl-buffer-name "\n")
   ;;   (evil-exit-visual-state))
+  (save-window-excursion
+    (let* (;; Assign the current buffer
+           (script-window (selected-window))
+           (region-string (buffer-substring-no-properties start end)))
+      ;; Change other window to REPL
+      ;; (funcall fun-change-to-repl)
+      (switch-to-buffer-other-window deh-repl-buffer-name)
+      ;; Move to end of buffer
+      (goto-char (point-max))
+      ;; Insert the string
+      ;; the s-trim-right is my addition
+      (insert (s-trim-right region-string))
+      ;; (insert region-string)
+      ;; Execute
+      ;; (funcall fun-execute)
+      (comint-send-input)
+      ;; Come back to the script
+      (select-window script-window)
+      ;; Deactivate selection explicitly (necessary in Emacs 25)
+      (er/contract-region 0)
+      (deactivate-mark)
+      ;; (evil-exit-visual-state)
+      ;; Return nil (this is a void function)
+      nil)
+    )
 
-  (let* (;; Assign the current buffer
-         (script-window (selected-window))
-         (region-string (buffer-substring-no-properties start end)))
-    ;; Change other window to REPL
-    ;; (funcall fun-change-to-repl)
-    (switch-to-buffer-other-window deh-repl-buffer-name)
-    ;; Move to end of buffer
-    (goto-char (point-max))
-    ;; Insert the string
-    ;; the s-trim-right is my addition
-    (insert (s-trim-right region-string))
-    ;; (insert region-string)
-    ;; Execute
-    ;; (funcall fun-execute)
-    (comint-send-input)
-    ;; Come back to the script
-    (select-window script-window)
-    ;; Deactivate selection explicitly (necessary in Emacs 25)
-    (er/contract-region 0)
-    (deactivate-mark)
-    ;; (evil-exit-visual-state)
-    ;; Return nil (this is a void function)
-    nil))
+  )
 
 (defun deh-restart-repl ()
   (interactive)
