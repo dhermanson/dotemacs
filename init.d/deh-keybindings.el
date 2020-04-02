@@ -4,14 +4,15 @@
 (require 'expand-region)
 
 ;; TODO: use H-o as a prefix? or H-e
-(define-key global-map (kbd "H-s") (lambda ()
-                                       (interactive)
-                                       (if (projectile-project-p)
-                                           (start-process-shell-command "terminal" nil (concat "urxvt 2> /dev/null -cd " (projectile-project-root) " -e zsh")))))
+(defun deh/projectile-open-terminal ()
+  (interactive)
+  (if (projectile-project-p)
+      (start-process-shell-command "terminal" nil (concat "urxvt 2> /dev/null -cd " (projectile-project-root) " -e tmux new zsh"))))
 
-(define-key global-map (kbd "H-C-s") (lambda ()
-                                       (interactive)
-                                       (start-process-shell-command "terminal" nil (concat "urxvt 2> /dev/null -cd " default-directory " -e zsh"))))
+(defun deh/open-terminal ()
+  (interactive)
+  (start-process-shell-command "terminal" nil (concat "urxvt 2> /dev/null -cd " default-directory " -e tmux new zsh")))
+
 
 (defun deh/projectile-open-file-manager ()
   (interactive)
@@ -76,9 +77,12 @@
 (define-key global-map (kbd "<f2>") 'deh/open-magit-in-new-gui-frame)
 (define-key global-map (kbd "<f3>") 'deh/open-current-file-in-new-gui-frame)
 (define-key global-map (kbd "<f4>") 'deh/open-file-in-new-gui-frame)
+(define-key global-map (kbd "<f7>") 'recompile)
+(define-key global-map (kbd "<f8>") 'deh/projectile-open-terminal)
+(define-key global-map (kbd "<f9>") 'deh/open-terminal)
 
-;; (define-key global-map (kbd "C-c f") 'deh-projectile-fzf-find-file)
-(define-key global-map (kbd "C-c f") 'deh/tmux/fzf-projectile-find-file)
+(define-key global-map (kbd "C-c f") 'deh-projectile-fzf-find-file)
+;; (define-key global-map (kbd "C-c f") 'deh/tmux/fzf-projectile-find-file)
 
 
 ;; (define-key global-map (kbd "s-c") 'delete-window)
