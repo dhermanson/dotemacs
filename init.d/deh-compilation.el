@@ -10,4 +10,13 @@
 (add-to-list 'auto-mode-alist '("\\.grep.result$" . grep-mode))
 ;; (setq auto-mode-alist nil)
 
+
+(defun deh/advice/save-window-excursion (orig-fun &rest args)
+  (with-current-buffer (current-buffer)
+    (save-window-excursion
+      (apply orig-fun args))))
+
+(advice-add 'recompile :around #'deh/advice/save-window-excursion)
+
+
 (provide 'deh-compilation)
