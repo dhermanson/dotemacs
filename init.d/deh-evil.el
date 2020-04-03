@@ -41,6 +41,7 @@
 (evil-set-initial-state 'conf-mode 'normal)
 (evil-set-initial-state 'dired-mode 'emacs)
 (evil-set-initial-state 'fundamental-mode 'normal)
+(evil-set-initial-state 'syslog-mode 'normal)
 (evil-set-initial-state 'terraform-mode 'normal)
 (evil-set-initial-state 'nginx-mode 'normal)
 (evil-set-initial-state 'text-mode 'normal)
