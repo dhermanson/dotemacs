@@ -314,6 +314,11 @@
 (setq flycheck-check-syntax-automatically '(save))
 ;; (setq flycheck-check-syntax-automatically nil)
 
+;; don't ask whether to keep curent tags
+;; this is necessary because sometimes it blocks scripts
+;; from opening a new file, e.g. deh-find-file
+(setq tags-add-tables nil) 
+
 ;; yasnippet
 (setq yas-snippet-dirs
       '("~/.emacs.d/snippets"

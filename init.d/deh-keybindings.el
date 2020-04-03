@@ -28,6 +28,11 @@
   (interactive)
   (start-process-shell-command "deh-file-manager" nil (concat "deh-file-manager 2> /dev/null " default-directory)))
 
+(defun deh/recompile (&optional arg)
+  (interactive)
+  (save-window-excursion
+    (recompile arg)))
+
 (define-key global-map (kbd "H-C-d") 'deh/open-file-manager)
 
 
@@ -77,7 +82,7 @@
 (define-key global-map (kbd "<f2>") 'deh/open-magit-in-new-gui-frame)
 (define-key global-map (kbd "<f3>") 'deh/open-current-file-in-new-gui-frame)
 (define-key global-map (kbd "<f4>") 'deh/open-file-in-new-gui-frame)
-(define-key global-map (kbd "<f7>") 'recompile)
+(define-key global-map (kbd "<f7>") 'deh/recompile)
 (define-key global-map (kbd "<f8>") 'deh/projectile-open-terminal)
 (define-key global-map (kbd "<f9>") 'deh/open-terminal)
 

@@ -12,7 +12,7 @@
       (let ((default-directory (projectile-project-root)))
         (start-process-shell-command "fzf-file-finder" nil
                                      (concat "EMACS_SERVER_NAME=" server-name
-                                             " urxvtc -geometry 125x40 -name urxvtfloat -e tmux new-session -s search  deh-find-file " server-name " 2> /dev/null")))))
+                                             " deh-urxvtc-find-file " server-name " 2> /dev/null")))))
 
 ;; alacritty seems to be starting slower than urxvtc
 ;; (defun deh-projectile-fzf-find-file ()
