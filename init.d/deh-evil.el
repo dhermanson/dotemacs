@@ -150,6 +150,7 @@
   ;; (shell-command (concat "tmux neww zsh -ic 'deh-find-file " server-name "'"))))
   ;; (shell-command (concat "tmux splitw zsh --no-globalrcs -ic 'deh-find-file " server-name "'"))))
   ;; (kbd "M-f") 'deh/tmux/fzf-projectile-find-file
+  (kbd "M-e") 'make-frame-command
   (kbd "M-f") 'deh-projectile-fzf-find-file
   ;; (kbd "M-f") 'counsel-projectile-find-file
   ;; (kbd "M-f") 'deh-run-fzf

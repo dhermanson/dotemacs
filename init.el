@@ -125,6 +125,7 @@
 	      solarized-theme
         spaceline
         spaceline-all-the-icons
+        syslog-mode
 	      tern
         terraform-mode
 	      tide
