@@ -60,6 +60,7 @@
 	      ;; csv-mode
 	      darktooth-theme
         diminish
+        dired-subtree
 	      dockerfile-mode
         doom-themes
         doom-modeline
@@ -204,6 +205,7 @@
 (require 'deh-tmux)
 (require 'deh-evil)
 (require 'deh-graphql)
+(require 'deh-syslog)
 (require 'deh-auctex)
 (require 'deh-mpd)
 (require 'deh-plantuml)
