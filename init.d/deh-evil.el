@@ -49,8 +49,8 @@
 (evil-set-initial-state 'comint-mode 'emacs)
 (evil-set-initial-state 'Man-mode 'emacs)
 (evil-set-initial-state 'dockerfile-mode 'normal)
-(evil-set-initial-state 'elisp-mode 'normal)
-(evil-set-initial-state 'emacs-lisp-mode 'normal)
+(evil-set-initial-state 'elisp-mode 'emacs)
+(evil-set-initial-state 'emacs-lisp-mode 'emacs)
 (evil-set-initial-state 'jar-manifest-mode 'normal)
 (evil-set-initial-state 'eshell-mode 'emacs)
 (evil-set-initial-state 'fsharp-mode 'normal)
@@ -161,7 +161,7 @@
   ;; (kbd "M-n") 'make-frame-command
   (kbd "M-s") 'deh-send-current-line-to-repl
   (kbd "M-t") 'deh/emamux/send-current-line
-  (kbd "M-d") 'deh/emamux/send-current-line
+  ;; (kbd "M-d") 'deh/emamux/send-current-line
   ;; (kbd "M-t") 'deh-send-current-line-to-tmux
   ;; (kbd "M-t") 'my-send-current-line-to-tmux-pane
   ;; (kbd "M-T") '(lambda () (interactive) (emamux:unset-parameters))
@@ -197,7 +197,7 @@
   ;; (kbd "M-s") 'deh-send-current-line-to-repl
   (kbd "M-s") 'deh-send-current-line-to-repl
   (kbd "M-t") 'deh/emamux/send-current-line
-  (kbd "M-d") 'deh/emamux/send-current-line
+  ;; (kbd "M-d") 'deh/emamux/send-current-line
   ;; (kbd "M-t") 'deh-send-current-line-to-tmux
   ;; (kbd "M-t") 'my-send-current-line-to-tmux-pane
   ;; (kbd "M-T") '(lambda () (interactive) (emamux:unset-parameters))
@@ -207,7 +207,7 @@
   (kbd "M-s") 'deh-send-region-to-repl
   ;; (kbd "M-s") 'emamux:send-region
   (kbd "M-t") 'deh-send-region-to-tmux
-  (kbd "M-d") 'deh-send-region-to-tmux
+  ;; (kbd "M-d") 'deh-send-region-to-tmux
   ;; (kbd "M-t") 'my-send-region-to-tmux-pane
   ;; (kbd "M-T") '(lambda () (interactive) (emamux:unset-parameters))
   "$" 'evil-last-non-blank) ;; i think this is how vim behaves

@@ -59,6 +59,7 @@
 	      csharp-mode
 	      ;; csv-mode
 	      darktooth-theme
+        diff-hl
         diminish
         dired-subtree
 	      dockerfile-mode
@@ -195,6 +196,7 @@
 (require 'deh-buffer-menu)
 (require 'deh-modeline)
 (require 'deh-fuzzy)
+(require 'deh-diff-hl)
 (require 'deh-completion)
 (require 'deh-feature)
 (require 'deh-emamux)
