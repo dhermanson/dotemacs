@@ -49,8 +49,8 @@
 (evil-set-initial-state 'comint-mode 'emacs)
 (evil-set-initial-state 'Man-mode 'emacs)
 (evil-set-initial-state 'dockerfile-mode 'normal)
-(evil-set-initial-state 'elisp-mode 'emacs)
-(evil-set-initial-state 'emacs-lisp-mode 'emacs)
+(evil-set-initial-state 'elisp-mode 'normal)
+(evil-set-initial-state 'emacs-lisp-mode 'normal)
 (evil-set-initial-state 'jar-manifest-mode 'normal)
 (evil-set-initial-state 'eshell-mode 'emacs)
 (evil-set-initial-state 'fsharp-mode 'normal)
@@ -129,6 +129,8 @@
   (kbd "C-=") 'er/expand-region
   (kbd "] q") 'next-error
   (kbd "[ q") 'previous-error
+  (kbd "] c") 'diff-hl-next-hunk
+  (kbd "[ c") 'diff-hl-previous-hunk
   (kbd "M-b") 'helm-projectile-switch-to-buffer
   ;; (kbd "M-b") 'counsel-projectile-switch-to-buffer
   ;; (kbd "M-f") 'helm-projectile-find-file
@@ -141,7 +143,7 @@
   ;;                  ;;         (s-equals? server-name "server"))
   ;;                  ;;     (helm-projectile-find-file)
   ;;                  ;;   )
-                   
+  
   ;;                                 ))
   ;; TODO: make this async? call-process?
   ;; (shell-command "tmux splitw fish -ic fzf")))
