@@ -62,14 +62,14 @@
 ;;                               (set-face-font 'font-lock-comment-face "-ADBO-Source Code Pro for Powerline-normal-italic-normal-*-*-*-*-*-m-0-iso10646-1")
 ;;                               (set-face-font 'font-lock-comment-delimiter-face "-ADBO-Source Code Pro for Powerline-normal-italic-normal-*-*-*-*-*-m-0-iso10646-1"))))
 
-(defun deh/clear-frame-background-in-terminal (&optional frame)
-  (with-selected-frame frame
-    (unless (display-graphic-p frame)
-      (progn
-        (set-face-background 'default "unspecified-bg" frame)
-        (set-face-background 'line-number "unspecified-bg" frame)))))
+;; (defun deh/clear-frame-background-in-terminal (&optional frame)
+;;   (with-selected-frame frame
+;;     (unless (display-graphic-p frame)
+;;       (progn
+;;         (set-face-background 'default "unspecified-bg" frame)
+;;         (set-face-background 'line-number "unspecified-bg" frame)))))
 
-(add-hook 'after-make-frame-functions 'deh/clear-frame-background-in-terminal)
+;; (add-hook 'after-make-frame-functions 'deh/clear-frame-background-in-terminal)
 
 ;; (add-hook 'window-setup-hook 'deh/clear-frame-background-in-terminal)
 ;; (add-hook 'server-switch-hook 'deh/clear-frame-background-in-terminal)
