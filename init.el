@@ -206,6 +206,7 @@
 (require 'deh-winum)
 (require 'deh-tmux)
 (require 'deh-evil)
+(require 'deh-git-timemachine)
 (require 'deh-graphql)
 (require 'deh-syslog)
 (require 'deh-auctex)

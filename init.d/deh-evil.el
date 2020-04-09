@@ -96,13 +96,16 @@
 (define-key deh/evil-leader-map "to" 'deh/emamux/set-repl)
 
 (evil-define-key nil deh/evil-leader-map "gw" 'magit-stage-file)
-(evil-define-key nil deh/evil-leader-map "gds" (lambda () (interactive) (magit-ediff-show-staged (magit-current-file))))
-(evil-define-key nil deh/evil-leader-map "gdu" (lambda () (interactive) (magit-ediff-show-unstaged (magit-current-file))))
+(evil-define-key nil deh/evil-leader-map "gdf" 'magit-diff-buffer-file)
+(evil-define-key nil deh/evil-leader-map "gdb" 'magit-diff-buffer-file)
+(evil-define-key nil deh/evil-leader-map "gdu" 'magit-diff-unstaged)
+(evil-define-key nil deh/evil-leader-map "gds" 'magit-diff-staged)
 (evil-define-key nil deh/evil-leader-map "gs" 'magit-status)
 (evil-define-key nil deh/evil-leader-map "gb" 'magit-blame)
 (evil-define-key nil deh/evil-leader-map "gc" 'magit-branch-popup)
 (evil-define-key nil deh/evil-leader-map "gla" 'magit-log-all)
 (evil-define-key nil deh/evil-leader-map "glb" 'magit-log-buffer-file)
+(evil-define-key nil deh/evil-leader-map "gtm" 'git-timemachine)
 ;; (evil-define-key nil deh/evil-leader-map "a" 'deh-ripgrep)
 (evil-define-key nil deh/evil-leader-map "a" 'deh/projectile/grep)
 

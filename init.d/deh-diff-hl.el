@@ -2,6 +2,6 @@
 
 (global-diff-hl-mode)
 
-(diff-hl-flydiff-mode)
+;; (diff-hl-flydiff-mode)
 
 (provide 'deh-diff-hl)
