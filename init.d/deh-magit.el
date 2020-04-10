@@ -16,4 +16,17 @@
 (add-hook 'magit-mode-hook 'deh-magit-mode-hook)
 (add-hook 'magit-revision-mode-hook 'deh-magit-rev-mode-hook)
 
+
+(defun deh/advice/clear-magit-revision-history (orig-fun &rest args)
+;; I don't like the history checkout showing before the dwim
+  (progn
+    (with-current-buffer (current-buffer)
+      (setq magit-revision-history nil)
+      (apply orig-fun args))
+    )
+  )
+
+(advice-add 'magit-branch-checkout :around #'deh/advice/clear-magit-revision-history)
+
+
 (provide 'deh-magit)
