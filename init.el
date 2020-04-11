@@ -60,7 +60,7 @@
 	      ;; csv-mode
 	      darktooth-theme
         diff-hl
-        diminish
+        ;; diminish
         dired-subtree
 	      dockerfile-mode
         doom-themes
