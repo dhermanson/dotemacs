@@ -4,8 +4,8 @@
 ;;; Code:
 ;; (require 'diminish)
 (require 'markdown-mode)
-(require 'doom-themes)
-(require 'all-the-icons)
+;; (require 'doom-themes)
+;; (require 'all-the-icons)
 ;; (require 'powerline)
 
 ;; (powerline-vim-theme)

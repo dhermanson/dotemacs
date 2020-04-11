@@ -1,9 +1,9 @@
 ;; (require 'doom-modeline)
 
 ;; (require 'diminish)
-(require 'spaceline-config)
+;; (require 'spaceline-config)
 ;; (require 'spaceline-all-the-icons)
-(spaceline-spacemacs-theme)
+;; (spaceline-spacemacs-theme)
 ;; (spaceline-helm-mode)
 ;; (spaceline-info-mode)
 

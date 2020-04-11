@@ -125,7 +125,6 @@
     ;;   )
     
     ))
-
 (evil-define-key nil evil-normal-state-map
   ;; (kbd ";") 'evil-ex
   ;; (kbd ":") 'evil-repeat-find-char
@@ -135,6 +134,7 @@
   (kbd "] c") 'diff-hl-next-hunk
   (kbd "[ c") 'diff-hl-previous-hunk
   (kbd "M-b") 'helm-projectile-switch-to-buffer
+  (kbd "Q") (kbd "@q") ;; this is amazing! I can define a key that presses other keys!
   ;; (kbd "M-b") 'counsel-projectile-switch-to-buffer
   ;; (kbd "M-f") 'helm-projectile-find-file
   ;; (kbd "M-f") '(lambda ()

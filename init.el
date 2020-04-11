@@ -37,8 +37,8 @@
         adoc-mode
         ag
 	      alchemist
-        all-the-icons
-        all-the-icons-dired
+        ;; all-the-icons
+        ;; all-the-icons-dired
 	      anti-zenburn-theme
         apib-mode
         auctex
@@ -125,9 +125,10 @@
 	      robe
 	      smartparens
 	      solarized-theme
-        spaceline
-        spaceline-all-the-icons
+        ;; spaceline
+        ;; spaceline-all-the-icons
         syslog-mode
+        systemd
 	      tern
         terraform-mode
 	      tide
