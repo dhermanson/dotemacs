@@ -6,7 +6,7 @@
 ;; pro tip, i've learned that i can hit S-SPC when in counsel completion mode
 ;; to restrict the query to the found results
 
-(setq ivy-height 40)
+(setq ivy-height 10)
 
 (setq ivy-use-virtual-buffers t)
 (setq ivy-count-format "(%d/%d) ")
