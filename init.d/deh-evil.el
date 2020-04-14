@@ -83,12 +83,14 @@
 ;; (define-key deh/evil-leader-map (kbd "SPC") 'avy-goto-char)
 ;; (define-key deh/evil-leader-map ";" 'avy-goto-word-1)
 (define-key deh/evil-leader-map "p" 'projectile-command-map)
-(define-key deh/evil-leader-map "l" 'deh-helm-imenu)
-;; (define-key deh/evil-leader-map "l" 'counsel-imenu)
+;; (define-key deh/evil-leader-map "l" 'deh-helm-imenu)
+(define-key deh/evil-leader-map "l" 'counsel-imenu)
 ;; (define-key deh/evil-leader-map "l" 'helm-imenu)
-(define-key deh/evil-leader-map "k" 'helm-etags-select)
+;; (define-key deh/evil-leader-map "k" 'helm-etags-select)
+(define-key deh/evil-leader-map "k" 'counsel-etags-list-tag)
 ;; (define-key deh/evil-leader-map "l" 'counsel-imenu)
-(define-key deh/evil-leader-map "f" 'helm-projectile-find-file)
+;; (define-key deh/evil-leader-map "f" 'helm-projectile-find-file)
+(define-key deh/evil-leader-map "f" 'counsel-projectile-find-file)
 ;; (define-key deh/evil-leader-map "rr" 'deh-restart-repl)
 ;; (define-key deh/evil-leader-map "rk" 'deh-kill-repl)
 (define-key deh/evil-leader-map "ro" 'deh-focus-repl-in-other-window)
@@ -133,7 +135,8 @@
   (kbd "[ q") 'previous-error
   (kbd "] c") 'diff-hl-next-hunk
   (kbd "[ c") 'diff-hl-previous-hunk
-  (kbd "M-b") 'helm-projectile-switch-to-buffer
+  (kbd "M-b") 'counsel-projectile-switch-to-buffer
+  ;; (kbd "M-b") 'helm-projectile-switch-to-buffer
   (kbd "Q") (kbd "@q") ;; this is amazing! I can define a key that presses other keys!
   ;; (kbd "M-b") 'counsel-projectile-switch-to-buffer
   ;; (kbd "M-f") 'helm-projectile-find-file
@@ -157,8 +160,8 @@
   ;; (shell-command (concat "tmux splitw zsh --no-globalrcs -ic 'deh-find-file " server-name "'"))))
   ;; (kbd "M-f") 'deh/tmux/fzf-projectile-find-file
   (kbd "M-e") 'make-frame-command
-  (kbd "M-f") 'deh-projectile-fzf-find-file
-  ;; (kbd "M-f") 'counsel-projectile-find-file
+  ;; (kbd "M-f") 'deh-projectile-fzf-find-file
+  (kbd "M-f") 'counsel-projectile-find-file
   ;; (kbd "M-f") 'deh-run-fzf
   (kbd "M-w") 'save-buffer
   (kbd "M-c") 'delete-window

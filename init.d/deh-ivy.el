@@ -1,13 +1,17 @@
 (require 'ivy)
 (require 'flx)
 
+;; look at ivy-help command
+
 ;; pro tip, i've learned that i can hit S-SPC when in counsel completion mode
 ;; to restrict the query to the found results
 
-(setq ivy-height 20)
+(setq ivy-height 40)
 
 (setq ivy-use-virtual-buffers t)
 (setq ivy-count-format "(%d/%d) ")
+
+;; https://oremacs.com/swiper/#key-bindings
 
 ;; https://oremacs.com/2016/01/06/ivy-flx/
 (setq ivy-re-builders-alist
