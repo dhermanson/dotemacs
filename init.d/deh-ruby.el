@@ -18,7 +18,7 @@
   (smartparens-mode)
   (show-smartparens-mode)
   (setq company-idle-delay nil)
-  (set (make-local-variable 'company-backends) '(( company-robe company-files company-dabbrev-code)))
+  (set (make-local-variable 'company-backends) '(( company-robe )))
   ;; (setq inf-ruby-default-implementation "pry")
   ;; (setq inf-ruby-default-implementation "irb")
   ;; turn flycheck mode on

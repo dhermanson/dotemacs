@@ -7,7 +7,8 @@
   "My dired mode hook."
 
   (put 'dired-find-alternate-file 'disabled nil)
-  (dired-hide-details-mode t)
+  ;; (dired-hide-details-mode t)
+  ;; (dired-hide-details-mode nil)
   )
 
 (define-key dired-mode-map (kbd "TAB") 'dired-subtree-toggle)
