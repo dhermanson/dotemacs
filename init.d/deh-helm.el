@@ -3,6 +3,7 @@
 
 (setq helm-mode-fuzzy-match t)
 (setq helm-etags-fuzzy-match t)
+;; (setq helm-completion-style 'emacs)
 (setq helm-completion-style 'helm-fuzzy)
 ;; (setq helm-completion-style 'helm-flex)
 ;; (setq helm-completion-style 'emacs)

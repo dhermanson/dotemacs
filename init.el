@@ -363,20 +363,20 @@
 ;; tramp
 (require 'tramp)
 
-;; ;; helm
-;; (require 'helm-config)
-;; (global-set-key (kbd "M-x") 'helm-M-x)
-;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
-;; (global-set-key (kbd "C-x b") 'helm-buffers-list)
-;; (helm-mode 1)
-;; ;; helm-projectile
-;; (helm-projectile-on)
+;; helm
+(require 'helm-config)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
+(helm-mode 1)
+;; helm-projectile
+(helm-projectile-on)
 
 ;; counsel
-(define-key global-map (kbd "M-x") 'counsel-M-x)
-(define-key global-map (kbd "C-x C-f") 'counsel-find-file)
-(define-key global-map (kbd "C-x b") 'counsel-buffer-or-recentf)
-(counsel-projectile-mode)
+;; (define-key global-map (kbd "M-x") 'counsel-M-x)
+;; (define-key global-map (kbd "C-x C-f") 'counsel-find-file)
+;; (define-key global-map (kbd "C-x b") 'counsel-buffer-or-recentf)
+;; (counsel-projectile-mode)
 
 ;; ido
 ;; (ido-mode 1)
