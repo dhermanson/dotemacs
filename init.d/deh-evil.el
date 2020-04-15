@@ -100,8 +100,8 @@
 (evil-define-key nil deh/evil-leader-map "gw" 'magit-stage-file)
 (evil-define-key nil deh/evil-leader-map "gdf" 'magit-diff-buffer-file)
 (evil-define-key nil deh/evil-leader-map "gdb" 'magit-diff-buffer-file)
-(evil-define-key nil deh/evil-leader-map "gdu" (lambda () (interactive) (magit-ediff-show-staged (magit-current-file))))
-(evil-define-key nil deh/evil-leader-map "gds" (lambda () (interactive) (magit-ediff-show-unstaged (magit-current-file))))
+(evil-define-key nil deh/evil-leader-map "gdu" (lambda () (interactive) (magit-ediff-show-unstaged (magit-current-file))))
+(evil-define-key nil deh/evil-leader-map "gds" (lambda () (interactive) (magit-ediff-show-staged (magit-current-file))))
 (evil-define-key nil deh/evil-leader-map "gdau" 'magit-diff-unstaged)
 (evil-define-key nil deh/evil-leader-map "gdas" 'magit-diff-staged)
 (evil-define-key nil deh/evil-leader-map "gs" 'magit-status)
@@ -118,10 +118,14 @@
 ;; key chords
 (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 
+(defun deh/xdotool/getwindowfocus ()
+  (s-trim (shell-command-to-string "xdotool getwindowfocus")))
+
 (defun deh/tmux/fzf-projectile-find-file ()
   (interactive)
-  (let ((default-directory (projectile-project-root)))
-    (shell-command (concat  "tmux splitw zsh --no-globalrcs --no-rcs -ic 'deh-find-file " server-name "'")
+  (let* ((default-directory (projectile-project-root))
+         (current-x-window (deh/xdotool/getwindowfocus)))
+    (shell-command (concat  "tmux splitw zsh --no-globalrcs --no-rcs -ic 'deh-find-file " current-x-window "'")
                    )
     ;; (if (or (not server-name)
     ;;         (s-equals? server-name "server"))
@@ -129,6 +133,7 @@
     ;;   )
     
     ))
+
 (evil-define-key nil evil-normal-state-map
   ;; (kbd ";") 'evil-ex
   ;; (kbd ":") 'evil-repeat-find-char
@@ -160,8 +165,8 @@
   ;; (shell-command "tmux splitw zsh --no-globalrcs --no-rcs -ic fzf")))
   ;; (shell-command (concat "tmux neww zsh -ic 'deh-find-file " server-name "'"))))
   ;; (shell-command (concat "tmux splitw zsh --no-globalrcs -ic 'deh-find-file " server-name "'"))))
-  ;; (kbd "M-f") 'deh/tmux/fzf-projectile-find-file
   (kbd "M-e") 'make-frame-command
+  ;; (kbd "M-f") 'deh/tmux/fzf-projectile-find-file
   ;; (kbd "M-f") 'deh-projectile-fzf-find-file
   (kbd "M-f") 'counsel-projectile-find-file
   ;; (kbd "M-f") 'deh-run-fzf
