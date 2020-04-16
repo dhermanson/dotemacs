@@ -18,5 +18,11 @@
 
 (advice-add 'recompile :around #'deh/advice/save-window-excursion)
 
+(defun deh/hooks/compilation-mode-hook ()
+  (setq truncate-lines t)
+  )
+
+(add-hook 'compilation-mode-hook 'deh/hooks/compilation-mode-hook)
+
 
 (provide 'deh-compilation)
