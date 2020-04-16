@@ -142,11 +142,10 @@
   (kbd "[ q") 'previous-error
   (kbd "] c") 'diff-hl-next-hunk
   (kbd "[ c") 'diff-hl-previous-hunk
-  (kbd "M-b") 'counsel-projectile-switch-to-buffer
-  ;; (kbd "M-b") 'helm-projectile-switch-to-buffer
+  ;; (kbd "M-b") 'counsel-projectile-switch-to-buffer
+  (kbd "M-b") 'helm-projectile-switch-to-buffer
   (kbd "Q") (kbd "@q") ;; this is amazing! I can define a key that presses other keys!
   ;; (kbd "M-b") 'counsel-projectile-switch-to-buffer
-  ;; (kbd "M-f") 'helm-projectile-find-file
   ;; (kbd "M-f") '(lambda ()
   ;;                (interactive)
   ;;                (let ((default-directory (projectile-project-root)))
@@ -168,7 +167,8 @@
   (kbd "M-e") 'make-frame-command
   ;; (kbd "M-f") 'deh/tmux/fzf-projectile-find-file
   ;; (kbd "M-f") 'deh-projectile-fzf-find-file
-  (kbd "M-f") 'counsel-projectile-find-file
+  (kbd "M-f") 'helm-projectile-find-file
+  ;; (kbd "M-f") 'counsel-projectile-find-file
   ;; (kbd "M-f") 'deh-run-fzf
   (kbd "M-w") 'save-buffer
   (kbd "M-c") 'delete-window
