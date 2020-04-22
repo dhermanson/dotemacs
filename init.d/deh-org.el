@@ -35,9 +35,22 @@
 (setq org-src-fontify-natively t)
 (setq org-startup-folded 'showeverything)
 
+;; https://github.com/syl20bnr/spacemacs/issues/11801
+;; org-agenda
+;; (setq org-agenda-files '("~/org/gtd/inbox.org"
+;;                           "~/org/gtd/gtd.org"
+;;                           "~/org/gtd/tickler.org"))
+
+
 ;; org-capture
 (setq org-directory "~/Dropbox/org")
 (setq org-default-notes-file (concat org-directory "/capture.org"))
+
+;; org refile
+(setq org-refile-targets '((nil :maxlevel . 9)
+                           (org-agenda-files :maxlevel . 2)))
+(setq org-outline-path-complete-in-steps nil)
+(setq org-refile-use-outline-path t)
 
 ;; org-plantuml
 (setq org-plantuml-jar-path plantuml-jar-path)
