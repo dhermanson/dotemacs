@@ -111,7 +111,7 @@
 (evil-define-key nil deh/evil-leader-map "glb" 'magit-log-buffer-file)
 (evil-define-key nil deh/evil-leader-map "gtm" 'git-timemachine)
 ;; (evil-define-key nil deh/evil-leader-map "a" 'deh-ripgrep)
-(evil-define-key nil deh/evil-leader-map "a" 'deh/projectile/grep)
+;; (evil-define-key nil deh/evil-leader-map "a" 'deh/projectile/grep)
 
 ;; (define-key deh/evil-leader-map "f" 'counsel-projectile-find-file)
 
@@ -125,7 +125,7 @@
   (interactive)
   (let* ((default-directory (projectile-project-root))
          (current-x-window (deh/xdotool/getwindowfocus)))
-    (shell-command (concat  "tmux splitw zsh --no-globalrcs --no-rcs -ic 'deh-find-file " current-x-window "'")
+    (shell-command (concat  "tmux neww zsh --no-globalrcs --no-rcs -ic 'deh-find-file " current-x-window "'")
                    )
     ;; (if (or (not server-name)
     ;;         (s-equals? server-name "server"))
@@ -142,8 +142,8 @@
   (kbd "[ q") 'previous-error
   (kbd "] c") 'diff-hl-next-hunk
   (kbd "[ c") 'diff-hl-previous-hunk
-  ;; (kbd "M-b") 'counsel-projectile-switch-to-buffer
-  (kbd "M-b") 'helm-projectile-switch-to-buffer
+  (kbd "M-b") 'counsel-projectile-switch-to-buffer
+  ;; (kbd "M-b") 'helm-projectile-switch-to-buffer
   (kbd "Q") (kbd "@q") ;; this is amazing! I can define a key that presses other keys!
   ;; (kbd "M-b") 'counsel-projectile-switch-to-buffer
   ;; (kbd "M-f") '(lambda ()
@@ -167,8 +167,8 @@
   (kbd "M-e") 'make-frame-command
   ;; (kbd "M-f") 'deh/tmux/fzf-projectile-find-file
   ;; (kbd "M-f") 'deh-projectile-fzf-find-file
-  (kbd "M-f") 'helm-projectile-find-file
-  ;; (kbd "M-f") 'counsel-projectile-find-file
+  ;; (kbd "M-f") 'helm-projectile-find-file
+  (kbd "M-f") 'counsel-projectile-find-file
   ;; (kbd "M-f") 'deh-run-fzf
   (kbd "M-w") 'save-buffer
   (kbd "M-c") 'delete-window
@@ -232,7 +232,7 @@
 ;; setup jumps (https://github.com/noctuid/evil-guide#jump)
 (evil-add-command-properties #'deh-find-interface-tag :jump t)
 (evil-add-command-properties #'counsel-imenu :jump t)
-(evil-add-command-properties #'helm-imenu :jump t)
+;; (evil-add-command-properties #'helm-imenu :jump t)
 
 (setq-default evil-indent-convert-tabs nil)
 

@@ -1,6 +1,8 @@
 (require 'ivy)
 (require 'flx)
 
+(ivy-mode 1)
+
 ;; look at ivy-help command
 
 ;; pro tip, i've learned that i can hit S-SPC when in counsel completion mode
@@ -37,6 +39,13 @@
 ;;             (counsel-etags-exclude-opts use-cache)
 ;;             keyword))))
 
-(define-key counsel-find-file-map (kbd "C-l") 'counsel-up-directory)
+;; (define-key counsel-find-file-map (kbd "C-l") 'counsel-up-directory)
+
+
+;; counsel
+(define-key global-map (kbd "M-x") 'counsel-M-x)
+(define-key global-map (kbd "C-x C-f") 'counsel-find-file)
+(define-key global-map (kbd "C-x b") 'counsel-buffer-or-recentf)
+(counsel-projectile-mode)
 
 (provide 'deh-ivy)

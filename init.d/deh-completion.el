@@ -1,8 +1,8 @@
-(setq completion-styles
-      '(
-        ;; flex
-        helm-flex
-        ))
+;; (setq completion-styles
+;;       '(
+;;         ;; flex
+;;         helm-flex
+;;         ))
 
 ;; (setq completion-styles
 ;;       '(

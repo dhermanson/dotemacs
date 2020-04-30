@@ -91,11 +91,11 @@
 	      groovy-mode
 	      gruvbox-theme
 	      haskell-mode
-	      helm
-	      helm-ag
-	      helm-lsp
-	      helm-projectile
-	      helm-rg
+	      ;; helm
+	      ;; helm-ag
+	      ;; helm-lsp
+	      ;; helm-projectile
+	      ;; helm-rg
 	      ht
         htmlize
         jar-manifest-mode
@@ -259,7 +259,7 @@
 (require 'deh-text)
 (require 'deh-makefile)
 (require 'deh-csharp)
-(require 'deh-helm)
+;; (require 'deh-helm)
 (require 'deh-image)
 (require 'deh-web)
 (require 'deh-global-maps)
@@ -364,19 +364,14 @@
 (require 'tramp)
 
 ;; helm
-(require 'helm-config)
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-x b") 'helm-buffers-list)
-(helm-mode 1)
-;; helm-projectile
-(helm-projectile-on)
+;; (require 'helm-config)
+;; (global-set-key (kbd "M-x") 'helm-M-x)
+;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
+;; (global-set-key (kbd "C-x b") 'helm-buffers-list)
+;; (helm-mode 1)
+;; ;; helm-projectile
+;; (helm-projectile-on)
 
-;; counsel
-;; (define-key global-map (kbd "M-x") 'counsel-M-x)
-;; (define-key global-map (kbd "C-x C-f") 'counsel-find-file)
-;; (define-key global-map (kbd "C-x b") 'counsel-buffer-or-recentf)
-;; (counsel-projectile-mode)
 
 ;; ido
 ;; (ido-mode 1)
@@ -552,17 +547,17 @@
 
 (setq initial-scratch-message "")
 
-(defun deh/start-emacs-server-if-env-var-set ()
-  "Start a server if an environment variable is set."
-  (interactive)
-  (let (($serverName (getenv "DEH_EMACS_SERVER_NAME")))
-    (if $serverName
-        (progn
-          (setq server-name $serverName)
-          (server-start))
-      (print "no server name var set"))))
+;; (defun deh/start-emacs-server-if-env-var-set ()
+;;   "Start a server if an environment variable is set."
+;;   (interactive)
+;;   (let (($serverName (getenv "DEH_EMACS_SERVER_NAME")))
+;;     (if $serverName
+;;         (progn
+;;           (setq server-name $serverName)
+;;           (server-start))
+;;       (print "no server name var set"))))
 
-(deh/start-emacs-server-if-env-var-set)
+;; (deh/start-emacs-server-if-env-var-set)
 
 (provide 'init)
 ;;; init.el ends here

@@ -9,9 +9,10 @@
 ;; (setq helm-completion-style 'emacs)
 
 ;; these two setup helm to always open on bottom with a window above
-(setq helm-split-window-default-side nil)
+;; (setq helm-split-window-default-side 'right)
+(setq helm-split-window-default-side 'below)
 (setq helm-split-window-inside-p nil)
-(setq helm-always-two-windows nil)
+(setq helm-always-two-windows t)
 ;; (setq helm-always-two-windows nil)
 
 (defun deh-helm-imenu ()

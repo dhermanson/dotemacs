@@ -50,7 +50,7 @@
 (define-key helm-map (kbd "H-g") 'helm-keyboard-quit)
 
 (define-key global-map (kbd "H-r") 'recompile)
-(define-key global-map (kbd "H-a") 'deh/projectile/grep)
+;; (define-key global-map (kbd "H-a") 'deh/projectile/grep)
 ;; (define-key global-map (kbd "H-a") 'deh/projectile/grep)
 ;; (define-key global-map (kbd "H-s") 'deh/projectile/ripgrep)
 (define-key global-map (kbd "H-b") 'helm-projectile-switch-to-buffer)
