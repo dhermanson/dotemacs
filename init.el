@@ -91,11 +91,6 @@
 	      groovy-mode
 	      gruvbox-theme
 	      haskell-mode
-	      ;; helm
-	      ;; helm-ag
-	      ;; helm-lsp
-	      ;; helm-projectile
-	      ;; helm-rg
 	      ht
         htmlize
         jar-manifest-mode

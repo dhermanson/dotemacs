@@ -10,14 +10,29 @@
 
 (setq ivy-height 10)
 
-(setq ivy-use-virtual-buffers t)
+(setq ivy-use-virtual-buffers nil)
 (setq ivy-count-format "(%d/%d) ")
 
 ;; https://oremacs.com/swiper/#key-bindings
 
 ;; https://oremacs.com/2016/01/06/ivy-flx/
+;; (setq ivy-re-builders-alist
+;;       '((counsel-rg . ivy--regex-plus)
+;;         (t . ivy--regex-fuzzy)))
 (setq ivy-re-builders-alist
-      '((t . ivy--regex-fuzzy)))
+      '((t . ivy--regex-plus)
+        ))
+
+;; https://github.com/abo-abo/swiper/issues/2204
+;; https://github.com/abo-abo/swiper/issues/1542#issuecomment-440659663
+;; without this it seems to use case insensitive searches
+;; but then when i press C-C C-o for the occur buffer, the non
+;; case-insensitive matches don't come through
+(setq ivy-case-fold-search-default 'auto)
+
+;; (setq ivy-case-fold-search-default nil)
+;; (setq counsel-rg-base-command "rg --with-filename --no-heading --line-number --color never  %s")
+
 
 (setq ivy-initial-inputs-alist nil)
 
@@ -43,9 +58,6 @@
 
 
 ;; counsel
-(define-key global-map (kbd "M-x") 'counsel-M-x)
-(define-key global-map (kbd "C-x C-f") 'counsel-find-file)
-(define-key global-map (kbd "C-x b") 'counsel-buffer-or-recentf)
 (counsel-projectile-mode)
 
 (provide 'deh-ivy)

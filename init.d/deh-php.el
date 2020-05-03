@@ -119,7 +119,6 @@
       (deh-initialize-php-tooling-for-project) 
       (async-shell-command vendor-ctags-cmd))))
 
-;; TODO: look into helm-etags-select: the tag aggregation specifically
 (defun deh-find-interface-tag ()
   "find interface|class|function tag"
   (interactive)
@@ -133,7 +132,6 @@
       (unless (f-exists? deh-php-vendor-ctags-file)
 	      (deh-generate-php-vendor-tags))
       (setq tags-table-list (list full-project-tags-path full-vendor-tags-path deh-php-language-ctags-file))
-      ;; (helm-etags-select t)
       (counsel-etags-find-tag)
       )))
 
@@ -151,9 +149,6 @@
 	buffer-file-name
 	(f-join (projectile-project-root) "vendor"))))
 
-;; (define-key php-mode-map (kbd "H-t") 'helm-gtags-select)
-;; (define-key php-mode-map (kbd "M-.") 'helm-gtags-dwim)
-;; (define-key php-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
 
 (defun deh-php-docblock-newline (orig-fun &rest args)
   "add * prefix when inside docblock on newline"
@@ -268,26 +263,15 @@
        (s-split "\n" (shell-command-to-string "php artisan list")))
       :commands))))
 
-(defun deh-php-artisan-helm-list ()
-  "list the artisan items in a helm completion buffer"
-  (interactive)
-  (helm
-   :sources (helm-build-sync-source "php artisan"
-	      :candidates (deh-php-artisan-list)
-	      :fuzzy-match t)
-   :buffer "*helm artisan-list*"))
-
 (define-key php-mode-map (kbd "C-c C-s") 'deh-php-restart-repl)
 (define-key php-mode-map (kbd "H-s") 'deh-php-send-to-repl)
 ;; (define-key php-mode-map (kbd "M-s") 'deh-php-send-to-repl)
 ;; (evil-define-key 'normal php-mode-map (kbd "M-s") 'deh-php-send-to-repl)
 ;; (evil-define-key 'insert php-mode-map (kbd "M-s") 'deh-php-send-to-repl)
 ;; (evil-define-key 'visual php-mode-map (kbd "M-s") 'deh-php-send-to-repl)
-;; (evil-define-key 'normal php-mode-map (kbd "M-a") 'deh-php-artisan-helm-list)
 ;; (define-key evil-normal-state-map (kbd "M-s") 'deh-php-send-to-repl)
 ;; (define-key evil-visual-state-map (kbd "M-s") 'deh-php-send-to-repl)
 ;; (define-key evil-insert-state-map (kbd "M-s") 'deh-php-send-to-repl)
-;; (define-key evil-normal-state-map (kbd "M-a") 'deh-php-artisan-helm-list)
 ;; (define-key php-mode-map (kbd "M-O") 'deh-php-restart-repl)
 (define-key php-mode-map (kbd "C-c c s f") 'deh-projectile-phpstan-on-current-file)
 (define-key php-mode-map (kbd "C-c c s p") 'deh-projectile-phpstan-on-project)
@@ -326,20 +310,12 @@
   (flycheck-mode t)
   (smartparens-mode t)
   ;; (ggtags-mode 1)
-  ;; (require 'helm-gtags)
-  ;; (helm-gtags-mode)
 
   (evil-surround-mode t)
   (evil-leader-mode t)
 
-  ;; (setq helm-etags-fuzzy-match t)
-  ;; (customize-set-variable 'helm-etags-fuzzy-match nil)
 
   (setq evil-want-C-u-scroll t)
-  ;; (define-key deh/evil-leader-map "k" 'helm-gtags-select)
-  ;; (define-key deh/evil-leader-map "b" 'helm-projectile-switch-to-buffer)
-  ;; (define-key deh/evil-leader-map "l" 'deh-helm-imenu)
-  ;; (define-key evil-normal-state-map (kbd "C-]") 'helm-gtags-dwim)
 
   (setq-local eldoc-documentation-function #'ggtags-eldoc-function)
   ;; (setq-local imenu-create-index-function #'ggtags-build-imenu-index)

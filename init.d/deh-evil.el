@@ -83,13 +83,9 @@
 ;; (define-key deh/evil-leader-map (kbd "SPC") 'avy-goto-char)
 ;; (define-key deh/evil-leader-map ";" 'avy-goto-word-1)
 (define-key deh/evil-leader-map "p" 'projectile-command-map)
-;; (define-key deh/evil-leader-map "l" 'deh-helm-imenu)
 (define-key deh/evil-leader-map "l" 'counsel-imenu)
-;; (define-key deh/evil-leader-map "l" 'helm-imenu)
-;; (define-key deh/evil-leader-map "k" 'helm-etags-select)
 (define-key deh/evil-leader-map "k" 'counsel-etags-list-tag)
 ;; (define-key deh/evil-leader-map "l" 'counsel-imenu)
-;; (define-key deh/evil-leader-map "f" 'helm-projectile-find-file)
 (define-key deh/evil-leader-map "f" 'counsel-projectile-find-file)
 ;; (define-key deh/evil-leader-map "rr" 'deh-restart-repl)
 ;; (define-key deh/evil-leader-map "rk" 'deh-kill-repl)
@@ -129,7 +125,7 @@
                    )
     ;; (if (or (not server-name)
     ;;         (s-equals? server-name "server"))
-    ;;     (helm-projectile-find-file)
+    ;;     (counsel-projectile-find-file)
     ;;   )
     
     ))
@@ -143,7 +139,6 @@
   (kbd "] c") 'diff-hl-next-hunk
   (kbd "[ c") 'diff-hl-previous-hunk
   (kbd "M-b") 'counsel-projectile-switch-to-buffer
-  ;; (kbd "M-b") 'helm-projectile-switch-to-buffer
   (kbd "Q") (kbd "@q") ;; this is amazing! I can define a key that presses other keys!
   ;; (kbd "M-b") 'counsel-projectile-switch-to-buffer
   ;; (kbd "M-f") '(lambda ()
@@ -153,7 +148,7 @@
   ;;                                 )
   ;;                  ;; (if (or (not server-name)
   ;;                  ;;         (s-equals? server-name "server"))
-  ;;                  ;;     (helm-projectile-find-file)
+  ;;                  ;;     (counsel-projectile-find-file)
   ;;                  ;;   )
   
   ;;                                 ))
@@ -167,7 +162,6 @@
   (kbd "M-e") 'make-frame-command
   ;; (kbd "M-f") 'deh/tmux/fzf-projectile-find-file
   ;; (kbd "M-f") 'deh-projectile-fzf-find-file
-  ;; (kbd "M-f") 'helm-projectile-find-file
   (kbd "M-f") 'counsel-projectile-find-file
   ;; (kbd "M-f") 'deh-run-fzf
   (kbd "M-w") 'save-buffer
@@ -232,7 +226,6 @@
 ;; setup jumps (https://github.com/noctuid/evil-guide#jump)
 (evil-add-command-properties #'deh-find-interface-tag :jump t)
 (evil-add-command-properties #'counsel-imenu :jump t)
-;; (evil-add-command-properties #'helm-imenu :jump t)
 
 (setq-default evil-indent-convert-tabs nil)
 

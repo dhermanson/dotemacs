@@ -1,5 +1,4 @@
 (require 'deh-ripgrep)
-(require 'helm)
 (require 'projectile)
 (require 'expand-region)
 
@@ -7,11 +6,11 @@
 (defun deh/projectile-open-terminal ()
   (interactive)
   (if (projectile-project-p)
-      (start-process-shell-command "terminal" nil (concat "urxvt 2> /dev/null -cd " (projectile-project-root) " -e tmux new zsh"))))
+      (start-process-shell-command "terminal" nil (concat "alacritty 2> /dev/null --working-directory " (projectile-project-root) ))))
 
 (defun deh/open-terminal ()
   (interactive)
-  (start-process-shell-command "terminal" nil (concat "urxvt 2> /dev/null -cd " default-directory " -e tmux new zsh")))
+  (start-process-shell-command "terminal" nil (concat "alacritty 2> /dev/null --working-directory " default-directory )))
 
 
 (defun deh/projectile-open-file-manager ()
@@ -39,23 +38,16 @@
 ;; (global-set-key (kbd "H-C-h") 'help-command)
 ;; (global-set-key (kbd "C-;") 'help-command)
 
-(define-key helm-map (kbd "C-h") 'delete-backward-char)
-(define-key helm-map (kbd "H-/") 'help-command)
-;; (define-key helm-map (kbd "C-M-?") 'helm-command)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; (define-key global-map (kbd "s-g") (kbd "C-g"))
 ;; (define-key global-map (kbd "H-g") (kbd "C-g"))
 (define-key global-map (kbd "H-g") 'keyboard-quit)
-(define-key helm-map (kbd "H-g") 'helm-keyboard-quit)
 
 (define-key global-map (kbd "H-r") 'recompile)
 ;; (define-key global-map (kbd "H-a") 'deh/projectile/grep)
 ;; (define-key global-map (kbd "H-a") 'deh/projectile/grep)
 ;; (define-key global-map (kbd "H-s") 'deh/projectile/ripgrep)
-(define-key global-map (kbd "H-b") 'helm-projectile-switch-to-buffer)
-(define-key global-map (kbd "H-t") 'helm-etags-select)
-;; (define-key global-map (kbd "H-f") 'helm-projectile-find-file)
 (define-key global-map (kbd "H-f") 'deh-projectile-fzf-find-file)
 (define-key global-map (kbd "H-p") 'projectile-command-map)
 (define-key global-map (kbd "C-c p") 'projectile-command-map)
@@ -74,8 +66,6 @@
                                       (interactive)
                                       (kill-buffer (current-buffer))))
 
-(define-key global-map (kbd "M-i") 'helm-imenu)
-(define-key global-map (kbd "M-I") 'helm-imenu-in-all-buffers)
 (define-key global-map (kbd "<f2>") 'deh/open-magit-in-new-gui-frame)
 (define-key global-map (kbd "<f3>") 'deh/open-current-file-in-new-gui-frame)
 (define-key global-map (kbd "<f4>") 'deh/open-file-in-new-gui-frame)
@@ -86,6 +76,9 @@
 (define-key global-map (kbd "C-c f") 'deh-projectile-fzf-find-file)
 ;; (define-key global-map (kbd "C-c f") 'deh/tmux/fzf-projectile-find-file)
 
+(define-key global-map (kbd "C-x b") 'ivy-switch-buffer)
+(define-key global-map (kbd "M-x") 'counsel-M-x)
+(define-key global-map (kbd "C-x C-f") 'counsel-find-file)
 
 ;; (define-key global-map (kbd "s-c") 'delete-window)
 ;; (define-key global-map (kbd "s-o") 'delete-other-windows)
@@ -94,8 +87,6 @@
 ;;                                       (interactive)
 ;;                                       (kill-buffer (current-buffer))))
 
-;; (define-key global-map (kbd "s-i") 'helm-imenu)
-;; (define-key global-map (kbd "s-I") 'helm-imenu-in-all-buffers)
 
 (define-key global-map (kbd "C-=") 'er/expand-region)
 

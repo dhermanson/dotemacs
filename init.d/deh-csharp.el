@@ -1,5 +1,4 @@
 (require 'omnisharp)
-(require 'omnisharp-helm-integration)
 (require 'company)
 (require 'flycheck)
 (require 'eldoc)

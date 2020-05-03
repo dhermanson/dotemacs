@@ -1,13 +1,11 @@
 ;; (setq completion-styles
 ;;       '(
 ;;         ;; flex
-;;         helm-flex
 ;;         ))
 
 ;; (setq completion-styles
 ;;       '(
 ;;         ;; flex
-;;         helm-flex
 ;;         basic
 ;;         partial-completion
 ;;         emacs22))
