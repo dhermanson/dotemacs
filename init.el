@@ -102,6 +102,7 @@
         ;; lsp-ui
         lua-mode
 	      markdown-mode
+        minions
 	      monokai-theme
 	      neotree
         nginx-mode
@@ -193,6 +194,7 @@
 (require 'deh-buffer-menu)
 (require 'deh-modeline)
 (require 'deh-fuzzy)
+(require 'deh-term)
 (require 'deh-diff-hl)
 (require 'deh-completion)
 (require 'deh-feature)
@@ -227,7 +229,8 @@
 (require 'deh-sh)
 (require 'deh-yaml)
 (require 'deh-xml)
-(require 'deh-ace-jump)
+;; (require 'deh-ace-jump)
+(require 'deh-avy)
 (require 'deh-restclient)
 (require 'deh-prog)
 (require 'deh-ruby)
@@ -383,6 +386,10 @@
 ;; feature more
 (require 'feature-mode)
 (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
+
+;; minions mode
+(require 'minions)
+(minions-mode 1)
 
 ;; which key
 (which-key-mode)

@@ -8,7 +8,7 @@
 ;; pro tip, i've learned that i can hit S-SPC when in counsel completion mode
 ;; to restrict the query to the found results
 
-(setq ivy-height 10)
+(setq ivy-height 15)
 
 (setq ivy-use-virtual-buffers nil)
 (setq ivy-count-format "(%d/%d) ")
@@ -59,5 +59,9 @@
 
 ;; counsel
 (counsel-projectile-mode)
+
+(counsel-projectile-modify-action
+ 'counsel-projectile-switch-project-action
+ '((default counsel-projectile-switch-project-action-dired)))
 
 (provide 'deh-ivy)

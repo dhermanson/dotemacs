@@ -49,7 +49,27 @@
   (set-face-background 'line-number "#3F3F3F")
   (set-face-foreground 'vertical-border (cdr (assoc "zenburn-bg-1" zenburn-default-colors-alist))))
 
+(defun deh/load-solarized-dark ()
+  (load-theme 'solarized-dark t)
+  (require 'avy)
+  (let (($background (cdr (assoc 'base03 solarized-dark-color-palette-alist))))
+    
+    ;; (set-face-background 'avy-lead-face (cdr (assoc "base03" solarized-dark-color-palette-alist)))
+    ;; (set-face-foreground 'avy-lead-face "#cb4b16")
+    (set-face-attribute 'avy-lead-face nil :background $background :foreground "#cb4b16")
+    (set-face-attribute 'avy-lead-face-0 nil :background $background :foreground "#859900")
+    (set-face-attribute 'avy-lead-face-1 nil :background $background :foreground "#b58900")
+    (set-face-attribute 'avy-lead-face-2 nil :background $background :foreground "#268bd2")
+    )
+  )
+;; (deh/load-solarized-dark)
 (deh-load-zenburn)
+;; (load-theme 'dracula t)
+;; (load-theme 'solarized-light t)
+
+;; (load-theme 'solarized-gruvbox-dark t)
+;; (load-theme 'sanityinc-tomorrow-night t)
+;; (load-theme 'doom-one t)
 
 ;; (load-theme 'nord t)
 
@@ -92,13 +112,10 @@
 ;; (load-theme 'ujelly t)
 
 ;; (color-theme-sanityinc-tomorrow-night)
-;; (load-theme 'sanityinc-tomorrow-night t)
 ;; (load-theme 'sanityinc-tomorrow-day t)
 ;; (load-theme 'sanityinc-tomorrow-eighties t)
 ;; (load-theme 'omtose-softer t)
 ;; (load-theme 'omtose-darker t)
-;; (load-theme 'solarized-light t)
-;; (load-theme 'solarized-dark t)
 ;; (load-theme 'darktooth t)
 ;; (darktooth-modeline)
 ;; (load-theme 'gruvbox-dark-hard t)
@@ -138,9 +155,12 @@
 ;; (load-theme 'challenger-deep t)
 
 ;; (deh-load-doom-theme-setup)
-;; (load-theme 'doom-one t)
+;; (load-theme 'doom-one-light t)
 ;; (load-theme 'doom-challenger-deep t)
 
+;; (load-theme 'doom-acario-light t)
+;; (load-theme 'doom-moonlight t) ;; this is nice
+;; (load-theme 'doom-nord-light t) ;; this is ok
 ;; (load-theme 'doom-molokai t)
 ;; (load-theme 'doom-vibrant t)
 ;; (load-theme 'doom-opera t)
@@ -153,6 +173,7 @@
 ;; (load-theme 'doom-dracula t)
 ;; (load-theme 'doom-Iosvkem t)
 ;; (load-theme 'doom-nord t)
+;; (load-theme 'doom-gruvbox t)
 ;; (load-theme 'doom-peacock t)
 
 ;; (load-theme 'gruvbox-dark-medium t)
@@ -162,7 +183,6 @@
 ;; (load-theme 'spacemacs-light t)
 ;; (require 'spacemacs-theme)
 ;; (load-theme 'badger t)
-;; (load-theme 'dracula t)
 ;; (load-theme 'monokai t)
 ;; (load-theme 'sexy-monochrome t)
 ;; (load-theme 'monochrome t)
