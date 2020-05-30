@@ -13,7 +13,10 @@
   (define-key term-raw-map (kbd "C-c C-k") 'term-line-mode)
   (define-key term-raw-map (kbd "C-h") 'term-send-raw)
   (define-key term-raw-map (kbd "C-n") 'term-send-raw)
-  (define-key term-raw-map (kbd "C-p") 'term-send-raw))
+  (define-key term-raw-map (kbd "C-p") 'term-send-raw)
+  (define-key term-raw-map (kbd "M-[") 'multi-term-next)
+  (define-key term-mode-map (kbd "M-]") 'multi-term-prev)
+  )
 
 ;; (defun deh/hooks/term-line-mode-hook ()
 ;;   (interactive)

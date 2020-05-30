@@ -51,9 +51,9 @@
 (define-key global-map (kbd "H-f") 'deh-projectile-fzf-find-file)
 (define-key global-map (kbd "H-p") 'projectile-command-map)
 (define-key global-map (kbd "C-c p") 'projectile-command-map)
-(define-key global-map (kbd "H-SPC") 'ace-jump-char-mode)
-(define-key global-map (kbd "H-w") 'ace-jump-word-mode)
-(define-key global-map (kbd "H-;") 'ace-jump-char-mode)
+(define-key global-map (kbd "H-SPC") 'company-complete)
+(define-key global-map (kbd "H-w") 'avy-goto-word-1)
+(define-key global-map (kbd "H-;") 'avy-goto-char)
 (define-key global-map (kbd "H-<tab>") 'other-frame)
 
 ;; (define-key global-map (kbd "s-p") 'projectile-command-map)
@@ -91,5 +91,24 @@
 (define-key global-map (kbd "C-=") 'er/expand-region)
 
 (define-key global-map (kbd "C-'") 'avy-goto-word-1)
+
+
+(define-key global-map (kbd "s-SPC") 'company-complete)
+
+(define-key global-map (kbd "s-h") 'deh-windmove-create-or-select-window-left)
+(define-key global-map (kbd "s-j") 'deh-windmove-create-or-select-window-down)
+(define-key global-map (kbd "s-k") 'deh-windmove-create-or-select-window-up)
+(define-key global-map (kbd "s-l") 'deh-windmove-create-or-select-window-right)
+
+(define-key global-map (kbd "s-o") 'delete-other-windows)
+
+(define-key global-map (kbd "s-c") 'delete-window)
+(define-key global-map (kbd "H-C") 'delete-frame)
+(define-key global-map (kbd "H-o") 'delete-other-windows)
+(define-key global-map (kbd "H-n") 'make-frame-command)
+(define-key global-map (kbd "H-q") '(lambda ()
+                                      (interactive)
+                                      (kill-buffer (current-buffer))))
+
 
 (provide 'deh-keybindings)
