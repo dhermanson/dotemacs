@@ -108,6 +108,7 @@
         nginx-mode
         nix-mode
         omnisharp
+        org-bullets
         org-plus-contrib
 	      ox-gfm
         ox-reveal
