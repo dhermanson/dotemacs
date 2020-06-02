@@ -6,12 +6,11 @@
 (defun deh/projectile-open-terminal ()
   (interactive)
   (if (projectile-project-p)
-      (start-process-shell-command "terminal" nil (concat "urxvtc 2> /dev/null -cd " (projectile-project-root) " -e tmux new zsh"))))
+      (start-process-shell-command "terminal" nil (concat "alacritty 2> /dev/null --working-directory " (projectile-project-root) " -e tmux new zsh" ))))
 
 (defun deh/open-terminal ()
   (interactive)
-  (start-process-shell-command "terminal" nil (concat "urxvtc 2> /dev/null -cd " default-directory " -e tmux new zsh")))
-
+  (start-process-shell-command "terminal" nil (concat "alacritty 2> /dev/null --working-directory " default-directory " -e tmux new zsh" )))
 
 (defun deh/projectile-open-file-manager ()
   (interactive)
