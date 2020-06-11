@@ -2,6 +2,7 @@
 
 ;; (setq magit-ediff-dwim-show-on-hunks t)
 (setq magit-ediff-dwim-show-on-hunks nil)
+(setq magit-log-margin '(t "%Y-%m-%d %l:%M %p " magit-log-margin-width t 18))
 
 (defun deh-magit-mode-hook ()
   "my magit mode hook"

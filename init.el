@@ -70,6 +70,7 @@
 	      editorconfig
         emamux
 	      emmet-mode
+        emms
 	      evil
 	      evil-commentary
 	      evil-leader
@@ -117,6 +118,7 @@
 	      prodigy
 	      projectile
         protobuf-mode
+        rainbow-mode
 	      restclient
 	      ripgrep
         rjsx-mode

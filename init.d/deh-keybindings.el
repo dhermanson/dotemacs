@@ -95,9 +95,15 @@
 (define-key global-map (kbd "s-SPC") 'company-complete)
 
 (define-key global-map (kbd "s-h") 'deh-windmove-create-or-select-window-left)
+(define-key global-map (kbd "s-H") 'evil-window-move-far-left)
 (define-key global-map (kbd "s-j") 'deh-windmove-create-or-select-window-down)
+(define-key global-map (kbd "s-J") 'evil-window-move-very-bottom)
 (define-key global-map (kbd "s-k") 'deh-windmove-create-or-select-window-up)
+(define-key global-map (kbd "s-K") 'evil-window-move-very-top)
 (define-key global-map (kbd "s-l") 'deh-windmove-create-or-select-window-right)
+(define-key global-map (kbd "s-L") 'evil-window-move-far-right)
+(define-key global-map (kbd "s-n") 'make-frame-command)
+(define-key global-map (kbd "s-p") 'projectile-command-map)
 
 (define-key global-map (kbd "s-o") 'delete-other-windows)
 
