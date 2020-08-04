@@ -94,6 +94,16 @@
 
 (define-key global-map (kbd "s-SPC") 'company-complete)
 
+(defun deh/kill-current-buffer ()
+  (interactive)
+  (kill-buffer (current-buffer)))
+
+(define-key global-map (kbd "s-f") 'projectile-find-file)
+(define-key global-map (kbd "s-b") 'projectile-switch-to-buffer)
+(define-key global-map (kbd "s-q") 'deh/kill-current-buffer)
+(define-key global-map (kbd "s-x") 'counsel-M-x)
+(define-key global-map (kbd "s-w") 'save-buffer)
+(define-key global-map (kbd "s-e") 'er/expand-region)
 (define-key global-map (kbd "s-h") 'deh-windmove-create-or-select-window-left)
 (define-key global-map (kbd "s-H") 'evil-window-move-far-left)
 (define-key global-map (kbd "s-j") 'deh-windmove-create-or-select-window-down)

@@ -271,6 +271,7 @@
 ;; put this line somewhere else
 (setq recenter-redisplay nil) ;; this helps get rid of flicker in terminal emacs when using things like helm-imenu or evil recenter
 
+
 (require 'xclip)
 (xclip-mode 1)
 

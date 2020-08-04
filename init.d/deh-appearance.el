@@ -31,7 +31,9 @@
 ;; (add-to-list 'default-frame-alist '(font . "Source Code Pro for Powerline-22"))
 
 ;; (add-to-list 'default-frame-alist '(font . "-ADBO-Source Code Pro for Powerline-normal-normal-normal-*-24-*-*-*-m-0-iso10646-1"))
-(add-to-list 'default-frame-alist '(font . "-unknown-Monaco-normal-normal-normal-*-18-*-*-*-m-0-iso10646-1"))
+(add-to-list 'default-frame-alist '(font . "-unknown-Monaco-normal-normal-normal-*-20-*-*-*-m-0-iso10646-1"))
+(add-to-list 'default-frame-alist '(height . 35))
+(add-to-list 'default-frame-alist '(width . 125))
 ;; (set-frame-font  "-ADFP-Universalis ADF Std-normal-normal-normal-*-41-*-*-*-*-0-iso10646-1")
 ;; (set-frame-font "-DAMA-Ubuntu-normal-normal-normal-*-41-*-*-*-*-0-iso10646-1")
 ;; (set-frame-font "-unknown-Monaco-normal-normal-normal-*-24-*-*-*-m-0-iso10646-1")
@@ -70,16 +72,18 @@
 ;; (load-theme 'dracula t)
 ;; (load-theme 'anti-zenburn t)
 
+;; (load-theme 'humanoid-light t)
 ;; (load-theme 'paper t)
+;; (load-theme 'whiteboard t)
 ;; TODO: customize modus-operandi
 ;;       https://gitlab.com/protesilaos/modus-themes
 (load-theme 'modus-operandi t)
 ;; (load-theme 'modus-vivendi t)
+;; (load-theme 'gruvbox-dark-medium t)
 ;; (load-theme 'gruvbox-light-medium t)
 ;; (load-theme 'sanityinc-tomorrow-night t)
 ;; (load-theme 'sanityinc-tomorrow-day t)
 ;; (load-theme 'doom-one t)
-;; (load-theme 'whiteboard t)
 ;; (load-theme 'flatui t)
 ;; (load-theme 'plan9 t)
 ;; (load-theme 'moe-light t)

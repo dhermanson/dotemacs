@@ -145,20 +145,19 @@
 
 (defun deh-php-current-file-in-vendor-dir? ()
   (and buffer-file-name
-       (f-descendant-of?
-	buffer-file-name
-	(f-join (projectile-project-root) "vendor"))))
+       (f-descendant-of? buffer-file-name
+                         (f-join (projectile-project-root) "vendor"))))
 
 
 (defun deh-php-docblock-newline (orig-fun &rest args)
   "add * prefix when inside docblock on newline"
   (if (and major-mode
-	   (s-equals? major-mode "php-mode")
-	   (s-match "^[[:space:]]*\\(\\*\\|\\/\\*\\*\\)" (thing-at-point 'line t)))
+           (s-equals? major-mode "php-mode")
+           (s-match "^[[:space:]]*\\(\\*\\|\\/\\*\\*\\)" (thing-at-point 'line t)))
       (progn
-	(apply orig-fun args)
-	(insert "* ")
-	(c-indent-line-or-region))
+        (apply orig-fun args)
+        (insert "* ")
+        (c-indent-line-or-region))
     (apply orig-fun args)))
 
 (advice-add 'newline :around #'deh-php-docblock-newline)

@@ -72,6 +72,8 @@
 (define-key comint-mode-map (kbd "M-L") 'evil-window-move-far-right)
 (define-key comint-mode-map (kbd "M-c") 'delete-window)
 (define-key comint-mode-map (kbd "M-o") 'delete-other-windows)
+
+
 (define-key comint-mode-map (kbd "M-q") '(lambda ()
                                           (interactive)
                                           (kill-buffer (current-buffer))))
