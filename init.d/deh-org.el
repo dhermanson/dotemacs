@@ -36,7 +36,7 @@
 
 (setq org-startup-indented t)
 (setq org-src-fontify-natively t)
-(setq org-startup-folded 'showeverything)
+(setq org-startup-folded t)
 
 ;; https://github.com/syl20bnr/spacemacs/issues/11801
 ;; org-agenda
