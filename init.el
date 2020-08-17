@@ -19,7 +19,7 @@
 (add-to-list 'package-archives
              '("org" . "https://orgmode.org/elpa/") t)
 
-; (package-refresh-contents)
+(package-refresh-contents)
 
 ;; (setq package-archive-priorities
 ;;       '(("org" . 40)
@@ -51,7 +51,7 @@
 	      company-go
         ;; company-lua
 	      company-lsp
-	      company-tern
+	      ;; company-tern
 	      company-web
 	      counsel
 	      counsel-etags
@@ -104,6 +104,7 @@
         lua-mode
 	      markdown-mode
         minions
+        modus-operandi-theme
 	      monokai-theme
 	      neotree
         nginx-mode
