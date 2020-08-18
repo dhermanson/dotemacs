@@ -106,6 +106,7 @@
         minions
         modus-operandi-theme
 	      monokai-theme
+        multi-term
 	      neotree
         nginx-mode
         nix-mode
