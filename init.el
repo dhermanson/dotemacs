@@ -110,6 +110,7 @@
 	      neotree
         nginx-mode
         nix-mode
+        nord-theme
         omnisharp
         org-bullets
         org-plus-contrib
