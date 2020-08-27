@@ -59,6 +59,7 @@
 	      csharp-mode
 	      ;; csv-mode
 	      darktooth-theme
+        deadgrep
         diff-hl
         ;; diminish
         dired-subtree

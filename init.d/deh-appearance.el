@@ -27,11 +27,10 @@
 ;; (set-face-font 'markdown-language-keyword-face "Monaco-14")
 ;; (set-face-font 'markdown-code-face "Monaco-14")
 
-;; (set-frame-font "-ADBO-Source Code Pro for Powerline-*-*-*-*-24-*-*-*-m-0-iso10646-1")
 ;; (add-to-list 'default-frame-alist '(font . "Source Code Pro for Powerline-22"))
 
 ;; (add-to-list 'default-frame-alist '(font . "-ADBO-Source Code Pro for Powerline-normal-normal-normal-*-24-*-*-*-m-0-iso10646-1"))
-(add-to-list 'default-frame-alist '(font . "-unknown-Monaco-normal-normal-normal-*-22-*-*-*-m-0-iso10646-1"))
+(add-to-list 'default-frame-alist '(font . "-unknown-Monaco-normal-normal-normal-*-18-*-*-*-m-0-iso10646-1"))
 (add-to-list 'default-frame-alist '(height . 35))
 (add-to-list 'default-frame-alist '(width . 125))
 ;; (set-frame-font  "-ADFP-Universalis ADF Std-normal-normal-normal-*-41-*-*-*-*-0-iso10646-1")
@@ -77,13 +76,13 @@
 ;; (load-theme 'whiteboard t)
 ;; TODO: customize modus-operandi
 ;;       https://gitlab.com/protesilaos/modus-themes
-(load-theme 'modus-operandi t)
+
+;; (load-theme 'ujelly t)
+;; (load-theme 'modus-operandi t)
 ;; (load-theme 'modus-vivendi t)
 ;; (load-theme 'gruvbox-dark-medium t)
 ;; (load-theme 'gruvbox-dark-hard t)
 ;; (load-theme 'gruvbox-light-medium t)
-;; (load-theme 'sanityinc-tomorrow-night t)
-;; (load-theme 'sanityinc-tomorrow-day t)
 ;; (load-theme 'doom-one t)
 ;; (load-theme 'flatui t)
 ;; (load-theme 'plan9 t)
@@ -134,9 +133,9 @@
 
 ;; (load-theme 'xresources t)
 
-;; (load-theme 'ujelly t)
 
 ;; (color-theme-sanityinc-tomorrow-night)
+(load-theme 'sanityinc-tomorrow-night t)
 ;; (load-theme 'sanityinc-tomorrow-day t)
 ;; (load-theme 'sanityinc-tomorrow-eighties t)
 ;; (load-theme 'omtose-softer t)
@@ -151,6 +150,13 @@
 ;; (load-theme 'base16-default-dark t)
 ;; (load-theme 'monokai t)
 ;; (load-theme 'molokai t)
+;; (setq base16-theme-256-color-source 'terminal)
+;; (setq base16-theme-256-color-source 'base16-shell)
+;; (setq base16-theme-256-color-source 'colors)
+;; (load-theme 'base16-default-dark t)
+;; (load-theme 'base16-solarized-dark t)
+;; (load-theme 'base16-solarized-light t)
+;; (load-theme 'base16-rebecca t)
 ;; (load-theme 'base16-github t)
 ;; (load-theme 'base16-gruvbox-dark-hard t)
 ;; (load-theme 'base16-gruvbox-dark-medium t)
