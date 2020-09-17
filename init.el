@@ -96,7 +96,6 @@
 	      ht
         htmlize
         jar-manifest-mode
-	      js2-mode
 	      json-mode
         key-chord
         kotlin-mode
@@ -125,7 +124,6 @@
         rainbow-mode
 	      restclient
 	      ripgrep
-        rjsx-mode
 	      robe
 	      smartparens
 	      solarized-theme
@@ -533,7 +531,7 @@
                  graphql-mode
 		             json-mode
 		             fsharp-mode
-		             js2-mode
+		             js-mode
                  web-mode
                  css-mode
                  groovy-mode

@@ -7,7 +7,11 @@
        (list filename)))
     (print "implement when not on mac"))
 
-(when (memq window-system '(mac ns))
+(when (string= system-type "darwin")
+  (setq dired-use-ls-dired t
+        insert-directory-program "/usr/local/bin/gls"
+        dired-listing-switches "-aBhl --group-directories-first")
+
   (setq ns-function-modifier 'hyper)
   (setq mac-function-modifier 'hyper)
   (setq mac-option-modifier 'meta)

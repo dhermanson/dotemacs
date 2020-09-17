@@ -1,6 +1,6 @@
-(require 'js2-mode)
+; (require 'js-mode)
 
-(add-to-list 'interpreter-mode-alist '("node" . js2-mode))
-(add-to-list 'interpreter-mode-alist '("nodejs" . js2-mode))
+(add-to-list 'interpreter-mode-alist '("node" . js-mode))
+(add-to-list 'interpreter-mode-alist '("nodejs" . js-mode))
 
 (provide 'deh-interpreter-mode)
