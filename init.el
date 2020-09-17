@@ -255,6 +255,7 @@
 (require 'deh-kotlin)
 (require 'deh-java)
 (require 'deh-org)
+(require 'deh-gtd)
 (require 'deh-apib)
 (require 'deh-fsharp)
 (require 'deh-groovy)
