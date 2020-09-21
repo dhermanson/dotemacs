@@ -20,10 +20,10 @@
   ;; (exec-path-from-shell-initialize)
   
   ;; Fnacy titlebar for MacOS
-  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-  (add-to-list 'default-frame-alist '(ns-appearance . dark))
-  (setq ns-use-proxy-icon nil)
-  (setq frame-title-format nil)
+  ;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+  ;; (add-to-list 'default-frame-alist '(ns-appearance . dark))
+  ;; (setq ns-use-proxy-icon nil)
+  ;; (setq frame-title-format nil)
 
   (setq with-editor-emacsclient-executable "/Applications/Emacs.app/Contents/MacOS/bin/emacsclient")
 

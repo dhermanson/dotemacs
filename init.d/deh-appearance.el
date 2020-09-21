@@ -30,7 +30,7 @@
 ;; (add-to-list 'default-frame-alist '(font . "Source Code Pro for Powerline-22"))
 
 ;; (add-to-list 'default-frame-alist '(font . "-ADBO-Source Code Pro for Powerline-normal-normal-normal-*-24-*-*-*-m-0-iso10646-1"))
-(add-to-list 'default-frame-alist '(font . "-unknown-Monaco-normal-normal-normal-*-24-*-*-*-m-0-iso10646-1"))
+(add-to-list 'default-frame-alist '(font . "-unknown-Monaco-normal-normal-normal-*-18-*-*-*-m-0-iso10646-1"))
 (add-to-list 'default-frame-alist '(height . 40))
 (add-to-list 'default-frame-alist '(width . 100))
 ;; (set-frame-font  "-ADFP-Universalis ADF Std-normal-normal-normal-*-41-*-*-*-*-0-iso10646-1")
@@ -53,6 +53,8 @@
 (defun deh/load-solarized-dark ()
   (load-theme 'solarized-dark t)
   (require 'avy)
+  (require 'solarized)
+  (require 'solarized-palettes)
   (let (($background (cdr (assoc 'base03 solarized-dark-color-palette-alist))))
     
     ;; (set-face-background 'avy-lead-face (cdr (assoc "base03" solarized-dark-color-palette-alist)))

@@ -222,5 +222,7 @@ is non-nil."
 (fset 'add-front-end-requirement-categories
    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([5 M-return M-right 85 88 M-return 66 117 115 105 110 101 115 115 32 76 111 103 105 99 M-return 65 80 73] 0 "%d")) arg)))
 
+(evil-define-key nil org-mode-map (kbd "<s-return>") 'org-meta-return)
+
 
 (provide 'deh-org)
