@@ -57,7 +57,7 @@
 	      counsel-etags
 	      counsel-projectile
 	      csharp-mode
-	      ;; csv-mode
+	      csv-mode
 	      darktooth-theme
         deadgrep
         diff-hl
