@@ -1,6 +1,7 @@
 (require 'flycheck)
 (require 'smartparens)
-;; (require 'lsp-java)
+(require 'lsp-java)
+(require 'dap-java)
 
 ;; (setq lsp-java-server-install-dir "~/repos/eclipse")
 
@@ -13,9 +14,10 @@
   (flycheck-mode t)
   (smartparens-mode t)
   (company-mode t)
-  ;; (lsp)
+  (set (make-local-variable 'company-backends) '(( company-capf )))
   )
 
 (add-hook 'java-mode-hook 'deh-java-mode-hook)
+(add-hook 'java-mode-hook #'lsp)
 
 (provide 'deh-java)

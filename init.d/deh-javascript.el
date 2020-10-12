@@ -2,6 +2,7 @@
 (require 'flycheck)
 (require 'smartparens)
 (require 'evil)
+(require 'lsp-mode)
 
 
 
@@ -29,6 +30,8 @@
 
 (add-hook 'js-mode-hook 'deh-javascript-hook)
 (flycheck-add-mode 'javascript-eslint 'js-mode)
+
+(add-hook 'js-mode-hook #'lsp)
 
 
 

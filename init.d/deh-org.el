@@ -85,8 +85,8 @@
   (set (make-local-variable 'company-backends)
        '((company-files company-yasnippet company-dabbrev company-ispell)))
 
-  (setq org-html-htmlize-output-type 'css)
-  (setq org-html-htmlize-font-prefix "org-")
+  ;; (setq org-html-htmlize-output-type 'css)
+  ;; (setq org-html-htmlize-font-prefix "org-")
   (setq display-line-numbers nil)
   )
 

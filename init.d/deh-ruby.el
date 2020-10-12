@@ -14,15 +14,17 @@
 
 (defun deh/my-ruby-mode-hook ()
   "my ruby mode hook"
-  (robe-mode)
+  ;; (robe-mode)
   (smartparens-mode)
   (show-smartparens-mode)
   (setq company-idle-delay nil)
-  (set (make-local-variable 'company-backends) '(( company-robe )))
-  ;; (setq inf-ruby-default-implementation "pry")
+  ;; (set (make-local-variable 'company-backends) '(( company-robe )))
+  (set (make-local-variable 'company-backends) '(( company-capf )))
+  (setq inf-ruby-default-implementation "pry")
   ;; (setq inf-ruby-default-implementation "irb")
   ;; turn flycheck mode on
   (flycheck-mode 0)
+  ;; (lsp-mode 0)
 
   (setq deh-repl-enabled t)
   (setq deh-repl-insert-style 'b)
@@ -35,6 +37,8 @@
   (setq deh-repl-program-args nil))
 
 (add-hook 'ruby-mode-hook 'deh/my-ruby-mode-hook)
+
+(add-hook 'ruby-mode-hook #'lsp)
 
 (add-to-list 'auto-mode-alist '("Brewfile" . ruby-mode))
 

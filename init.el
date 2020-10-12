@@ -58,6 +58,7 @@
 	      counsel-projectile
 	      csharp-mode
 	      csv-mode
+        dap-mode
 	      darktooth-theme
         deadgrep
         diff-hl
@@ -94,13 +95,14 @@
 	      gruvbox-theme
 	      haskell-mode
 	      ht
-        htmlize
+        ;; htmlize
         jar-manifest-mode
 	      json-mode
         key-chord
         kotlin-mode
         lsp-mode
         ;; lsp-ui
+        lsp-java
         lua-mode
 	      markdown-mode
         minions
@@ -127,13 +129,13 @@
 	      robe
 	      smartparens
 	      solarized-theme
+        spacemacs-theme
         ;; spaceline
         ;; spaceline-all-the-icons
         syslog-mode
         systemd
 	      tern
         terraform-mode
-	      tide
 	      ;; treemacs
 	      ;; treemacs-projectile
 	      undo-tree
@@ -193,15 +195,21 @@
       split-height-threshold nil)
 
 
+;; this must be set before lsp-mode has been loaded...lame
+;; there's probably a more elegant way to achieve this (use package is one)
+(setq lsp-keymap-prefix "s-;")
+
 (require 'deh-hooks) ;; this probably needs to be first
 (require 'deh-general)
 (require 'deh-appearance)
 (require 'deh-buffer-menu)
 (require 'deh-modeline)
+(require 'deh-emms)
 (require 'deh-fuzzy)
 (require 'deh-term)
 (require 'deh-diff-hl)
 (require 'deh-completion)
+(require 'deh-company)
 (require 'deh-feature)
 (require 'deh-emamux)
 (require 'deh-gui)
@@ -221,13 +229,13 @@
 (require 'deh-compilation)
 (require 'deh-shell)
 (require 'deh-ripgrep)
+(require 'deh-lsp)
 (require 'deh-grep)
 (require 'deh-dired)
 (require 'deh-ediff)
 (require 'deh-yasnippet)
 (require 'deh-minibuffer)
 ;; (require 'deh-treemacs)
-(require 'deh-tsx)
 (require 'deh-magit)
 (require 'deh-dockerfile)
 (require 'deh-macos)
