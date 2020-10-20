@@ -5,7 +5,7 @@
 
 (defun deh-sh-mode-hook ()
   (setq deh-repl-enabled t)
-  (set (make-local-variable 'company-backends) '((company-dabbrev-code company-files company-yasnippet)))
+  (set (make-local-variable 'company-backends) '((company-capf company-dabbrev-code company-files company-yasnippet)))
   (if (projectile-project-p)
       (setq deh-repl-process-name (concat (projectile-project-name) ":bash"))
     (setq deh-repl-process-name (concat default-directory ":bash")))

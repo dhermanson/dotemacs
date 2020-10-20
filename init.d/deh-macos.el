@@ -27,6 +27,7 @@
 
   (setq with-editor-emacsclient-executable "/Applications/Emacs.app/Contents/MacOS/bin/emacsclient")
 
+  (setq locate-command "glocate")
 
   (defun deh-screenshot (&optional file)
     (interactive

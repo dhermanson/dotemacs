@@ -26,6 +26,12 @@
   (interactive)
   (start-process-shell-command "deh-file-manager" nil (concat "open " default-directory)))
 
+
+;; (define-key key-translation-map (kbd "s-i") (kbd "C-c"))
+;; (define-key key-translation-map (kbd "s-d") (kbd "C-c"))
+;; (define-key key-translation-map (kbd "s-;") (kbd "C-c"))
+;; (define-key key-translation-map (kbd "s-g") (kbd "C-g"))
+
 (define-key global-map (kbd "H-C-d") 'deh/open-file-manager)
 
 
@@ -33,6 +39,7 @@
 (global-set-key [(control ?h)] 'delete-backward-char)
 ;; (global-set-key (kbd "C-M-?") 'help-command)
 (global-set-key (kbd "H-/") 'help-command)
+(global-set-key (kbd "s-?") 'help-command)
 ;; (global-set-key (kbd "C-H-h") 'help-command)
 ;; (global-set-key (kbd "H-C-h") 'help-command)
 ;; (global-set-key (kbd "C-;") 'help-command)
@@ -74,6 +81,8 @@
 (define-key global-map (kbd "C-c o t") 'deh/projectile-open-terminal)
 (define-key global-map (kbd "C-c o T") 'deh/open-terminal)
 (define-key global-map (kbd "C-c o s l") 'org-store-link)
+(define-key global-map (kbd "C-c s") 'swiper)
+(define-key global-map (kbd "C-c S") 'swiper-all)
 
 (define-key global-map (kbd "C-c f") 'deh-projectile-fzf-find-file)
 ;; (define-key global-map (kbd "C-c f") 'deh/tmux/fzf-projectile-find-file)
