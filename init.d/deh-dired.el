@@ -17,6 +17,7 @@
   )
 
 (define-key dired-mode-map (kbd "TAB") 'dired-subtree-toggle)
+(define-key dired-mode-map (kbd "-") 'dired-up-directory)
 (add-hook 'dired-mode-hook 'deh/dired-mode-hook)
 
 ;; (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)

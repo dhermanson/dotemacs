@@ -64,6 +64,7 @@
         diff-hl
         ;; diminish
         dired-subtree
+        direnv
 	      dockerfile-mode
         doom-themes
         doom-modeline
