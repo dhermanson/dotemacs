@@ -204,7 +204,7 @@
   (kbd "M-k") 'company-complete
   (kbd "M-o") 'company-complete
   (kbd "M-w") 'company-complete
-  (kbd "C-x C-o") 'company-files
+  (kbd "C-x C-o") 'company-complete
   ;; (kbd "C-x C-n") 'company-dabbrev-code
   (kbd "C-x C-n") 'company-dabbrev
   (kbd "C-x C-f") 'company-files
