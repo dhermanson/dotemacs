@@ -96,6 +96,7 @@
 	      gruvbox-theme
 	      haskell-mode
 	      ht
+        ivy-xref
         ;; htmlize
         jar-manifest-mode
 	      json-mode
@@ -128,6 +129,7 @@
 	      restclient
 	      ripgrep
 	      robe
+        slime
 	      smartparens
 	      solarized-theme
         spacemacs-theme
@@ -207,6 +209,7 @@
 (require 'deh-modeline)
 (require 'deh-emms)
 (require 'deh-fuzzy)
+(require 'deh-slime)
 (require 'deh-term)
 (require 'deh-diff-hl)
 (require 'deh-completion)
@@ -226,6 +229,7 @@
 (require 'deh-mpd)
 (require 'deh-plantuml)
 (require 'deh-neotree)
+(require 'deh-adoc)
 (require 'deh-comint)
 (require 'deh-compilation)
 (require 'deh-shell)
@@ -576,6 +580,17 @@
 ;;       (print "no server name var set"))))
 
 ;; (deh/start-emacs-server-if-env-var-set)
+
+;; SHAME
+(require 'ivy-xref)
+;; xref initialization is different in Emacs 27 - there are two different
+;; variables which can be set rather than just one
+(when (>= emacs-major-version 27)
+  (setq xref-show-definitions-function #'ivy-xref-show-defs))
+;; Necessary in Emacs <27. In Emacs 27 it will affect all xref-based
+;; commands other than xref-find-definitions (e.g. project-find-regexp)
+;; as well
+(setq xref-show-xrefs-function #'ivy-xref-show-xrefs)
 
 (provide 'init)
 ;;; init.el ends here
