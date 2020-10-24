@@ -52,6 +52,7 @@
 (evil-set-initial-state 'Man-mode 'emacs)
 (evil-set-initial-state 'dockerfile-mode 'normal)
 (evil-set-initial-state 'elisp-mode 'normal)
+(evil-set-initial-state 'lisp-mode 'normal)
 (evil-set-initial-state 'emacs-lisp-mode 'normal)
 (evil-set-initial-state 'jar-manifest-mode 'normal)
 (evil-set-initial-state 'eshell-mode 'emacs)
