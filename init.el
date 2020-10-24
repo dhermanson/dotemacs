@@ -130,6 +130,7 @@
 	      ripgrep
 	      robe
         slime
+        slime-company
 	      smartparens
 	      solarized-theme
         spacemacs-theme
