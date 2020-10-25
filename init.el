@@ -77,6 +77,7 @@
 	      evil
 	      evil-commentary
 	      evil-leader
+        evil-magit
         evil-matchit
         evil-numbers
 	      evil-surround
@@ -202,6 +203,7 @@
 ;; this must be set before lsp-mode has been loaded...lame
 ;; there's probably a more elegant way to achieve this (use package is one)
 (setq lsp-keymap-prefix "s-;")
+(setq evil-want-keybinding nil)
 
 (require 'deh-hooks) ;; this probably needs to be first
 (require 'deh-general)

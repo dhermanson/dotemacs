@@ -37,6 +37,9 @@
 (global-evil-matchit-mode t)
 (evil-mode 1)
 (global-evil-surround-mode t)
+
+(require 'evil-magit)
+
 (evil-set-initial-state 'erc-mode 'emacs)
 (evil-set-initial-state 'bat-mode 'normal)
 (evil-set-initial-state 'Info-mode 'emacs)
@@ -255,5 +258,6 @@
 
 
 (add-to-list 'auto-mode-alist '("\\.mf\\'" . jar-manifest-mode))
+
 
 (provide 'deh-evil)

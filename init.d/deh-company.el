@@ -47,8 +47,9 @@
   (define-key company-active-map (kbd "C-d") 'company-next-page)
   ;; (define-key company-active-map (kbd "C-d") 'company-show-doc-buffer)
   ;; (define-key company-active-map (kbd "C-,") 'company-show-doc-buffer)
+  ;; (define-key company-active-map (kbd "M-d") 'company-show-doc-buffer)
   (define-key company-active-map (kbd "C-h") 'delete-backward-char)
-  ;; (define-key company-active-map (kbd "C-l") 'company-show-location)
+  ;; (define-key company-active-map (kbd "M-l") 'company-show-location)
 
   ;; (evil-define-key nil company-active-map (kbd "C-[") 'company-abort)
   ;; (evil-define-key nil company-active-map (kbd "C-i") 'company-complete)
