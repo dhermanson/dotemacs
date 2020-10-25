@@ -39,6 +39,8 @@
 (global-evil-surround-mode t)
 
 (require 'evil-magit)
+(require 'with-editor)
+(add-hook 'with-editor-mode-hook 'evil-normal-state) ;; start commits in normal state
 
 (evil-set-initial-state 'erc-mode 'emacs)
 (evil-set-initial-state 'bat-mode 'normal)

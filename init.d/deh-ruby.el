@@ -4,6 +4,7 @@
 (require 'robe)
 (require 'company)
 (require 'evil)
+(require 'lsp)
 
 (evil-set-initial-state 'ruby-mode 'normal)
 
@@ -23,7 +24,7 @@
   (setq inf-ruby-default-implementation "pry")
   ;; (setq inf-ruby-default-implementation "irb")
   ;; turn flycheck mode on
-  (flycheck-mode 0)
+  (flycheck-mode)
   ;; (lsp-mode 0)
 
   (setq deh-repl-enabled t)

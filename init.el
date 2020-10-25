@@ -255,6 +255,7 @@
 (require 'deh-restclient)
 (require 'deh-prog)
 (require 'deh-ruby)
+(require 'deh-python)
 (require 'deh-elisp)
 (require 'deh-interpreter-mode)
 (require 'deh-conf)
