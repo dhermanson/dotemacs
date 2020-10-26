@@ -28,6 +28,7 @@
 (require 'key-chord)
 (require 'expand-region)
 (require 'deh-emamux)
+(require 'undo-tree)
 (key-chord-mode 1)
 
 (evil-commentary-mode)
@@ -37,10 +38,11 @@
 (global-evil-matchit-mode t)
 (evil-mode 1)
 (global-evil-surround-mode t)
+(evil-set-undo-system 'undo-tree)
 
-(require 'evil-magit)
-(require 'with-editor)
-(add-hook 'with-editor-mode-hook 'evil-normal-state) ;; start commits in normal state
+;; (require 'evil-magit)
+;; (require 'with-editor)
+;; (add-hook 'with-editor-mode-hook 'evil-normal-state) ;; start commits in normal state
 
 (evil-set-initial-state 'erc-mode 'emacs)
 (evil-set-initial-state 'bat-mode 'normal)
