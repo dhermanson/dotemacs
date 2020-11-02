@@ -16,6 +16,7 @@
 (column-number-mode 1) ; display column/row of cursor in mode-line
 (show-paren-mode 1)
 (global-hl-line-mode 1)
+(setq global-hl-line-sticky-flag nil)
 ;; (setq-default left-fringe-width 5)
 ;; (setq-default right-fringe-width 5)
 

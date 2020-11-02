@@ -56,7 +56,7 @@
 (evil-set-initial-state 'text-mode 'normal)
 (evil-set-initial-state 'compilation-mode 'emacs)
 (evil-set-initial-state 'comint-mode 'emacs)
-(evil-set-initial-state 'Man-mode 'emacs)
+(evil-set-initial-state 'Man-mode 'normal)
 (evil-set-initial-state 'dockerfile-mode 'normal)
 (evil-set-initial-state 'elisp-mode 'normal)
 (evil-set-initial-state 'lisp-mode 'normal)

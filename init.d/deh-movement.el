@@ -45,6 +45,14 @@
 (define-key global-map (kbd "H-K") 'evil-window-move-very-top)
 (define-key global-map (kbd "H-L") 'evil-window-move-far-right)
 
+(define-key global-map (kbd "C-c l") 'deh-windmove-create-or-select-window-right)
+(define-key global-map (kbd "C-c h") 'deh-windmove-create-or-select-window-left)
+(define-key global-map (kbd "C-c k") 'deh-windmove-create-or-select-window-up)
+(define-key global-map (kbd "C-c j") 'deh-windmove-create-or-select-window-down)
+(define-key global-map (kbd "C-c H") 'evil-window-move-far-left)
+(define-key global-map (kbd "C-c J") 'evil-window-move-very-bottom)
+(define-key global-map (kbd "C-c K") 'evil-window-move-very-top)
+(define-key global-map (kbd "C-c L") 'evil-window-move-far-right)
 
 (define-key evil-normal-state-map (kbd "M-l") 'deh-windmove-create-or-select-window-right)
 (define-key evil-normal-state-map (kbd "M-h") 'deh-windmove-create-or-select-window-left)
