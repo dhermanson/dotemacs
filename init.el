@@ -77,7 +77,7 @@
 	      evil
 	      evil-commentary
 	      evil-leader
-        ;; evil-magit
+        evil-magit
         evil-matchit
         evil-numbers
 	      evil-surround
