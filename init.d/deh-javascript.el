@@ -19,19 +19,23 @@
   (smartparens-mode t)
   (evil-surround-mode)
 
-  (setq deh-repl-enabled t)
-  (setq deh-repl-process-name "deh-node")
-  (setq deh-repl-buffer-name "*deh-node*")
-  (setq deh-repl-program "node")
-  (setq deh-repl-program-args nil)
+  ;; (setq deh-repl-enabled t)
+  ;; (setq deh-repl-process-name "deh-node")
+  ;; (setq deh-repl-buffer-name "*deh-node*")
+  ;; (setq deh-repl-program "node")
+  ;; (setq deh-repl-program-args nil)
   )
 
 
 
 (add-hook 'js-mode-hook 'deh-javascript-hook)
-(flycheck-add-mode 'javascript-eslint 'js-mode)
+;; (flycheck-add-mode 'javascript-eslint 'js-mode)
 
+(add-hook 'js-mode-hook 'deh-javascript-hook)
 (add-hook 'js-mode-hook #'lsp)
+
+(add-hook 'javascript-mode-hook 'deh-javascript-hook)
+(add-hook 'javascript-mode-hook #'lsp)
 
 
 

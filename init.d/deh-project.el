@@ -2,6 +2,8 @@
 (require 'ivy)
 
 
+(setq projectile-enable-caching nil)
+
 ;; (defun deh-run-buffer-command ()
 ;;   (interactive)
 ;;   (if (null deh-buffer-commands)

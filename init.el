@@ -48,7 +48,6 @@
 	      cider
 	      company
         company-auctex
-	      company-go
         ;; company-lua
 	      company-lsp
 	      ;; company-tern

@@ -40,9 +40,9 @@
 (global-evil-surround-mode t)
 (evil-set-undo-system 'undo-tree)
 
-(require 'evil-magit)
-(require 'with-editor)
-(add-hook 'with-editor-mode-hook 'evil-normal-state) ;; start commits in normal state
+;; (require 'evil-magit)
+;; (require 'with-editor)
+;; (add-hook 'with-editor-mode-hook 'evil-normal-state) ;; start commits in normal state
 
 (evil-set-initial-state 'erc-mode 'emacs)
 (evil-set-initial-state 'bat-mode 'normal)
@@ -69,7 +69,6 @@
 (evil-set-initial-state 'c-mode 'normal)
 (evil-set-initial-state 'vimrc-mode 'normal)
 (evil-set-initial-state 'groovy-mode 'normal)
-(evil-set-initial-state 'go-mode 'normal)
 (evil-set-initial-state 'haskell-mode 'normal)
 (evil-set-initial-state 'markdown-mode 'normal)
 (evil-set-initial-state 'help-mode 'emacs)

@@ -1,4 +1,10 @@
 (require 'smartparens)
+(require 'lsp)
+(require 'evil)
+
+
+(evil-set-initial-state 'go-mode 'normal)
+(evil-set-initial-state 'go-dot-mod-mode 'normal)
 
 (setq company-tooltip-limit 20)                      ; bigger popup window
 (setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
@@ -11,13 +17,15 @@
   (evil-surround-mode t)
   (smartparens-mode t)
   (require 'company)
-  (require 'company-go)
-  (set (make-local-variable 'company-backends) '(company-go))
+  ;; (set (make-local-variable 'company-backends) '(company-go))
   (company-mode)
   ;; (define-key go-mode-map (kbd "C-;") 'go-ac/complete-at-point)
   )
 
 (add-hook 'go-mode-hook 'deh-go-mode-hook)
+;; (add-hook 'go-mode-hook 'lsp-deferred)
+(add-hook 'go-mode-hook #'lsp)
+
 
 
 (provide 'deh-go)
