@@ -91,6 +91,7 @@
 	      ggtags
         git-timemachine
 	      go-mode
+        gotest
         graphql-mode
 	      groovy-mode
 	      gruvbox-theme
