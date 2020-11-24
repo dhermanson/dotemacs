@@ -1,7 +1,7 @@
 (require 'smartparens)
 (require 'lsp)
 (require 'evil)
-
+(require 'go-mode)
 
 (evil-set-initial-state 'go-mode 'normal)
 (evil-set-initial-state 'go-dot-mod-mode 'normal)
@@ -25,6 +25,8 @@
 (add-hook 'go-mode-hook 'deh-go-mode-hook)
 ;; (add-hook 'go-mode-hook 'lsp-deferred)
 (add-hook 'go-mode-hook #'lsp)
+
+(add-hook 'before-save-hook 'gofmt-before-save)
 
 
 

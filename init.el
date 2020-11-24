@@ -474,17 +474,6 @@
 ;; jenkinsf
 (add-to-list 'auto-mode-alist '("\\b\\(j\\|J\\)enkinsfile\\b" . groovy-mode))
 
-;; go-lang
-(require 'go-mode)
-;; (defun deh/go-mode-hook ()
-;;   "my go mode hook"
-;;   (setq tab-width 2)
-;;   (flycheck-mode)
-;;   (set (make-local-variable 'company-backends) '(company-go))
-;;   )
-;; (add-hook 'go-mode-hook 'deh/go-mode-hook)
-;; (add-hook 'before-save-hook 'gofmt-before-save)
-
 ;; prodigy
 (require 'prodigy)
 (prodigy-define-service
