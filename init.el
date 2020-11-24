@@ -545,6 +545,7 @@
 (sp-with-modes '(php-mode
                  plantuml-mode
                  graphql-mode
+                 go-mode
 		             json-mode
 		             fsharp-mode
 		             js-mode
