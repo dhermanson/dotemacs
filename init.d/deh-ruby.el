@@ -39,7 +39,7 @@
 
 (add-hook 'ruby-mode-hook 'deh/my-ruby-mode-hook)
 
-(add-hook 'ruby-mode-hook #'lsp)
+;; (add-hook 'ruby-mode-hook #'lsp)
 
 (add-to-list 'auto-mode-alist '("Brewfile" . ruby-mode))
 

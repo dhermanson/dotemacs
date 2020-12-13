@@ -18,6 +18,6 @@
   )
 
 (add-hook 'java-mode-hook 'deh-java-mode-hook)
-(add-hook 'java-mode-hook #'lsp)
+;; (add-hook 'java-mode-hook #'lsp)
 
 (provide 'deh-java)
