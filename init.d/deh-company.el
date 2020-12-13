@@ -38,7 +38,7 @@
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "C-i") 'company-complete)
   (define-key company-active-map (kbd "C-;") 'company-complete)
-  (define-key company-active-map (kbd "C-m") 'company-complete)
+  ;; (define-key company-active-map (kbd "C-m") 'company-complete)
   (define-key company-active-map (kbd "C-n") 'company-select-next-or-abort)
   (define-key company-active-map (kbd "C-j") 'company-select-next-or-abort)
   (define-key company-active-map (kbd "C-k") 'company-select-previous-or-abort)
