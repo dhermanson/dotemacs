@@ -332,11 +332,6 @@
 
 ;; (ido-mode 1)
 
-;; ediff
-(setq ediff-split-window-function 'split-window-horizontally)
-(setq ediff-highlight-all-diffs t)
-(setq ediff-diff-options "-w") ;; ignore whitespace
-
 ;; undo-tree
 (global-undo-tree-mode)
 
