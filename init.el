@@ -581,5 +581,26 @@
 ;; as well
 (setq xref-show-xrefs-function #'ivy-xref-show-xrefs)
 
+(defun deh/jump-to-next-slide ()
+  (interactive)
+  (let* ((current-file-name (file-name-nondirectory (buffer-file-name)))
+         (current-slide-number (string-to-number (car (split-string current-file-name "-" t))))
+         (next-slide-number (number-to-string (+ current-slide-number 1)))
+         (next-file (car (file-expand-wildcards  (concat next-slide-number "-*.org")))))
+         (if next-file
+             (find-file next-file))))
+
+(defun deh/jump-to-previous-slide ()
+  (interactive)
+  (let* ((current-file-name (file-name-nondirectory (buffer-file-name)))
+         (current-slide-number (string-to-number (car (split-string current-file-name "-" t))))
+         (previous-slide-number (number-to-string (- current-slide-number 1)))
+         (previous-file (car (file-expand-wildcards  (concat previous-slide-number "-*.org")))))
+         (if previous-file
+             (find-file previous-file))))
+
+(define-key org-mode-map (kbd "s-]") 'deh/jump-to-next-slide)
+(define-key org-mode-map (kbd "s-[") 'deh/jump-to-previous-slide)
+
 (provide 'init)
 ;;; init.el ends here
