@@ -88,6 +88,7 @@
 	      fsharp-mode
 	      feature-mode
 	      flycheck
+	      flycheck-plantuml
 	      ggtags
         git-timemachine
 	      go-mode

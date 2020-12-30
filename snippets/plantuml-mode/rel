@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: rel
+# key: rel
+# --
+Rel(${1:service}, ${2:db}, "${3:Reads and writes to}", "${4:JPA}")

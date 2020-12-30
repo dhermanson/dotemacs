@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: container
+# key: container
+# --
+Container(${1:customer_onboarding}, "${2:Customer Onboarding}", "${3:java and Spring MVC}", "${4:Backend service with REST API's for onboarding new customers onto the Wallet platform.}")$0
