@@ -98,6 +98,7 @@
 	      gruvbox-theme
 	      haskell-mode
 	      ht
+        hydra
         ivy-xref
         ;; htmlize
         jar-manifest-mode
@@ -229,6 +230,7 @@
 (require 'deh-git-timemachine)
 (require 'deh-graphql)
 (require 'deh-syslog)
+(require 'deh-hydra)
 (require 'deh-auctex)
 (require 'deh-mpd)
 (require 'deh-plantuml)
