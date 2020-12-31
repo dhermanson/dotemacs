@@ -18,6 +18,7 @@
   )
 
 ;; (setq plantuml-jar-path "~/.config/deh/jars/plantuml.jar")
+(setq-default plantuml-output-type "png")
 (setq-default plantuml-indent-level 4)
 (setq-default plantuml-exec-mode 'jar)
 (add-hook 'plantuml-mode-hook 'deh-plantuml-hook)
