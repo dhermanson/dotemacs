@@ -274,6 +274,7 @@
 (require 'deh-java)
 (require 'deh-org)
 (require 'deh-gtd)
+(require 'deh-protobuf)
 (require 'deh-apib)
 (require 'deh-fsharp)
 (require 'deh-groovy)
@@ -538,6 +539,7 @@
 		             fsharp-mode
 		             js-mode
                  web-mode
+                 protobuf-mode
                  css-mode
                  groovy-mode
 		             typescript-mode)
