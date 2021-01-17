@@ -6,16 +6,16 @@
 (defun deh/projectile-open-terminal ()
   (interactive)
   (if (projectile-project-p)
-      (start-process-shell-command "terminal" nil (concat "open -a iTerm " (projectile-project-root)  ))))
+      (start-process-shell-command "terminal" nil (concat "xfce4-terminal --working-directory=" (projectile-project-root)  ))))
 
 (defun deh/open-terminal ()
   (interactive)
-  (start-process-shell-command "terminal" nil (concat "open -a iTerm " default-directory )))
+  (start-process-shell-command "terminal" nil (concat "xfce4-terminal --working-directory=" default-directory )))
 
 (defun deh/projectile-open-file-manager ()
   (interactive)
   (if (projectile-project-p)
-      (start-process-shell-command "deh-file-manager" nil (concat " open " (projectile-project-root)))))
+      (start-process-shell-command "deh-file-manager" nil (concat "dolphin " (projectile-project-root)))))
 
 
 (define-key global-map (kbd "H-d") 'deh/projectile-open-file-manager)
@@ -24,7 +24,7 @@
 
 (defun deh/open-file-manager ()
   (interactive)
-  (start-process-shell-command "deh-file-manager" nil (concat "open " default-directory)))
+  (start-process-shell-command "deh-file-manager" nil (concat "dolphin " default-directory)))
 
 
 ;; (define-key key-translation-map (kbd "s-i") (kbd "C-c"))
