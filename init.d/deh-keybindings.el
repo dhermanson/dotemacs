@@ -134,6 +134,7 @@
 (define-key global-map (kbd "s-p") 'projectile-command-map)
 
 (define-key global-map (kbd "s-o") 'delete-other-windows)
+(define-key global-map (kbd "s-O") 'delete-other-frames)
 
 (define-key global-map (kbd "s-c") 'delete-window)
 (define-key global-map (kbd "H-C") 'delete-frame)

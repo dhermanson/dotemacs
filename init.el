@@ -548,7 +548,6 @@
 		             :post-handlers '(:add deh/newline-indent-action)
 		             :actions '(insert)))
 
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
