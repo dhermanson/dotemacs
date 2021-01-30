@@ -165,6 +165,7 @@
 
 ;; TODO: put this somewhere else
 (setenv "NODE_NO_READLINE" "1")
+(setenv "PAGER" "cat")
 
 ;; fetch the list of packages available 
 ;; (package-refresh-contents)

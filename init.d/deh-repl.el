@@ -54,7 +54,9 @@
       (goto-char (point-max))
       ;; Insert the string
       ;; the s-trim-right is my addition
-      (insert (s-trim-right region-string))
+      ;; (insert (s-trim-right region-string))
+      (comint-send-string (deh-repl-process) region-string)
+      ;; (comint-send-region (deh-repl-process) start end)
       ;; (insert region-string)
       ;; Execute
       ;; (funcall fun-execute)
@@ -96,7 +98,9 @@
     (if process
         (progn
           (kill-process process)
-          (sleep-for 0.5)))
+          
+          (sleep-for 0.2)
+          (kill-buffer buffer)))
 
     ;; (if buffer
     ;;     (progn
