@@ -233,6 +233,7 @@
 (require 'deh-plantuml)
 (require 'deh-neotree)
 (require 'deh-adoc)
+(require 'deh-vterm)
 (require 'deh-comint)
 (require 'deh-compilation)
 (require 'deh-shell)
