@@ -32,7 +32,7 @@
   (setq deh-repl-process-name "deh-ruby")
   ;; (setq deh-repl-buffer-name "*deh-ruby*")
   ;; (setq deh-repl-buffer-name "*deh-ruby*")
-  (setq deh-repl-buffer-name "*ruby*")
+  (setq deh-repl-buffer-name "*deh-ruby*")
   ;; (setq deh-repl-program "pry")
   (setq deh-repl-program "irb")
   (setq deh-repl-program-args nil))

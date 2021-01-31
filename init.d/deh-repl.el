@@ -2,6 +2,9 @@
 (require 'evil)
 (require 'expand-region)
 
+(setenv "NODE_NO_READLINE" "0")
+(setenv "PAGER" "cat")
+
 (defvar-local deh-repl-enabled "is a repl enabled in this buffer")
 (defvar-local deh-repl-insert-style 'a "the style of insert")
 (defvar-local deh-repl-process-name "the name of the repl")
@@ -16,17 +19,24 @@
   "create a repl"
   (interactive)
   (let* ((current-window (selected-window))
-         (repl-buffer (get-buffer-create deh-repl-buffer-name))
-         (args (-concat(list deh-repl-process-name
-                              repl-buffer
-                              deh-repl-program
-                              nil)
-                        deh-repl-program-args)))
-    (apply 'make-comint-in-buffer args)
-    (if switch
-        (progn
-          (switch-to-buffer-other-window repl-buffer)
-          (select-window current-window)))))
+         (current-buffer (current-buffer))
+         ;; (repl-buffer (get-buffer-create deh-repl-buffer-name))
+         ;; (args (-concat(list deh-repl-process-name
+         ;;                      repl-buffer
+         ;;                      deh-repl-program
+         ;;                      nil)
+         ;;                deh-repl-program-args))
+         )
+    (switch-to-buffer-other-window current-buffer)
+    (ansi-term (concat deh-repl-program deh-repl-program-args) deh-repl-process-name )
+    (switch-to-buffer-other-window current-buffer)
+    (select-window current-window)
+    ;; (apply 'make-comint-in-buffer args)
+    ;; (if switch
+    ;;     (progn
+    ;;       (switch-to-buffer-other-window repl-buffer)
+    ;;       (select-window current-window)))
+    ))
 
 ;; https://lists.gnu.org/archive/html/help-gnu-emacs/2009-09/msg00411.html
 (defun deh-send-current-line-to-repl ()
@@ -49,20 +59,32 @@
            (region-string (buffer-substring-no-properties start end)))
       ;; Change other window to REPL
       ;; (funcall fun-change-to-repl)
-      (switch-to-buffer-other-window deh-repl-buffer-name)
+      ;; (switch-to-buffer-other-window deh-repl-buffer-name)
       ;; Move to end of buffer
-      (goto-char (point-max))
       ;; Insert the string
       ;; the s-trim-right is my addition
       ;; (insert (s-trim-right region-string))
-      (comint-send-string (deh-repl-process) region-string)
+      (with-current-buffer deh-repl-buffer-name
+        (goto-char (point-max))
+        ;; (term-interrupt-subjob)
+        (comint-send-string (deh-repl-process) "")
+        ;; (comint-send-string (deh-repl-process) region-string)
+        (comint-send-string (deh-repl-process) (if (s-ends-with? "\n" region-string)
+                                                   region-string
+                                                 (concat region-string "\n"))
+                            )
+        ;; (if (s-ends-with? "\n" region-string)
+        ;;     (message "ends in newline"))
+        ;; (read-only-mode 0)
+        ;; (comint-send-input)
+        ;; ;; (read-only-mode 1)
+        )
       ;; (comint-send-region (deh-repl-process) start end)
       ;; (insert region-string)
       ;; Execute
       ;; (funcall fun-execute)
-      (comint-send-input)
       ;; Come back to the script
-      (select-window script-window)
+      ;; (select-window script-window)
       ;; Deactivate selection explicitly (necessary in Emacs 25)
       (er/contract-region 0)
       (deactivate-mark)
@@ -75,21 +97,25 @@
 
 (defun deh-restart-repl ()
   (interactive)
-  (let* ((buffer (deh-repl-buffer))
-         (process (deh-repl-process))
-         (switch-on-create (null buffer)))
+  (progn
+    (deh-kill-repl)
+    (deh-focus-repl-in-other-window))
+  ;; (let* ((buffer (deh-repl-buffer))
+  ;;        (process (deh-repl-process))
+  ;;        (switch-on-create (null buffer)))
     
-    (if process
-        (progn
-          (kill-process process)
-          (sleep-for 0.5)))
+  ;;   (if process
+  ;;       (progn
+  ;;         (kill-process process)
+  ;;         (sleep-for 0.5)))
 
-    (if buffer
-        (with-current-buffer buffer
-          (erase-buffer)
-          (goto-char (point-max))))
+  ;;   (if buffer
+  ;;       (with-current-buffer buffer
+  ;;         (erase-buffer)
+  ;;         (goto-char (point-max))))
     
-    (deh-create-repl switch-on-create)))
+  ;;   (deh-create-repl switch-on-create))
+  )
 
 (defun deh-kill-repl ()
   (interactive)
