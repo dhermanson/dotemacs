@@ -115,6 +115,7 @@
 (define-key global-map (kbd "s-C-f") 'toggle-frame-fullscreen)
 (define-key global-map (kbd "s-f") 'projectile-find-file)
 (define-key global-map (kbd "s-b") 'projectile-switch-to-buffer)
+(define-key global-map (kbd "s-t") 'projectile-run-vterm)
 (define-key global-map (kbd "s-q") 'deh/kill-current-buffer)
 (define-key global-map (kbd "s-x") 'counsel-M-x)
 (define-key global-map (kbd "s-w") 'save-buffer)

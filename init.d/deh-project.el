@@ -37,7 +37,8 @@
 ;;                                            (projectile-find-file))))
 
 ;; (setq projectile-switch-project-action 'projectile-run-eshell)
-(setq projectile-switch-project-action 'projectile-dired)
+;; (setq projectile-switch-project-action 'projectile-dired)
+(setq projectile-switch-project-action 'projectile-run-vterm)
 (setq projectile-tags-backend 'etags-select-find-tag)
 
 (projectile-register-project-type 'generic nil
