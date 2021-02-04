@@ -36,4 +36,17 @@
 (advice-add 'magit-branch :around #'deh/advice/clear-magit-revision-history)
 
 
+(defun deh/magit-status-mode/ediff-current-file ()
+  (interactive)
+  (magit-section-case
+    (hunk nil)
+    (t (let* (($current-file (magit-current-file)))
+         (when $current-file
+           (pcase (magit-diff-type)
+             (`unstaged (magit-ediff-show-unstaged $current-file))
+             (`staged (magit-ediff-show-staged $current-file))))))))
+
+(define-key magit-status-mode-map (kbd "s-d") 'deh/magit-status-mode/ediff-current-file)
+(define-key magit-status-mode-map (kbd "C-c d") 'deh/magit-status-mode/ediff-current-file)
+ 
 (provide 'deh-magit)
