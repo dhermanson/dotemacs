@@ -146,4 +146,16 @@
                                       (kill-buffer (current-buffer))))
 
 
+(define-key global-map (kbd "M-h") 'deh-windmove-create-or-select-window-left)
+(define-key global-map (kbd "M-H") 'evil-window-move-far-left)
+(define-key global-map (kbd "M-j") 'deh-windmove-create-or-select-window-down)
+(define-key global-map (kbd "M-J") 'evil-window-move-very-bottom)
+(define-key global-map (kbd "M-k") 'deh-windmove-create-or-select-window-up)
+(define-key global-map (kbd "M-K") 'evil-window-move-very-top)
+(define-key global-map (kbd "M-l") 'deh-windmove-create-or-select-window-right)
+(define-key global-map (kbd "M-L") 'evil-window-move-far-right)
+(define-key global-map (kbd "M-o") 'delete-other-windows)
+(define-key global-map (kbd "M-c") 'delete-window)
+
+
 (provide 'deh-keybindings)
