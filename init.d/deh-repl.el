@@ -10,7 +10,6 @@
 (defvar-local deh-repl-process-name "the name of the repl")
 (defvar-local deh-repl-buffer-name "the name of the repl buffer")
 (defvar-local deh-repl-program "the repl program to run")
-(defvar-local deh-repl-program-args "the args of the repl program to run")
 
 ;; TODO: instead of defining this function here, take in functions for
 ;;       changing to repl and executing (actually calling (comint-send-input)) like here
@@ -21,14 +20,13 @@
   (let* ((current-window (selected-window))
          (current-buffer (current-buffer))
          ;; (repl-buffer (get-buffer-create deh-repl-buffer-name))
-         ;; (args (-concat(list deh-repl-process-name
+         ;; (args (list deh-repl-process-name
          ;;                      repl-buffer
          ;;                      deh-repl-program
-         ;;                      nil)
-         ;;                deh-repl-program-args))
+         ;;                      nil))
          )
     (switch-to-buffer-other-window current-buffer)
-    (ansi-term (concat deh-repl-program " " deh-repl-program-args) deh-repl-process-name )
+    (ansi-term deh-repl-program deh-repl-process-name )
     (switch-to-buffer-other-window current-buffer)
     (select-window current-window)
     ;; (apply 'make-comint-in-buffer args)

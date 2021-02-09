@@ -419,10 +419,7 @@
 (global-undo-tree-mode-enable-in-buffers)
 
 ;; sh-mode
-(setq sh-shell "bash")
-
-(eval-after-load "sql"
-  '(load-library "sql-indent"))
+(setq sh-shell "zsh")
 
 ;; paredit
 (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)

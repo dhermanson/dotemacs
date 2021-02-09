@@ -12,7 +12,6 @@
   
   (setq deh-repl-buffer-name (concat "*" deh-repl-process-name "*"))
   (setq deh-repl-program "zsh")
-  (setq deh-repl-program-args nil)
 
   (setq c-basic-offset 2)
   (setq tab-width 2)

@@ -8,8 +8,7 @@
              (setq deh-repl-enabled t)
              (setq deh-repl-process-name "deh-python")
              (setq deh-repl-buffer-name "*deh-python*")
-             (setq deh-repl-program "python3")
-             (setq deh-repl-program-args nil)))
+             (setq deh-repl-program "python3")))
 
 ;; (add-hook 'python-mode-hook #'lsp)
 
