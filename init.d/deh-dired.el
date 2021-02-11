@@ -27,4 +27,7 @@
 ;; this makes dired open folder in same window when mouse clicking
 ;; (define-key dired-mode-map [mouse-2] 'dired-mouse-find-file) 
 
+(define-key dired-mode-map (kbd "M-f") 'counsel-projectile-find-file)
+(define-key dired-mode-map (kbd "M-b") 'counsel-projectile-switch-to-buffer)
+
 (provide 'deh-dired)
