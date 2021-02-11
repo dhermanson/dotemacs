@@ -34,7 +34,7 @@
   ;; (setq deh-repl-buffer-name "*deh-ruby*")
   (setq deh-repl-buffer-name "*deh-ruby*")
   ;; (setq deh-repl-program "pry")
-  (setq deh-repl-program "irb")
+  (setq deh-repl-program "irb"))
 
 (add-hook 'ruby-mode-hook 'deh/my-ruby-mode-hook)
 
