@@ -6,7 +6,7 @@
 ;; https://www.emacswiki.org/emacs/DiredOmitMode
 (require 'dired-x)
 ;; (setq-default dired-omit-files-p t) ; Buffer-local variable
-(setq-default dired-omit-mode nil) ; Buffer-local variable
+(setq-default dired-omit-mode t) ; Buffer-local variable
 (setq dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
 
 (defun deh/dired-mode-hook ()
@@ -27,7 +27,7 @@
 ;; this makes dired open folder in same window when mouse clicking
 ;; (define-key dired-mode-map [mouse-2] 'dired-mouse-find-file) 
 
-(define-key dired-mode-map (kbd "M-f") 'counsel-projectile-find-file)
-(define-key dired-mode-map (kbd "M-b") 'counsel-projectile-switch-to-buffer)
+;; (define-key dired-mode-map (kbd "M-f") 'counsel-projectile-find-file)
+;; (define-key dired-mode-map (kbd "M-b") 'counsel-projectile-switch-to-buffer)
 
 (provide 'deh-dired)
