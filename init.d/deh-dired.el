@@ -6,7 +6,7 @@
 ;; https://www.emacswiki.org/emacs/DiredOmitMode
 (require 'dired-x)
 ;; (setq-default dired-omit-files-p t) ; Buffer-local variable
-(setq-default dired-omit-mode t) ; Buffer-local variable
+(setq-default dired-omit-mode nil) ; Buffer-local variable
 (setq dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
 
 (defun deh/dired-mode-hook ()
